@@ -1,0 +1,3 @@
+﻿/*** Recherche sur les fichiers *.sas du mot TOTO depuis le répertoire /home/ ***/
+find /home -name "*.sas" -exec grep -iH TOTO {} \; >/tmp/recherche_mot_SAS_TOTO.log
+

@@ -1,0 +1,10 @@
+--- Recherche de texte
+FINDSTR /IS Mon_Texte_A_Rechercher*
+
+
+--- Passage de parametre
+./Mon_programme.bat param1
+
+- Mon_programme.bat
+set arg1=%1
+ECHO %arg1% est mon param1

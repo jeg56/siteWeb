@@ -1,0 +1,87 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+<link rel="stylesheet" href="./global/css/style_text.css" type="text/css" media="all">
+<div id="bigdata">	
+		<div id="titre"> Spark
+				<div>
+					<img alt="" src="./global/images/barre_bleue.png" style="border:none;">	
+				</div>
+		 </div>
+
+		<div class="texte">
+				<h2 > Définition</h2> 
+				Apache Spark est un framework de traitements Big Data<br>
+
+				Spark supporte les requêtes SQL et le streaming de données et propose des fonctionnalités de <strong>machine learning</strong> et de traitements orientés graphe.<br>
+
+		</div>
+
+		<div class="texte">
+			<h2 > Les outils:</h2> 
+			<span class="infos">Spark SQL</span>
+			<div class="texte"> Permet d'exécuter des requêtes de type SQL, transformer et charger des données sous différents formats. Le langage SQL s'appuie sur des bases de données relationnelles.
+			</div><br>
+
+			<span class="infos">Spark Streaming</span>
+			<div class="texte"> Spark Streaming offre à son utilisateur un traitement des données en flux. Il utilise les données en temps-réel DStream (Discretized Stream) c'est-à-dire une série continue de RDD.
+			</div><br>
+
+			<span class="infos">Spark Graph X</span>
+			<div class="texte"> Permet de traiter les informations issues de graphes. Graph X étend les RDD de Spark en introduisant le Resilient Distributed Dataset Graph, un multi-graphe orienté avec des propriétés attachées aux nœuds et aux arêtes.
+			</div><br>
+
+
+			<span class="infos">Spark MLlib</span>
+			<div class="texte"> C'est une librairie de machine learning, apparu dans la version 1.2 de Spark, qui contient tous les algorithmes et utilitaires d'apprentissage classiques, comme la classification, la régression, le clustering, le filtrage collaboratif et la réduction de dimensions, en plus des primitives d'optimisation sous-jacentes. On parle souvent d'une fouille de données par apprentissage statistique.
+			</div><br>
+		</div>
+
+
+		<div id="titre"> Installation
+				<div>
+					<img alt="" src="./global/images/barre_bleue.png" style="border:none;">	
+				</div>
+		 </div>
+		<div class="texte">
+			<h2 > Mise a jours de Java :</h2> 
+			<span class="code">sudo apt-add-repository ppa:webupd8team/java</span><br>
+			<span class="code">sudo apt-get update</span><br>
+			<span class="code">sudo apt-get install oracle-java8-installer</span><br>
+		</div>
+
+		<div class="texte">
+			<h2 > Installation de Scala :</h2> <br>
+ 			Sous <a href="https://www.scala-lang.org/download/">www.scala-lang.org</a> télecharger <strong>scala-2.12.1.tgz</strong> puis installer Scala<br>
+			<span class="code">sudo mkdir /usr/local/src/scala</span><br>
+			<span class="code">sudo tar xvf scala-2.12.1.tgz -C /usr/local/src/scala/</span><br>
+		</div>
+
+		<div class="texte">
+			<h2 > Installation de Spark :</h2> <br>
+ 			Sous <a href="http://spark.apache.org/downloads.html">www.spark.apache.org</a> télecharger <strong>spark-2.1.0-bin-hadoop2.7.tgz</strong> puis installer Spark <br>
+			<span class="code">sudo mkdir /usr/lib/spark</span><br>
+			<span class="code">sudo tar xvf spark-2.1.0-bin-hadoop2.7.tgz -C /usr/lib/spark</span><br>
+		</div>
+
+		<div class="texte">
+			<h2 > Configuration et vérification :</h2> <br>
+ 			Se connecter avec le user Hadoop puis modifier le fichier <strong> .bashrc </strong><br>
+			<span class="code">su hduser</span><br>
+			<span class="code">vi .bashrc</span><br>
+			Ajouter les variables ci-dessous : <br>
+			<span class="code">export JAVA_HOME=/usr/lib/jvm/java-8-oracle</span><br>
+			<span class="code">export SCALA_HOME=/usr/local/src/scala/scala-2.12.1 </span><br>
+			<span class="code">export SPARK_HOME=/usr/lib/spark/spark-2.1.0-bin-hadoop2.7 </span><br>
+			<span class="code">export PATH=$SCALA_HOME/bin:$JAVA_HOME/bin:$SPARK_HOME/bin:$PATH </span><br>
+			Recharger le fichier<br>
+			<span class="code">source ~/.bashrc</span><br><br>
+
+			Vérifier l'installation <br>
+			<img alt="" src="./applications/Big_data/Spark/image/verif_Scala.png" style="border:none;with:100px"><br><br>
+			Démarrer Spark <br>
+			<img alt="" src="./applications/Big_data/Spark/image/demarrage_Spark.png" style="border:none;with:100px"><br><br>
+			Accéder à l'interface via l'url http://localhost:4040/jobs/ <br>
+			<img alt="" src="./applications/Big_data/Spark/image/Scala_Interface.png" style="border:none;with:100px"><br><br>
+		</div>
+
+</div>

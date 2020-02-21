@@ -1,0 +1,89 @@
+/*****************************************************/
+/*** Poste développeur N°1 - développeur principal ***/
+/*****************************************************/
+
+// Initialisation du projet
+git init 
+
+// Ajout à l'index puis commit du 1er fichier
+git add ReadMe.txt
+git commit -m "Initialisation du projet" 
+
+// Déclaration de la machine hôte contenant le repository et dépôt des fichiers
+git remote add origin https://github.com/jeg56/Git_Github.git
+git push -u origin master
+
+// Création d'une branche develop dans le .git local du poste développeur n°1
+git branch develop
+git checkout develop	
+
+// Ajout à l'index puis commit du fichier F1.js
+git add F1.js
+git commit -m "Creation de la fonctionnalite F1" 
+
+// Ajout à l'index puis commit du fichier F2.js
+git add F2.js
+git commit -m "Creation de la fonctionnalite F2"
+
+//Envoi des commits sur une branche develop de la machine hôte 
+git push -u origin develop
+
+// Ajout à l'index puis commit du fichier F3.js
+git add F3.js
+git commit -m "Creation de la fonctionnalite F3"
+
+//Envoi du commit sur une branche develop de la machine hôte 
+git push -u origin develop
+
+
+//Bascule sur la branche principale puis la met jour en se basant sur la branche develop
+git checkout master
+git merge develop
+
+//Envoi des maj de la branche master sur la machine hôte 
+git push -u origin master
+
+
+
+
+
+/*****************************************************/
+/*** Poste Developpeur N°2 						   ***/
+/*****************************************************/
+
+// Copie en local du projet sur la branche master
+git clone https://github.com/jeg56/Git_Github.git
+
+// Création d'une branche develop dans le .git local du poste développeur n°2
+git branch develop
+git checkout develop
+
+// Ajout à l'index puis commit du fichier F4.js
+git add F4.js
+git commit -m "Creation de la fonctionnalite F4" 
+
+
+//Envoi du commit sur une branche develop de la machine hôte 
+git push -u origin develop
+
+//Bascule sur la branche principale puis la met jour en se basant sur la branche develop
+git checkout master
+git merge develop
+
+
+
+
+
+/*****************************************************/
+/*** Poste développeur N°1 - développeur principal ***/
+/*****************************************************/
+
+// Récupère les développements du développeur 2 sur la branche develop 
+git pull origin develop
+
+//Bascule sur la branche principale puis la met jour en se basant sur la branche develop
+git checkout master
+git merge develop
+
+//Envoi des maj de la branche master sur la machine hôte 
+git push -u origin master

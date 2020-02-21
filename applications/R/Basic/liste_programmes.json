@@ -1,0 +1,21 @@
+{
+	"programme": [
+	{
+		"titre": "Packages/library",
+		"description": "Gestion des packages",
+		"chemin": "./applications/R/Basic/programmes/Package.txt"
+	},{
+		"titre": "Commandes utiles",
+		"description": "Aide mémoire",
+		"chemin": "./applications/R/Basic/programmes/Commandes utiles.txt"
+	},{
+		"titre": "Boucles",
+		"description": "Gestion des boucles",
+		"chemin": "./applications/R/Basic/programmes/Boucles.txt"
+	},{
+		"titre": "Tableaux",
+		"description": "Manipuler un tableau de données",
+		"chemin": "./applications/R/Basic/programmes/ManipTableau.txt"
+	}
+	]
+}

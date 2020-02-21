@@ -1,0 +1,4 @@
+/***  Fonction limitée à une seule instruction. ***/
+#lambda arg1, arg2,… : instruction de retour
+additionne = lambda x, y: x + y
+print(additionne(1,2))

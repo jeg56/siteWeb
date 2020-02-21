@@ -1,0 +1,9 @@
+/*** Execution d'un script principal scriptSQL.sql ***/
+psql -d "Nom de la base" -a -f /home/AJE/scriptSQL.sql >  /home/AJE/log.log
+
+/***  Constitution du script lanceur scriptSQL.sql ***/
+\set ON_ERROR_STOP true
+\i ./01_creation_role.sql
+\i ./01_creation_base.sql
+\i ./01_creation_table.sql
+...

@@ -1,0 +1,7 @@
+x = rnorm(100,1,1); y = rexp(200,1)
+/*** Test de student (resp. de Welch) d’égalité de moyennes si variances des variables égales ***/ 
+/*** (resp. diff érentes) avec sous populations identifiées par un facteur à deux niveaux de stratification  ***/
+st=t.test(x,y) 
+x = rnorm(100,1,1); 
+z=rep(c(T,F),50) 
+st2=t.test(x~z)

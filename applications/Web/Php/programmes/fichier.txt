@@ -1,0 +1,15 @@
+/*** Ecrire dans un fichier ***/
+<?php
+	$file = fopen("fichier.txt", "a");
+	fwrite($file,"Mon texte");
+	fclose($file);
+?>
+
+/*** Lire dans un fichier ***/
+<?php
+	$file = fopen("fichier.txt", "a");
+	while (!feof($file)) {
+		echo fgets($file)
+	}
+	fclose($file);
+?>

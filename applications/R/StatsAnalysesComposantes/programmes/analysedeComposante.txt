@@ -1,0 +1,17 @@
+/*** ACP ***/
+library(FactoMineR)
+res.pca = PCA(Ma_table[,1:10], scale.unit=TRUE, ncp=5, graph=T)
+pca<-PCA(data)
+
+/*** AFC ***/
+res.ca = CA(Ma_table[,1:3])
+'Pour voir uniquement le plan des lignes'
+CA(invisible="col") /*** on cache les colonnes ***/
+'Pour voir uniquement le plan des colonnes'
+CA(invisible="row") /*** on cache les lignes ***/
+
+res.ca$eig /*** Affiche les valeurs propres/contributions des axes factoriels ***/
+
+/*** ACM ***/
+res.mca = MCA(tea, quanti.sup=19, quali.sup=c(20:36))
+dimdesc(res.mca)

@@ -1,0 +1,38 @@
+{
+	"menu_niveau1":[{
+					"nom":"Présentation",
+					"chemin":"http://adresse_onglet1"
+					},
+					{
+					"nom":"Compétence Technique",
+					"chemin":"http://adresse_onglet1",
+					"menu_niveau2":[{
+								"nom":"SAS",
+								"chemin":"http://adresse_onglet1",
+								"menu_niveau3":[{
+											"nom":"Export",
+											"chemin":"http://adresse_onglet1"
+										},
+										{ 
+											"nom":"import",
+											"chemin":"http://adresse_onglet1"
+										}
+								]
+						},
+						{
+								"nom":"Python",
+								"chemin":"http://adresse_onglet1",
+								"menu_niveau3":[{
+											"nom":"Export",
+											"chemin":"http://adresse_onglet1"
+										},
+										{ 
+											"nom":"import",
+											"chemin":"http://adresse_onglet1"
+										}
+								]
+						}
+					]
+					}
+				]
+}

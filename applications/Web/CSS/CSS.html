@@ -1,0 +1,527 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link rel="stylesheet" href="./global/css/style_text.css" type="text/css" media="all">
+
+<div id='page_CSS' style='margin: 0px 65px;'>
+	<span class="titre_page"> CSS  </span>
+			
+	<br><br>
+
+	Les CSS, Cascading Style Sheets (feuilles de styles en cascade) servent à mettre en forme des documents HTML par l'intermédiaire de propriétés d'apparence (couleurs, bordures, polices, etc.) et de placement (largeur, hauteur, côte à côte, dessus-dessous, etc.)
+
+	<div class="titre_programme"> Mise en forme du texte 	</div>
+	<div>
+		<img alt="" src="./global/images/barre_bleue.png" style="border:none;">	
+	</div>
+
+
+	<table class="tableau">
+		<thead>
+			<tr>
+				<th class="gras cellule "> Propriété </th>
+				<th class="gras cellule "> exemples </th>
+				<th class="gras cellule "> Description </th>
+			</tr>
+		</thead>
+
+
+		<tbody>
+				<tr>
+				 	<td class='cellule'>font-family </td>
+				   	<td class='cellule'>police1, police2, police3, serif, sans-serif, monospace </td>
+				   	<td class='cellule'>Nom de police </td>
+				 </tr>
+				<tr>
+				   <td class='cellule'>@font-face </td>
+				   <td class='cellule'>Nom et source de la police </td>
+				   <td class='cellule'>Police personnalisée </td>
+				  </tr>
+				<tr>
+				   <td class='cellule'>font-size </td>
+				   <td class='cellule'>1.3em, 16px, 120%... </td>
+				   <td class='cellule'>Taille du texte </td>
+				  </tr>
+				<tr>
+				   <td class='cellule'>font-weight </td>
+				   <td class='cellule'>bold, normal </td>
+				   <td class='cellule'>Gras </td>
+				  </tr>
+				<tr>
+				   <td class='cellule'>font-style </td>
+				   <td class='cellule'>italic, oblique, normal </td>
+				   <td class='cellule'>Italique </td>
+				  </tr>
+				<tr>
+				   <td class='cellule'>text-decoration </td>
+				   <td class='cellule'>underline, overline, line-through, blink, none </td>
+				   <td class='cellule'>Soulignement, ligne au-dessus, barré ou clignotant </td>
+				  </tr>
+				<tr>
+				   <td class='cellule'>font-variant </td>
+				   <td class='cellule'>small-caps, normal </td>
+				   <td class='cellule'>Petites capitales </td>
+				  </tr>
+				<tr>
+				   <td class='cellule'>text-transform </td>
+				   <td class='cellule'>capitalize, lowercase, uppercase </td>
+				   <td class='cellule'>Capitales </td>
+				  </tr>
+				<tr>
+				   <td class='cellule'>font </td>
+				   <td class='cellule'>- </td>
+				   <td class='cellule'>Super propriété de police. Combine : font-weight, font-style, font-size, font-variant, font-family. </td>
+				  </tr>
+				<tr>
+				   <td class='cellule'>text-align </td>
+				   <td class='cellule'>left, center, right, justify </td>
+				   <td class='cellule'>Alignement horizontal </td>
+				  </tr>
+				<tr>
+				   <td class='cellule'>vertical-align </td>
+				   <td class='cellule'>baseline, middle, sub, super, top, bottom </td>
+				   <td class='cellule'>Alignement vertical (cellules de tableau ou éléments inline-block uniquement) </td>
+				  </tr>
+				<tr>
+				   <td class='cellule'>line-height </td>
+				   <td class='cellule'>18px, 120%, normal... </td>
+				   <td class='cellule'>Hauteur de ligne </td>
+				  </tr>
+				<tr>
+				   <td class='cellule'>text-indent </td>
+				   <td class='cellule'>25px </td>
+				   <td class='cellule'>Alinéa </td>
+				  </tr>
+				<tr>
+				   <td class='cellule'>white-space </td>
+				   <td class='cellule'>pre, nowrap, normal </td>
+				   <td class='cellule'>Césure </td>
+				  </tr>
+				<tr>
+				   <td class='cellule'>word-wrap </td>
+				   <td class='cellule'>break-word, normal </td>
+				   <td class='cellule'>Césure forcée </td>
+				  </tr>
+				<tr>
+				   <td class='cellule'>text-shadow </td>
+				   <td class='cellule'>5px 5px 2px blue </td>
+				   <td class='cellule'>Ombre de texte </td>
+				  </tr>
+				<tr>
+				   <td class='cellule'> </td>
+				   <td class='cellule'>(horizontale, verticale, fondu, couleur) </td>
+				   <td class='cellule'> </td>
+				  </tr>
+		</tbody>
+	</table>
+
+	<div class="titre_programme"> Propriétés de couleur et de fond</div>
+	<div>
+		<img alt="" src="./global/images/barre_bleue.png" style="border:none;">	
+	</div>
+
+	<table class='tableau'>
+		<thead>
+			<tr>
+				<th class="gras cellule "> Propriété </th>
+				<th class="gras cellule "> exemples </th>
+				<th class="gras cellule "> Description </th>
+			</tr>
+		</thead>
+
+
+		<tbody>
+
+				<tr>
+				   <td class='cellule'>Propriété </td>
+				   <td class='cellule'>Valeurs (exemples) </td>
+				   <td class='cellule'>Description </td>
+				  </tr>
+				<tr>
+				   <td class='cellule'>color </td>
+				   <td class='cellule'>nom, rgb(rouge,vert,bleu), rgba(rouge,vert,bleu,transparence), #CF1A20... </td>
+				   <td class='cellule'>Couleur du texte </td>
+				  </tr>
+				<tr>
+				   <td class='cellule'>background-color </td>
+				   <td class='cellule'>Identique à color </td>
+				   <td class='cellule'>Couleur de fond </td>
+				  </tr>
+				<tr>
+				   <td class='cellule'>background-image </td>
+				   <td class='cellule'>url('image.png') </td>
+				   <td class='cellule'>Image de fond </td>
+				  </tr>
+				<tr>
+				   <td class='cellule'>background-attachment </td>
+				   <td class='cellule'>fixed, scroll </td>
+				   <td class='cellule'>Fond fixe </td>
+				  </tr>
+				<tr>
+				   <td class='cellule'>background-repeat </td>
+				   <td class='cellule'>repeat-x, repeat-y, no-repeat, repeat </td>
+				   <td class='cellule'>Répétition du fond </td>
+				  </tr>
+				<tr>
+				   <td class='cellule'>background-position </td>
+				   <td class='cellule'>(x y), top, center, bottom, left, right </td>
+				   <td class='cellule'>Position du fond </td>
+				  </tr>
+				<tr>
+				   <td class='cellule'>background </td>
+				   <td class='cellule'>- </td>
+				   <td class='cellule'>Super propriété du fond. Combine : background-image, background-repeat, background-attachment, background-position </td>
+				  </tr>
+				<tr>
+				   <td class='cellule'>opacity </td>
+				   <td class='cellule'>0.5 </td>
+				   <td class='cellule'>Transparence </td>
+				  </tr>
+		</tbody>
+	</table>
+
+	
+	<div class="titre_programme"> Propriétés des boîtes</div>
+	<div>
+		<img alt="" src="./global/images/barre_bleue.png" style="border:none;">	
+	</div>
+
+
+	<table class='tableau'>
+		<thead>
+			<tr>
+				<th class="gras cellule "> Propriété </th>
+				<th class="gras cellule "> exemples </th>
+				<th class="gras cellule "> Description </th>
+			</tr>
+		</thead>
+
+		<tbody>
+
+			<tr>
+			   <td class='cellule'>width </td>
+			   <td class='cellule'>150px, 80%... </td>
+			   <td class='cellule'>Largeur </td>
+			  </tr>
+			<tr>
+			   <td class='cellule'>height </td>
+			   <td class='cellule'>150px, 80%... </td>
+			   <td class='cellule'>Hauteur </td>
+			  </tr>
+			<tr>
+			   <td class='cellule'>min-width </td>
+			   <td class='cellule'>150px, 80%... </td>
+			   <td class='cellule'>Largeur minimale </td>
+			  </tr>
+			<tr>
+			   <td class='cellule'>max-width </td>
+			   <td class='cellule'>150px, 80%... </td>
+			   <td class='cellule'>Largeur maximale </td>
+			  </tr>
+			<tr>
+			   <td class='cellule'>min-height </td>
+			   <td class='cellule'>150px, 80%... </td>
+			   <td class='cellule'>Hauteur minimale </td>
+			  </tr>
+			<tr>
+			   <td class='cellule'>max-height </td>
+			   <td class='cellule'>150px, 80%... </td>
+			   <td class='cellule'>Hauteur maximale </td>
+			  </tr>
+			<tr>
+			   <td class='cellule'>margin-top </td>
+			   <td class='cellule'>23px </td>
+			   <td class='cellule'>Marge en haut </td>
+			  </tr>
+			<tr>
+			   <td class='cellule'>margin-left </td>
+			   <td class='cellule'>23px </td>
+			   <td class='cellule'>Marge à gauche </td>
+			  </tr>
+			<tr>
+			   <td class='cellule'>margin-right </td>
+			   <td class='cellule'>23px </td>
+			   <td class='cellule'>Marge à droite </td>
+			  </tr>
+			<tr>
+			   <td class='cellule'>margin-bottom </td>
+			   <td class='cellule'>23px </td>
+			   <td class='cellule'>Marge en bas </td>
+			  </tr>
+			<tr>
+			   <td class='cellule'>margin </td>
+			   <td class='cellule'>23px 5px 23px 5px </td>
+			   <td class='cellule'>Super-propriété de marge. </td>
+			  </tr>
+			<tr>
+			   <td class='cellule'> </td>
+			   <td class='cellule'>(haut, droite, bas, gauche) </td>
+			   <td class='cellule'>Combine : margin-top, margin-right, margin-bottom, margin-left. </td>
+			  </tr>
+			<tr>
+			   <td class='cellule'>padding-left </td>
+			   <td class='cellule'>23px </td>
+			   <td class='cellule'>Marge intérieure à gauche </td>
+			  </tr>
+			<tr>
+			   <td class='cellule'>padding-right </td>
+			   <td class='cellule'>23px </td>
+			   <td class='cellule'>Marge intérieure à droite </td>
+			  </tr>
+			<tr>
+			   <td class='cellule'>padding-bottom </td>
+			   <td class='cellule'>23px </td>
+			   <td class='cellule'>Marge intérieure en bas </td>
+			  </tr>
+			<tr>
+			   <td class='cellule'>padding-top </td>
+			   <td class='cellule'>23px </td>
+			   <td class='cellule'>Marge intérieure en haut </td>
+			  </tr>
+			<tr>
+			   <td class='cellule'>padding </td>
+			   <td class='cellule'>23px 5px 23px 5px </td>
+			   <td class='cellule'>Super-propriété de marge intérieure. </td>
+			  </tr>
+			<tr>
+			   <td class='cellule'> </td>
+			   <td class='cellule'>(haut, droite, bas, gauche) </td>
+			   <td class='cellule'>Combine : padding-top, padding-right, padding-bottom, padding-left. </td>
+			  </tr>
+			<tr>
+			   <td class='cellule'>border-width </td>
+			   <td class='cellule'>3px </td>
+			   <td class='cellule'>Épaisseur de bordure </td>
+			  </tr>
+			<tr>
+			   <td class='cellule'>border-color </td>
+			   <td class='cellule'>nom, rgb(rouge,vert,bleu), rgba(rouge,vert,bleu,transparence), #CF1A20... </td>
+			   <td class='cellule'>Couleur de bordure </td>
+			  </tr>
+			<tr>
+			   <td class='cellule'>border-style </td>
+			   <td class='cellule'>solid, dotted, dashed, double, groove, ridge, inset, outset </td>
+			   <td class='cellule'>Type de bordure </td>
+			  </tr>
+			<tr>
+			   <td class='cellule'>border </td>
+			   <td class='cellule'>3px solid black </td>
+			   <td class='cellule'>Super-propriété de bordure. Combine border-width, border-color, border-style. </td>
+			  </tr>
+			<tr>
+			   <td class='cellule'> </td>
+			   <td class='cellule'> </td>
+			   <td class='cellule'>Existe aussi en version border-top, border-right, border-bottom, border-left. </td>
+			  </tr>
+			<tr>
+			   <td class='cellule'>border-radius </td>
+			   <td class='cellule'>5px </td>
+			   <td class='cellule'>Bordure arrondie </td>
+			  </tr>
+			<tr>
+			   <td class='cellule'>box-shadow </td>
+			   <td class='cellule'>6px 6px 0px black </td>
+			   <td class='cellule'>Ombre de boîte </td>
+			  </tr>
+			<tr>
+			   <td class='cellule'> </td>
+			   <td class='cellule'>(horizontale, verticale, fondu, couleur) </td>
+			   <td class='cellule'> </td>
+			  </tr>
+		</tbody>
+	</table>
+
+	
+	<div class="titre_programme"> Propriétés de positionnement et d'affichage </div>
+	<div>
+		<img alt="" src="./global/images/barre_bleue.png" style="border:none;">	
+	</div>
+
+
+	<table class='tableau'>
+		<thead>
+			<tr>
+				<th class="gras cellule "> Propriété </th>
+				<th class="gras cellule "> exemples </th>
+				<th class="gras cellule "> Description </th>
+			</tr>
+		</thead>
+
+
+		<tbody>
+				<tr>
+				   <td class='cellule'>display </td>
+				   <td class='cellule'>block, inline, inline-block, table, table-cell, none... </td>
+				   <td class='cellule'>Type d'élément (block, inline, inline-block, none…) </td>
+				  </tr>
+				<tr>
+				   <td class='cellule'>visibility </td>
+				   <td class='cellule'>visible, hidden </td>
+				   <td class='cellule'>Visibilité </td>
+				  </tr>
+				<tr>
+				   <td class='cellule'>clip </td>
+				   <td class='cellule'>rect (0px, 60px, 30px, 0px) </td>
+				   <td class='cellule'>Affichage d'une partie de l'élément </td>
+				  </tr>
+				<tr>
+				   <td class='cellule'> </td>
+				   <td class='cellule'>rect (haut, droite, bas, gauche) </td>
+				   <td class='cellule'> </td>
+				  </tr>
+				<tr>
+				   <td class='cellule'>overflow </td>
+				   <td class='cellule'>auto, scroll, visible, hidden </td>
+				   <td class='cellule'>Comportement en cas de dépassement </td>
+				  </tr>
+				<tr>
+				   <td class='cellule'>float </td>
+				   <td class='cellule'>left, right, none </td>
+				   <td class='cellule'>Flottant </td>
+				  </tr>
+				<tr>
+				   <td class='cellule'>clear </td>
+				   <td class='cellule'>left, right, both, none </td>
+				   <td class='cellule'>Arrêt d'un flottant </td>
+				  </tr>
+				<tr>
+				   <td class='cellule'>position </td>
+				   <td class='cellule'>relative, absolute, static </td>
+				   <td class='cellule'>Positionnement </td>
+				  </tr>
+				<tr>
+				   <td class='cellule'>top </td>
+				   <td class='cellule'>20px </td>
+				   <td class='cellule'>Position par rapport au haut </td>
+				  </tr>
+				<tr>
+				   <td class='cellule'>bottom </td>
+				   <td class='cellule'>20px </td>
+				   <td class='cellule'>Position par rapport au bas </td>
+				  </tr>
+				<tr>
+				   <td class='cellule'>left </td>
+				   <td class='cellule'>20px </td>
+				   <td class='cellule'>Position par rapport à la gauche </td>
+				  </tr>
+				<tr>
+				   <td class='cellule'>right </td>
+				   <td class='cellule'>20px </td>
+				   <td class='cellule'>Position par rapport à la droite </td>
+				  </tr>
+				<tr>
+				   <td class='cellule'>z-index </td>
+				   <td class='cellule'>10 </td>
+				   <td class='cellule'>Ordre d'affichage en cas de superposition. </td>
+				  </tr>
+				<tr>
+				   <td class='cellule'> </td>
+				   <td class='cellule'> </td>
+				   <td class='cellule'>La plus grande valeur est affichée par-dessus les autres. </td>
+				  </tr>
+		</tbody>
+	</table>
+
+	
+	<div class="titre_programme"> Propriétés des listes</div>
+	<div>
+		<img alt="" src="./global/images/barre_bleue.png" style="border:none;">	
+	</div>
+
+	<table class='tableau'>
+		<thead>
+			<tr>
+				<th class="gras cellule "> Propriété </th>
+				<th class="gras cellule "> exemples </th>
+				<th class="gras cellule "> Description </th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr>
+			   <td class='cellule'>list-style-type </td>
+			   <td class='cellule'>disc, circle, square, decimal, lower-roman, upper-roman, lower-alpha, upper-alpha, none </td>
+			   <td class='cellule'>Type de liste </td>
+			  </tr>
+			<tr>
+			   <td class='cellule'>list-style-position </td>
+			   <td class='cellule'>inside, outside </td>
+			   <td class='cellule'>Position en retrait </td>
+			  </tr>
+			<tr>
+			   <td class='cellule'>list-style-image </td>
+			   <td class='cellule'>url('puce.png') </td>
+			   <td class='cellule'>Puce personnalisée </td>
+			  </tr>
+			<tr>
+			   <td class='cellule'>list-style </td>
+			   <td class='cellule'>- </td>
+			   <td class='cellule'>Super-propriété de liste. Combine list-style-type, list-style-position, list-style-image. </td>
+			  </tr>
+		</tbody>
+	</table>
+
+	
+	<div class="titre_programme"> Propriétés des tableaux</div>
+	<div>
+		<img alt="" src="./global/images/barre_bleue.png" style="border:none;">	
+	</div>
+
+	<table class='tableau'>
+		<thead>
+			<tr>
+				<th class="gras cellule "> Propriété </th>
+				<th class="gras cellule "> exemples </th>
+				<th class="gras cellule "> Description </th>
+			</tr>
+		</thead>
+
+
+		<tbody>
+			<tr>
+			   <td class='cellule'>border-collapse </td>
+			   <td class='cellule'>collapse, separate </td>
+			   <td class='cellule'>Fusion des bordures </td>
+			  </tr>
+			<tr>
+			   <td class='cellule'>empty-cells </td>
+			   <td class='cellule'>hide, show </td>
+			   <td class='cellule'>Affichage des cellules vides </td>
+			  </tr>
+			<tr>
+			   <td class='cellule'>caption-side </td>
+			   <td class='cellule'>bottom, top </td>
+			   <td class='cellule'>Position du titre du tableau </td>
+			  </tr>
+
+		</tbody>
+	</table>
+
+	<div class="titre_programme"> Autres propriétés</div>
+	<div>
+		<img alt="" src="./global/images/barre_bleue.png" style="border:none;">	
+	</div>
+	
+
+	<table class='tableau'>
+		<thead>
+			<tr>
+				<th class="gras cellule "> Propriété </th>
+				<th class="gras cellule "> exemples </th>
+				<th class="gras cellule "> Description </th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr>
+			   <td class='cellule'>cursor </td>
+			   <td class='cellule'>crosshair, default, help, move, pointer, progress, text, wait, e-resize, ne-resize, auto... </td>
+			   <td class='cellule'>Curseur de souris </td>
+			  </tr>
+
+		</tbody>
+
+	</table>
+<br>
+<br>
+
+</div> <!--Fin de la page CSS -->
+

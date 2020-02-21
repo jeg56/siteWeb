@@ -1,0 +1,22 @@
+{
+	"programme": [
+	{
+		"titre": "Exemple de shell :",
+		"description": "shell necessitant 1 paramètre d'entrée ici un chemin: ./monShell.sh c:\\programme\\ ",
+		"chemin": "./applications/Linux/Autres_Commandes/programmes/3-exemple.txt"
+	},{
+		"titre": "Autres commandes  :",
+		"description": "Taré les fichiers",
+		"chemin": "./applications/Linux/Autres_Commandes/programmes/1-tar.txt"
+	},{
+		"description": "Extraire dans un fichier",
+		"chemin": "./applications/Linux/Autres_Commandes/programmes/2-sed.txt"
+	},{
+		"description": "Boucle : multiplier un fichier par 100 pour des tests de volume",
+		"chemin": "./applications/Linux/Autres_Commandes/programmes/4-boucle.txt"
+	},{
+		"description": "Awk : Modification d'un fichier",
+		"chemin": "./applications/Linux/Autres_Commandes/programmes/5-awk.txt"
+	}
+	]
+}

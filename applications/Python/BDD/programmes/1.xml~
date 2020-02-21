@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<programme>
+	<titre>Titre de mon programme</titre>
+	<description>description de mon programme </description>
+	<code>"<!-- aaaaaaaaaa--> bbbbbbbbbbbbb <!-- ccccccccc-->"</code>	
+	<resultat>reprogrammesultat de mon </resultat>
+</programme>

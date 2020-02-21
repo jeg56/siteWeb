@@ -1,0 +1,13 @@
+/*** Isertion a la base de données ***/
+
+mondico={}
+mondico['MA_VAR1']="Valeur de VAR1"
+mondico['MA_VAR2']="Valeur de VAR1"
+
+for column in mondico:
+	colums = ", ".join(mondico[column].keys())
+	placeholders = ':'+', :'.join(mondico[column].keys())
+	query = "INSERT INTO MA_TABLE (%s) VALUES (%s)" % (colums,placeholders)
+
+	cursor.execute(query, mondico[column])
+	connnexion.commit()

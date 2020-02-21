@@ -1,0 +1,13 @@
+﻿{
+	"menu_niveau1":[{
+					"nom":"Pronostic",
+					"chemin":"./pronostic.html"
+					},{
+					"nom":"Liste de naissance",
+					"chemin":"./listeDeNaissance.html"
+					},{
+					"nom":"Résultat Jeux",
+					"chemin":"./resultatJeuxConcours.html"
+					}		
+	]
+}

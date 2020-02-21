@@ -1,0 +1,14 @@
+{
+	"programme": [
+	{
+		"titre": "Test automatisé :",
+		"description": "Permet d'effectuer des tests fonctionnels d'une application web. Selenium à la capcité de simuler l'action d'un internaute avec prise en charge des actions réalisées avec le clavier et la souris (click, saisie d'un champ, sélection dans une liste déroulante...)",
+		"chemin": "./applications/Java/programmes/Selenium.txt"
+	},
+	{
+		"titre": "Multi-connexions avec des Threads ",
+		"description": "Pour effectuer des tests avec plusieurs utilisateurs en parallèle / tests de montée de charge",
+		"chemin": "./applications/Java/programmes/MultiThread.txt"
+	}
+	]
+}

@@ -1,0 +1,2 @@
+/*** extraire texte entre 2 mots ***/
+sed -n '/motif1/,/motif2/p' fichier.txt

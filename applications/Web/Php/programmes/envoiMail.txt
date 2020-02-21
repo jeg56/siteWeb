@@ -1,0 +1,11 @@
+<?php
+	$to      = 'adresse destinataire';
+	$subject = "objet mail";
+	$message = "  corps du mail "; 
+	$headers = 'From: adresse mail emmetteur' . "\r\n" .
+			'Cc: adresse mail en copie' . "\r\n" .
+			'Content-type: text/html; charset=UTF-8' . "\r\n" .
+			'Reply-To: adresse mail en cas de reply' . "\r\n" .
+			'X-Mailer: PHP/' . phpversion();
+	mail($to, $subject, $message, $headers);
+?>

@@ -1,0 +1,22 @@
+/*** Catch des erreurs ***/
+try:
+    # Bloc Instuction 
+except:
+    # Traitement en cas d'erreur
+finally:
+    # Instruction(s) exécutée(s) qu'il y ait eu des erreurs ou non
+
+/*** Les assertions : Permet de s'assurer, avant de continuer, que la condition est respectée ***/
+try:
+    assert test > 0 # Si false alors AssertionError est levé 
+except ValueError:
+    # Traitement en cas d'erreur
+except AssertionError:
+    print("L'année saisie est inférieure ou égale à 0.")
+
+/*** Lever une exception : Raise ***/
+try:
+    if annee<=0:
+        raise ValueError("l'année saisie est négative ou nulle") # on lève l’exception 
+except ValueError:
+    print("La valeur saisie est invalide (l'année est peut-être négative).")

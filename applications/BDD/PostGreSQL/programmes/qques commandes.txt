@@ -1,0 +1,3 @@
+\dt /*** liste toutes les tables ***/
+\d+ "Nom de la tables" /*** decrit la tables ***/
+\i /home/AJE/insertDonnee.sql  /*** execution d'un fichier sql en mode interactif ***/

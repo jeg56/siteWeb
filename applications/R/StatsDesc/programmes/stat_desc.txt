@@ -1,0 +1,54 @@
+/*** Stats descriptives ***/
+summary(Table)
+
+/*** Stats descriptives choisies ***/
+ describe(Table,num.desc = c('mean','sd','median'))
+
+/*** Tableau de contingence ***/
+xtabs(~VAR_X + VAR_Y, data = TABLE)
+ou
+table(TABLE$VAR_X, TABLE$VAR_Y)
+
+/*** ecrit les stats descriptives dans un fichier ***/
+tabRes=summary(Tab_Donnees)
+write.table(tabRes, "Fichier_resultat.txt")
+
+
+aggregate(Tab_Donnees$VAR1 ~ Tab_Donnees$VAR2 , data = Tab_Donnees, mean)
+aggregate(Tab_Donnees$VAR1 ~ Tab_Donnees$VAR2 , data = Tab_Donnees, var)
+
+
+/*** stats descriptives sélectionnées ***
+ddply(TabData, c("Tab_Donnees$VAR1", "Tab_Donnees$VAR2"), summarise,
+               N    = length(TEMPS),
+               mean = mean(TEMPS),   
+               sd   = sd(TEMPS),
+               min  = min(TEMPS),
+               max  = max(TEMPS),
+               X5 = quantile(TEMPS, probs = 0.05),
+               X10 = quantile(TEMPS, probs = 0.10),
+               X25 = quantile(TEMPS, probs = 0.25),
+               median = median(TEMPS),
+               X75 = quantile(TEMPS, probs = 0.75),
+               X90 = quantile(TEMPS, probs = 0.90),
+               X95 = quantile(TEMPS, probs = 0.95)
+)
+
+
+
+/*** Boite à moustache ***/
+boxplot(Tab_Donnees$VAR1 ~ Tab_Donnees$VAR2, data = Tab_Donnees, 
+        xlab = "Variable 1", ylab = "Variable 2", 
+        col = "cornflowerblue", border = "cornflowerblue")
+
+plotmeans(Tab_Donnees$VAR1 ~ Tab_Donnees$VAR2, data = Tab_Donnees, 
+        xlab = "Variable 1", ylab = "Variable 2", 
+        col = "cornflowerblue", border = "cornflowerblue")
+
+/*** Graph  ***/
+x<-seq(min(data$VAR1),max(data$VAR1),0.01)
+y<-dnorm(x,mean(data$VAR1),sd(data$VAR1))
+hist(data$VAR1,proba=T,border=grey(0.7),col=grey(0.9))
+lines(x,y,col="red",lwd=2)
+lines(density(data$VAR1),col="blue",lwd=2,lty=2)
+

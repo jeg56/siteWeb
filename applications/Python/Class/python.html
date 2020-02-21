@@ -1,0 +1,198 @@
+<div id='page_Python'  style='margin: 0px 65px;'>
+		<div id="titre"> Les Class :
+				<div>
+					<img alt="" src="./global/images/barre_bleue.png" style="border:none;">		
+				</div>
+		 </div>
+
+		 <div class="texte">
+				<h2 > Definition d'une class </h2> 
+				<pre><span class="infos_code">class Personne: </span><br>   """Classe définissant une personne caractérisée par :<br>   - son nom<br>   - son salaire"""<br><br>   nb_cree = 0 # Le compteur vaut 0 au départ <br><br><span style="color:#12EA4B;">    /*** Notre méthode constructeur ***/</span><br><span class="infos_code">   def __init__(self):</span><br>      """Définition d'1 attribut"""<br>      self.nom = "Dupont"<br>      self._dictionnaire = {}<br>      self._salaire=0<br>      Personne.nb_cree += 1
+
+    <span style="color:#12EA4B;">/*** format d'une méthode spéciale : __mamethode__ ***/</span>
+    <span class="infos_code">def __str__(self):</span>
+        """Méthode permettant d'afficher plus joliment notre objet"""
+        return "{} gagne {} €".format(self.nom, self._salaire)
+
+    <span class="infos_code">def __getattr__(self, nom):</span>
+       """Si Python ne trouve pas l'attribut nommé nom, il appelle cette méthode. 
+       On affiche une alerte"""
+       print("Alerte ! Il n'y a pas d'attribut {} ici !".format(nom))
+
+    <span class="infos_code">def _getSalaire(self):</span>
+       """Méthode permettant d'obtenir le salaire"""
+        print("Affichage du salaire de " + self.nom)
+        return self._salaire
+
+   <span class="infos_code"> def _setSalaire(self,nvxSalaire):</span>
+       """Méthode permettant de modifier le salaire"""
+        print("/!\ modification du salaire de " + self.nom)
+        self._salaire=nvxSalaire
+
+   <span style="color:#12EA4B;">/*** format de la propriété nom_propriete = property(methode_accesseur, methode_mutateur,
+    methode_suppression, methode_aide) ***/</span>
+
+   salaire=property(_getSalaire,_setSalaire)
+
+   <span style="color:#12EA4B;">/*** Les méthodes de conteneur ***/</span>
+    <span class="infos_code">def __getitem__(self, index):</span>
+        """Cette méthode spéciale est appelée quand on fait objet[index]
+        Elle redirige vers self._dictionnaire[index]"""
+        return self._dictionnaire[index]
+
+    <span class="infos_code">def __setitem__(self, index, valeur):</span>
+        """Cette méthode est appelée quand on écrit objet[index] = valeur
+        On redirige vers self._dictionnaire[index] = valeur"""
+        
+        self._dictionnaire[index] = valeur      
+
+
+
+   <span style="color:#12EA4B;">/***Méthodes mathématiques ***/</span>
+   <span class="infos_code">def __gt__(self, autre_salaire):</span>
+        """Test si self > autre_salaire"""
+          return "{} a un salaire supérieur".format(self.nom) 
+   <span class="infos_code">def __le__(self, autre_salaire):</span>
+        """Test si self < autre_salaire"""
+          return "{} a un salaire supérieur".format(self.nom) 
+
+   <span style="color:#12EA4B;">/***Méthodes spéciales utiles à pickle ***/</span>
+   <span class="infos_code">def __getstate__(self):</span>
+        """Renvoie le dictionnaire d'attributs à sérialiser"""
+        dict_attr = dict(self.__dict__)
+        dict_attr["attribut_temporaire"] = 0
+        return dict_attr         
+</pre>
+
+<span style="color:#007fff;"><b><u>Terminologie :</u></b> </span><br>
+methode_accesseur=Les accesseurs donnent accès à l'attribut. <br>
+methode_mutateur=Les mutateurs permettent de le modifier. <br>
+methode_suppression=la méthode appelée quand on souhaite supprimer l'attribut ;<br>
+methode_aide =la méthode appelée quand on demande de l'aide sur l'attribut.<br>
+sérialiser =Mettre sous forme binaire des données et de les écrire dans un fichier.
+désérialiser =Extraire des données dans un fichier sous forme binaire .
+		</div>
+
+	<h2>Les Méthodes spéciales :</h2>
+  
+	<table class="tableau">
+		<thead> 
+			<tr> 
+				<th class="cellule cellule_simple typeResume" > Méthode spéciale</th>
+				<th class="cellule cellule_tres_elargie typeResume"> Résumé </th>
+
+			</tr>
+		</thead> 
+			<tr> 
+				<td class="cellule cellule_simple " >__getattr__ </td>
+				<td class="cellule cellule_tres_elargie">Python recherche l'attribut et, s'il ne le trouve pas dans l'objet et si une méthode__getattr__existe, il va l'appeler en lui passant en paramètre le nom de l'attribut recherché, sous la forme d'une chaîne de caractères.</td>
+			</tr>
+			<tr> 
+				<td class="cellule cellule_simple " >__setattr__ </td>
+				<td class="cellule cellule_tres_elargie">Si on écrit objet.nom_attribut = nouvelle_valeur, la méthode spéciale__setattr__sera appelée</td>
+			</tr>
+			<tr> 
+				<td class="cellule cellule_simple " > __delattr__  </td>
+				<td class="cellule cellule_tres_elargie">supprimer un attribut de l'objet, en faisantdel objet.attribut</td>
+			</tr>
+			<tr> 
+				<td class="cellule cellule_simple " > __repr__ </td>
+				<td class="cellule cellule_tres_elargie">Elle affecte la façon dont est affiché l'objet quand on tape directement son nom</td>
+			</tr>
+			<tr> 
+				<td class="cellule cellule_simple " > __del__ </td>
+				<td class="cellule cellule_tres_elargie">méthode qui va être appelée au moment de la destruction de l'objet.</td>
+			</tr>
+			<tr> 
+				<td class="cellule cellule_simple " > __str__  </td>
+				<td class="cellule cellule_tres_elargie">méthode spéciale,__str__, spécialement utilisée pour afficher l'objet avec print</td>
+			</tr>
+			<tr> 
+				<td class="cellule cellule_simple " > __len__  </td>
+				<td class="cellule cellule_tres_elargie">est appelée quand on souhaite connaître la taille d'un objet conteneur</td>
+			</tr>
+			<tr> 
+				<td class="cellule cellule_simple " > __getitem__ </td>
+				<td class="cellule cellule_tres_elargie">sert quant à définir quand on écrit objet[index];</td>
+			</tr>
+			<tr> 
+				<td class="cellule cellule_simple " > __setitem__ </td>
+				<td class="cellule cellule_tres_elargie">sert quant à définir quand on écrit objet[index] = valeur;</td>
+			</tr>
+			<tr> 
+				<td class="cellule cellule_simple " > __delitem__ </td>
+				<td class="cellule cellule_tres_elargie">sert quant à définir quand on écrit del objet[index];</td>
+			</tr>
+			<tr> 
+				<td class="cellule cellule_simple " > __eq__ </td>
+				<td class="cellule cellule_tres_elargie">Opérateur d'égalité (equal). Renvoie True si self et objet_a_comparersont égaux, False sinon. <br>(def __eq__(self, objet_a_comparer):)</td>
+			</tr>
+			<tr> 
+				<td class="cellule cellule_simple " > __ne__ </td>
+				<td class="cellule cellule_tres_elargie">Différent de (non equal). Renvoie True si self et objet_a_comparer sont différents, False sinon.</td>
+			</tr>
+			<tr> 
+				<td class="cellule cellule_simple " > __gt__ </td>
+				<td class="cellule cellule_tres_elargie">Teste si self est strictement supérieur (greater than) à objet_a_comparer.</td>
+			</tr>
+			<tr> 
+				<td class="cellule cellule_simple " > __ge__ </td>
+				<td class="cellule cellule_tres_elargie">Teste si self est supérieur ou égal (greater or equal) à objet_a_comparer.</td>
+			</tr>
+			<tr> 
+				<td class="cellule cellule_simple " > __lt__ </td>
+				<td class="cellule cellule_tres_elargie">Teste si self est strictement inférieur (lower than) à objet_a_comparer.</td>
+			</tr>
+			<tr> 
+				<td class="cellule cellule_simple " >__lt__</td>
+				<td class="cellule cellule_tres_elargie">Teste si self est inférieur ou égal (lower or equal) à objet_a_comparer.</td>
+			</tr>
+			<tr> 
+				<td class="cellule cellule_simple " >__getstate__</td>
+				<td class="cellule cellule_tres_elargie">est appelée au moment de sérialiser l'objet</td>
+			</tr>
+			<tr> 
+				<td class="cellule cellule_simple " >__setstate__</td>
+				<td class="cellule cellule_tres_elargie">est appelée au moment de désérialiser l'objet.</td>
+			</tr>
+	</table>
+
+	<br>
+	<div class="texte">
+		<span style="color:#007fff;"><b><u>Autres methodes d'exploitation :</u></b> </span><br>
+		objet = MaClasse() # On crée une instance de notre classe<br>
+		getattr(objet, "nom") # Semblable à objet.nom<br>
+		setattr(objet, "nom", val) # = objet.nom = val ou objet.__setattr__("nom", val)<br>
+		delattr(objet, "nom") # = del objet.nom ou objet.__delattr__("nom")<br>
+		hasattr(objet, "nom") # Renvoie True si l'attribut "nom" existe, False sinon
+	</div>
+
+
+
+	<div id="titre"> L'héritage
+			<div>
+				<img alt="" src="./global/images/barre_bleue.png" style="border:none;">		
+			</div>
+	 </div>
+
+	<pre>
+<span class="infos_code">class A:</span>	
+   """Classe A, pour illustrer notre exemple d'héritage"""
+    pass
+
+<span class="infos_code">class B(A):</span>	
+   """Classe B, qui hérite de A.
+   Elle reprend les mêmes méthodes et attributs (dans cet exemple, la classe
+   A ne possède de toute façon ni méthode ni attribut)"""
+	    
+   pass
+
+
+<span class="infos_code">ClasseMere.methode(self) </span>	
+<span class="infos_code">class NouvelleClasse(ClasseMere1, ClasseMere2, ClasseMereN): </span>	
+     
+	</pre>
+
+</div> <!--Fin de la page python -->
+	
+

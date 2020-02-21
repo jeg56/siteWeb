@@ -1,0 +1,19 @@
+/*** Pour installer un environnement virtuelle ***/
+python -m venv myvenv
+
+/*** Pour lancer l' environnement virtuelle***/
+myvenv\Scripts\activate
+
+/*** Création d'un projet ***/
+django-admin startproject mon_projet
+
+
+/*** Création d'une application ***/
+django-admin startapp mon_application
+
+
+/*** Démarrage du serveur ***/
+python manage.py runserver
+
+/*** Démarrage de la console ***/
+python manage.py shell

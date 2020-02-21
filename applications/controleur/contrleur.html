@@ -1,0 +1,109 @@
+<div='pageControleur' class='pageControleur'>
+<!----------------------------------------------------------------------------------------- -->
+<!-- Paramétrage                                                                            -->
+<!----------------------------------------------------------------------------------------- -->
+ <fieldset>
+  <legend>Paramétrage :</legend>
+  <div class='ligne'> Controleur : </div>
+      <div class="onoffswitch">
+        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+          <label class="onoffswitch-label" for="myonoffswitch" onclick=listenOnOffSwitch()>
+              <span class="onoffswitch-inner"></span>
+              <span class="onoffswitch-switch"></span>
+          </label>
+      </div>
+
+</fieldset>
+
+<!----------------------------------------------------------------------------------------- -->
+<!-- Affichage des logs                                                                     -->
+<!----------------------------------------------------------------------------------------- -->
+
+ <fieldset>
+  <legend>Logs :</legend>
+  <div class="tree">
+    <ul class="tacheKo"> Programme Ko :
+      <li>Root node 1</li>
+      <li>Root node 2</li>
+    </ul>
+  </div>
+   <div class="tree">
+    <ul class="tacheOk"> Programme Ok :
+      <li>Root node 1</li>
+      <li>Root node 2</li>
+    </ul>
+</div>
+</fieldset>
+
+<!----------------------------------------------------------------------------------------- -->
+<!-- Affichage des canaux                                                                   -->
+<!----------------------------------------------------------------------------------------- -->
+ <fieldset>
+  <legend>Gestion des canaux :</legend>
+
+  <fieldset class='canal'> <legend>Canal 1</legend>
+      <button type="button" onclick="alert('Hello world!')">En cours</button>
+      <p> effefe</p>
+  </fieldset>
+
+  <fieldset class='canal'> <legend>Canal 2</legend>
+      <button type="button" onclick="alert('Hello world!')">En cours</button>
+      <p> effefe</p>
+  </fieldset>
+  
+
+
+  <fieldset class='canal'> <legend>Canal 3</legend>
+      <button type="button" onclick="alert('Hello world!')">En cours</button>
+      <p> effefe</p>
+  </fieldset>
+
+  <fieldset class='canal'> <legend>Canal 4</legend>
+      <button type="button" onclick="alert('Hello world!')">En cours</button>
+      <p> effefe</p>
+  </fieldset>
+ </fieldset>
+
+<!----------------------------------------------------------------------------------------- -->
+<!-- Taches a traiter                                                                       -->
+<!----------------------------------------------------------------------------------------- -->
+
+ <fieldset>
+  <legend>Liste des taches à traiter :</legend>
+     <div class="tree">
+    <ul> Programme :
+      <li>Root node 1</li>
+      <li>Root node 2</li>      <li>Root node 1</li>
+      <li>Root node 2</li>      <li>Root node 1</li>
+      <li>Root node 2</li>      <li>Root node 1</li>
+      <li>Root node 2</li>      <li>Root node 1</li>
+      <li>Root node 2</li>      <li>Root node 1</li>
+      <li>Root node 2</li>      <li>Root node 1</li>
+      <li>Root node 2</li>      <li>Root node 1</li>
+      <li>Root node 2</li>
+    </ul>
+</div>
+
+<!----------------------------------------------------------------------------------------- -->
+<!-- volet                                                                             -->
+<!----------------------------------------------------------------------------------------- -->
+</fieldset>
+<div id="volet_clos">
+    <div id="volet">
+    <ul> Audi a valider :
+      <li>Root node 1</li>
+      <li>Root node 2</li>      <li>Root node 1</li>
+      <li>Root node 2</li>      <li>Root node 1</li>
+      <li>Root node 2</li>      <li>Root node 1</li>
+      <li>Root node 2</li>      <li>Root node 1</li>
+      <li>Root node 2</li>      <li>Root node 1</li>
+      <li>Root node 2</li>      <li>Root node 1</li>
+      <li>Root node 2</li>      <li>Root node 1</li>
+      <li>Root node 2</li>
+  </ul>
+    <a href="#volet"      class="ouvrir" aria-hidden="true"> Ouvrir !</a>
+    <a href="#volet_clos" class="fermer" aria-hidden="true"> fermer !</a>
+    </div>
+</div>
+
+</div='pageControleur'>

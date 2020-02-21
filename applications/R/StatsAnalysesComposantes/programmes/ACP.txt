@@ -1,0 +1,4 @@
+/*** ACP ***/
+library(FactoMineR)
+PCA(Ma_table[,1:10], scale.unit=TRUE, ncp=5, graph=T)
+

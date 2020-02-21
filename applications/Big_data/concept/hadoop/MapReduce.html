@@ -1,0 +1,54 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+<link rel="stylesheet" href="./global/css/style_text.css" type="text/css" media="all">
+<div id="bigdata">	
+		<div id="titre"> Principe du MapReduce 
+				<div>
+					<img alt="" src="./global/images/barre_bleue.png" style="border:none;">	
+				</div>
+		 </div>
+
+		 <div class="texte">
+			
+				MapReduce consiste à découper les données en sous-ensembles de plus petite taille, que nous appelons des lots et à affecter chaque lot à une machine du cluster permettant ainsi leur traitement en parallèle. Il suffira ensuite d'agréger l'ensemble des résultats intermédiaires obtenus pour chaque lot pour construire le résultat final.<br><br>
+				4 étapes distinctes :<br>
+				- Découper (SPLIT)<br>
+				- Transformer (MAP)<br>
+				- Grouper (SHUFFLE)<br>
+				- Réduire (REDUCE)<br>
+
+				<br><br>
+
+				<h2 > Le Découpage</h2> 
+				L'ensemble des données à traiter est découpé en plusieurs lots ou sous-ensembles.<br>
+
+
+				<h2 > L'opération map (Transformer)</h2> 
+				doit retourner une liste de paires(clé, valeur).<br>
+
+
+
+				<h2 > SHUFFLE and SORT ( gouper et trier)</h2> 
+				Avant d'être envoyés à l'étape REDUCE, les résultats intermédiaires sont regroupés et triés par clé.<br>Cette étape est entièrement gérée par le framework d'exécution de MapReduce de manière distribuée.<br>
+
+
+
+				<h2 > L'étape REDUCE </h2> 
+				Cette étape consiste à appliquer l'opération reduce, spécifiée pour notre problème, à chaque clé en parallèle. Elle agrège tous les résultats intermédiaires associés à une même clé et renvoie donc pour chaque clé une valeur unique.<br><br><br>
+
+
+
+
+				•  Le rôle des developpeurs d'applications distribuées, c'est donc de penser en MapReduce :<br>
+1.	Choisir une manière de découper les données afin que l'opération MAP soit parallélisable.<br>
+2.	Choisir la clé à utiliser pour le problème ciblé.<br>
+3.	Écrire le code de la fonction pour l'opération MAP.<br>
+4.	Écrire le code de la fonction pour l'opération REDUCE.
+
+		</div>
+
+	
+
+
+
+</div>

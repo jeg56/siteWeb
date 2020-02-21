@@ -1,0 +1,9 @@
+{
+	"programme": [
+	{
+		"titre": "Régression lineaire",
+		"description": "Permet d'établir des estimations dans le futur à partir d'informations provenant du passé <br> La variable à expliquer et la ou les variables explicatives sont de types quantitatives",
+		"chemin": "./applications/R/StatsReg/programmes/regression lineaire.txt"
+	}
+	]
+}

@@ -1,0 +1,29 @@
+{
+	"programme": [
+	{
+		"titre": "Commande Oracle:",
+		"description": "Commande pratique",
+		"chemin": "./applications/BDD/SQL-Oracle/programmes/2 - Commande Usuelle.sql"
+	},
+	{
+		"description": "Script exemple de création de table",
+		"chemin": "./applications/BDD/SQL-Oracle/programmes/3 - Create_table.sql"
+	},
+	{
+		"description": "Analyse qualité / recherche impact",
+		"chemin": "./applications/BDD/SQL-Oracle/programmes/4 - Analyse_Impacts.sql"
+	},
+	{
+		"description": "Lister les colonnes d'une table",
+		"chemin": "./applications/BDD/SQL-Oracle/programmes/11 - Liste des colonnes table.sql"
+	},
+	{
+		"description": "Update & Insert",
+		"chemin": "./applications/BDD/SQL-Oracle/programmes/12 - Merge.sql"
+	},
+	{
+		"description": "Modification de scructure",
+		"chemin": "./applications/BDD/SQL-Oracle/programmes/13 - Alter.sql"
+	}
+	]
+}

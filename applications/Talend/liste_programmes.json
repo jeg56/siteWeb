@@ -1,0 +1,13 @@
+{
+	"programme": [
+	{
+		"titre": "Talend & les bases de données",
+		"description": "Connexion a une base Oracle",
+		"video": "./applications/Talend/connexion_Oracle"
+	},
+	{
+		"description": "Import d'une table Oracle",
+		"video": "./applications/Talend/importOracle"
+	}
+	]
+}

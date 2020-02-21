@@ -1,0 +1,19 @@
+#!/bin/sh
+
+/*** recupere le parametre d'entrée ***/
+chemin="$1"
+
+/*** positionnement dans l'arborescence ***/
+cd ${chemin};
+
+/*** liste tout les fichiers sauf les fichiers html commancant par "resultat_" ***/
+dirlist=`ls * | grep -v resultat_*.html`;
+
+for filelist in $dirlist
+do
+   /*** recupere le numéro de la ligne dans le fichier ou se trouve dans mot TOTO_TUTU ***/
+   positionDuMot_TOTO_TUTU=$(echo `grep -n "TOTO_TUTU" ${filelist} | awk -F ':' '{print $1}'`);
+   echo ${positionDuMot_TOTO_TUTU}
+
+done
+

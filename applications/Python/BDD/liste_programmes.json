@@ -1,0 +1,13 @@
+{
+	"programme": [
+	{
+		"titre": "Python & les bases de données:",
+		"description": "Connexion à une base de données",
+		"chemin": "./applications/Python/BDD/programmes/Connexion.txt"
+	},
+	{
+		"description": "Insertion d'un dico dans une table",
+		"chemin": "./applications/Python/BDD/programmes/Insert.txt"
+	}
+	]
+}

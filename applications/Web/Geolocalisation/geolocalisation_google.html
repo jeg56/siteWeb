@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<style type="text/css">
+	  html { height: 100% }
+	  body { height: 100%; margin: 0px; padding: 0px }
+	  #carte { height: 50% ;   
+	  	 display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;}
+	</style>
+
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_LQu3v-B9iBYclO4HoVK93gKngC5SS94&callback=initialize" type="text/javascript"></script>
+
+	
+	<script type="text/javascript">
+			function initialize(){
+				  var options = {
+				      enableHighAccuracy: true,
+				      timeout: 5000,
+				      maximumAge: 0
+				    };
+
+				    if (navigator.geolocation) {
+				          navigator.geolocation.getCurrentPosition(function(position) {
+
+							map = new google.maps.Map(document.getElementById("carte"), {
+											zoom: 13,
+											center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
+					       					mapTypeControl: true,
+							          mapTypeControlOptions: {
+							            style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+							            mapTypeIds: ['roadmap', 'terrain']
+							          },          zoomControl: true,
+								zoomControlOptions: {
+								  position: google.maps.ControlPosition.LEFT_CENTER
+								},
+								scaleControl: true,
+								streetViewControl: true,
+								streetViewControlOptions: {
+								position: google.maps.ControlPosition.LEFT_TOP
+								},
+								fullscreenControl: true,
+								title:'Vous êtes ici'
+							});		
+						
+
+
+				          	/*
+				              request = $.ajax({
+				                            url: "./applications/Connexion/php/majLocalisation.php",
+				                            type: "post",
+				                            data: { id: id_value,
+				                                    latitude: position.coords.latitude, 
+				                                    longitude: position.coords.longitude
+				                                }
+				                 });
+				               
+
+				                // on recupere un retour
+				                request.done(function (response, textStatus){
+				                   })
+				                    */
+				          }, function(error) {
+				              switch(error.code){
+				              	/*
+				                    case error.PERMISSION_DENIED:
+				                                request = $.ajax({
+				                                    url: "./applications/Connexion/php/erreurLocalisation.php",
+				                                    type: "post",
+				                                    data: { id: id_value,message:"L''utilisateur n''a pas autorisé l''accès à sa position"}
+				                                });
+				                        break;          
+				                    case error.POSITION_UNAVAILABLE:
+				                                request = $.ajax({
+				                                    url: "./applications/Connexion/php/erreurLocalisation.php",
+				                                    type: "post",
+				                                    data: { id: id_value,message:"L''emplacement de l''utilisateur n''a pas pu être déterminé"}
+				                                });
+				                        break;
+				                    case error.TIMEOUT:
+				                                request = $.ajax({
+				                                    url: "./applications/Connexion/php/erreurLocalisation.php",
+				                                    type: "post",
+				                                    data: { id: id_value,message:"Le service n''a pas répondu à temps"}
+				                                });
+				                        break;
+				                        */
+				                    }
+				          },options);
+				    } else {
+				          // Browser doesn't support Geolocation
+				     
+				    }
+
+
+}
+
+
+
+
+
+
+
+	</script>
+</head>
+
+<body>
+
+
+			<div id="carte" ></div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1 @@
+sudo -u postgres psql "Nom de la base"

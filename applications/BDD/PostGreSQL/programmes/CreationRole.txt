@@ -1,0 +1,28 @@
+/*** Création des roles ***/
+CREATE ROLE "role_monAppli_maj" NOINHERIT; 
+COMMENT ON ROLE "role_monAppli_maj" IS 'pour les accès en lecture/écriture';
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT,INSERT,UPDATE,DELETE ON TABLES TO "role_monAppli_maj";
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT,UPDATE ON SEQUENCES TO "role_monAppli_maj";
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO "role_monAppli_maj" ;
+GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO "role_monAppli_maj" ;
+
+CREATE ROLE "role_monAppli_lec" NOINHERIT; COMMENT ON ROLE "role_monAppli_lec" IS 'pour tout accès en lecture';
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT ON TABLES TO "role_monAppli_lec";
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO "role_monAppli_lec" ;
+ 
+
+/*** Création des logins ***/
+CREATE ROLE monAppli_dbo  WITH LOGIN PASSWORD 'Un mot de passe' IN ROLE "role_monAppli_maj"; 
+COMMENT ON ROLE "monAppli_dbo" IS 'Login d"accès du propriétaire de la base';
+
+CREATE ROLE monAppli_user  WITH LOGIN PASSWORD 'Un mot de passe' IN ROLE "role_monAppli_maj";  
+COMMENT ON ROLE "monAppli_user" IS 'Login d"accès de l’application';
+
+CREATE ROLE monAppli_lec  WITH LOGIN PASSWORD 'Un mot de passe' IN ROLE "role_monAppli_lec"; 
+COMMENT ON ROLE "monAppli_lec" IS 'Login d"accès des invités (en lecture)';
+
+CREATE ROLE monAppli_batch  WITH LOGIN PASSWORD 'Un mot de passe' IN ROLE "role_monAppli_maj";  
+COMMENT ON ROLE "monAppli_batch" IS 'Login d"accès des batchs';
+
+CREATE ROLE monAppli_supervision  WITH LOGIN PASSWORD 'Un mot de passe' IN ROLE "role_monAppli_lec"; 
+COMMENT ON ROLE "monAppli_supervision" IS 'Login d"accès en supervision'; 

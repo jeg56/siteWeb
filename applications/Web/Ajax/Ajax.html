@@ -1,0 +1,69 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+<link rel="stylesheet" href="./global/css/style_text.css" type="text/css" media="all">
+<div id="page_AJAX" style='margin: 0px 65px;'>	
+	<span class="titre_page"> AJAX</span>
+<br><br>
+AJAX est l'acronyme d'Asynchronous JavaScript And XML.<br>
+la principale caracteristique de ce concept est qu'il permet d'échanger des données avec un serveur et de mettre à jour des parties d'une page Web sans recharger la page entière.
+<br> <br>
+Exemple de recherche par auto - complétude sur un fichier des villes francaises : 
+
+
+<form>
+    <input type="text" id="recherche" style="width: 40%" />
+</form>
+<script type="text/javascript">
+/*
+$("#recherche").autocomplete({
+		source: ["January","Febuary","March","April","May","June","July",
+		"August","September","October","November","December"
+		]
+		, minLength: 0,
+		delay: 100
+});
+
+*/
+
+/*
+$('#recherche').autocomplete({
+    source: function (request, response) {
+        			var data = "./applications/Web/Ajax/commune.json"
+      				var results = $.ui.autocomplete.filter(data.value, request.term);
+					console.log(results)
+        			response(results.slice(0, 10));
+       			
+    },
+    minLength: 1,
+    delay: 100
+});
+*/
+$('#recherche').autocomplete({
+
+    source: function (request, response) {
+    	var i=0
+        $.getJSON("./applications/Web/Ajax/commune.json?term=" + request.term, function (data) {
+            response($.map(data.Communes, function (value, key) {
+            	
+            	var re = $.ui.autocomplete.escapeRegex(request.term);
+        		var matcher = new RegExp( "^" + re, "i" );
+
+            	if(matcher.test(value) && i<=10){
+            		i=i+1
+            		 return {
+                    label: value,
+                    value: 'Ville sélectionnée : '+value
+                };
+            	}
+
+            }));
+        });
+    },
+    minLength: 1,
+    delay: 100
+});
+
+</script>
+</div> <!--Fin de la page Ajax -->
+
+

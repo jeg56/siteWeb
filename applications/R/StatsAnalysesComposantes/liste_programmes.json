@@ -1,0 +1,21 @@
+{
+	"programme": [
+	{
+		"titre": "ACP - Analyse des Composantes Principales",
+		"description": "L'analyse des composantes principales consiste à transformer des variables décrivant un ensemble d’individus liées entre elles (dites « corrélées » en statistique) en nouvelles variables décorrélées les unes des autres. ",
+		"chemin": "./applications/R/StatsAnalysesComposantes/programmes/ACP.txt"
+	},{
+		"titre": "AFC - Analyse Factorielle des Correspondances",
+		"description": "Permet d'étudier l'association entre 2 variables qualitatives.",
+		"chemin": "./applications/R/StatsAnalysesComposantes/programmes/AFC.txt"
+	},{
+		"titre": "ACM - Analyse des Correspondances Multiples",
+		"description": "Permet d'étudier l'association entre plusieurs variables qualitatives.",
+		"chemin": "./applications/R/StatsAnalysesComposantes/programmes/ACM.txt"
+	},{
+		"titre": "AFM - Analyse Factorielle Multiples",
+		"description": "Permet d'étudier l'association décrite par un ensemble de variables (quantitatives et/ou qualitatives) structuré en groupes",
+		"chemin": "./applications/R/StatsAnalysesComposantes/programmes/AFM.txt"
+	}
+	]
+}

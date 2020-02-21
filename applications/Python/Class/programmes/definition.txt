@@ -1,0 +1,56 @@
+/*** Définition de notre classe Personne ***/
+class Personne: 
+    """Classe définissant une personne caractérisée par :
+    - son nom
+    - son salaire"""
+
+    nb_cree = 0 # Le compteur vaut 0 au départ
+
+    /*** format d'une méthode spéciale : __mamethode__ ***/
+    def __init__(self): # Notre méthode constructeur
+        """Définition d'1 attribut"""
+        self.nom = "Dupont"
+        self._salaire=0
+        Personne.nb_cree += 1
+
+
+	def __getattr__(self, nom):
+		"""Si Python ne trouve pas l'attribut nommé nom, il appelle
+			cette méthode. On affiche une alerte"""
+		print("Alerte ! Il n'y a pas d'attribut {} ici !".format(nom))
+
+
+    def _getSalaire(self):
+        """Méthode permettant d'obtenir le salaire"""
+        print("Affichage du salaire de " + self.nom)
+        return self._salaire
+
+    def _setSalaire(self,nvxSalaire):
+        """Méthode permettant de modifier le salaire"""
+        print("/!\ modification du salaire de " + self.nom)
+        self._salaire=nvxSalaire
+
+
+        /*** format de la propriété nom_propriete = property(methode_accesseur, methode_mutateur, methode_suppression, methode_aide) ***/
+
+        salaire=property(_getSalaire,_setSalaire)
+
+
+  
+ /*** l'encapsulation ***/
+
+
+
+L'attribut spécial
+__dict__
+
+Terminologie : 
+methode_accesseur=Les accesseurs donnent accès à l'attribut. 
+methode_mutateur=Les mutateurs permettent de le modifier. 
+methode_suppression=la méthode appelée quand on souhaite supprimer l'attribut ;
+methode_aide =la méthode appelée quand on demande de l'aide sur l'attribut.
+
+
+
+
+__del__

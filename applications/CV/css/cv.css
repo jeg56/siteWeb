@@ -1,0 +1,105 @@
+#cv_presentation {
+	font-size:12px;
+	color:black;
+	left: auto;
+	padding: 10px;
+	margin: 0px 65px;
+}
+
+.texte{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	padding: 5px 0px 0px 0px;
+}
+
+.monCV{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 50px 0px 0px 60px;
+}
+
+
+#cv_titre {
+	font-size: 16px;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	color: rgb(0,155,180);
+	padding: 20px 0px 0px 60px;
+}
+
+.cv_cellule{
+	width:250px;
+	height: 30px;
+	border-right: 1px solid #CCCCCC;
+    border-bottom: 1px solid #CCCCCC;
+    background-repeat:no-repeat;
+    padding: 0px 0px 0px 0px;
+    vertical-align:top;
+    text-align: center;
+    background-position: center;
+}
+
+.cv_tableau{
+	padding: 20px 0px 0px 0px;
+}
+
+
+.cv_cellule_entete1{
+    background-image:url("../images/etoiles_1sur4.png");
+    height: 40px;
+}
+
+.cv_cellule_entete2{
+    background-image:url("../images/etoiles_2sur4.png");
+    height: 40px;
+}
+
+.cv_cellule_entete3{
+    background-image:url("../images/etoiles_3sur4.png");
+    height: 40px;
+}
+
+.cv_cellule_entete4{
+    background-image:url("../images/etoiles_4sur4.png");
+    height: 40px;
+}
+
+.cv_cellule_reduite{
+	width:150px;
+}
+
+.gras{
+	font-weight:bold;
+}
+
+.entete_experience {
+	width:465px;
+	border-style: inset;
+	font-weight:bold;
+	vertical-align:text-top;
+}
+.pos_droit{
+	text-align: right;
+	font-weight:bold;
+}
+.infos_emploi {
+	color:rgb(227,0,98);
+	font-weight:bold;
+}
+.caracteristique{
+	vertical-align:top;
+	width:120px;
+	font-weight:bold;
+	padding: 10px;
+}
+.detail_caracteristique{
+	vertical-align:top;
+	font-weight:normal;
+	padding: 10px;
+}
+.detail_caracteristique_suivant{
+	vertical-align:top;
+	font-weight:normal;
+	padding: 50px;
+}

@@ -1,0 +1,89 @@
+<div id='page_resume'>
+
+		<div id="titre"> Statistiques :
+				<div>
+					<img alt="" src="./global/images/barre_bleue.png" style="border:none;">		
+				</div>
+		 </div>
+		 <div class="texte">
+				<h2 > Qques Statistiques descriptives</h2> 
+				<span class="infos">χ² - khi-deux :</span>Permet de tester l'adéquation d'une série de données à une famille de lois de probabilité ou de tester l'indépendance entre deux variables aléatoires. <br>
+				<span class="infos">ACP :</span>Analyse en Composantes Principales<br>
+				Son but est de résumer, de réduire la dimensionnalité d'un ensemble de données depuis des variables <strong>quantitatives</strong><br>
+				<span class="infos">AFC :</span>Analyse Factorielle des Correspondances<br>
+				Son objectif est de produire une représentation depuis un tableau de contingence (issue de variables <strong>qualitatives</strong>) afin de mettre en évidence leurs positions respectives et les éventuelles attractions/répulsions<br>
+				<span class="infos">ACM :</span>Analyse des Correspondances Multiples<br>
+				Son but est de résumer cet ensemble de données depuis des variables <strong>qualitatives</strong><br>
+				<span class="infos">Matrice de corrélation :</span> Permet d'évaluer la dépendence entre plusieurs variables en même temps
+					
+		</div>
+
+
+		<div id="titre"> Cas de test paramétriques sur des individus Indépendants :
+				<div>
+					<img alt="" src="./global/images/barre_bleue.png" style="border:none;">		
+				</div>
+		 </div>
+
+		 <div class='texte'>
+		 	Un test paramétrique est un test qui part du principe que les variables étudiées suivent une certaine distribution comme une distribution Gaussienne.
+		 </div>
+		 <div class='texte gras'>
+			 Ci-dessous quelques tests qui peuvent être appliqués en fonction de notre besoin :
+		 </div>
+		<div id="tableau_test_parametrique">
+			<table class="tableau">
+				<thead> 
+					<tr> 
+						<th class="cellule  cellule_elargie diagonalFalling" > <span style="padding-left:150px" align="right"> Variable étudiée </span> <br> <span style="padding-left:0px" >Variable expicative </span></th>
+						<th class="cellule "> Qualitative <br> (2 groupes)  </th>
+						<th class="cellule "> Qualitative <br> (+ 2 groupes)  </th>
+						<th class="cellule "> Quantitative ordinale </th>
+						<th class="cellule "> Quantitative </th>
+					</tr>
+				</thead> 
+					<tr> 
+						<td class="cellule cellule_elargie" style="text-align:center">Qualitative <br> (2 groupes) <br> (0: Non - 1: Oui) </td>
+						<td class="cellule ">χ2 <br> Test de Fisher</td>
+						<td class="cellule ">χ2</td>
+						<td class="cellule "></td>
+						<td class="cellule ">Test de Mann-Witney <br>T  de Student</td>
+					</tr>
+					<tr> 
+						<td class="cellule cellule_elargie" style="text-align:center">Qualitative <br> (+2 groupes) </td>
+						<td class="cellule ">χ2</td>
+						<td class="cellule ">χ2</td>
+						<td class="cellule ">Test sur la médiane de Kruskal-Wallis</td>
+						<td class="cellule ">Analyse de la variance <br>Test sur la médiane de Kruskal-Wallis</td>
+					</tr>
+					<tr> 
+						<td class="cellule cellule_elargie" style="text-align:center">Quantitative </td>
+						<td class="cellule ">Régression logistique</td>
+						<td class="cellule ">Régression logistique multinomiale</td>
+						<td class="cellule ">Corrélation de Spearman</td>
+						<td class="cellule ">Corrélation de Pearson / régression linéaire</td>
+					</tr>					
+			</table>
+	</div>
+
+	<br><br>
+
+	<div id="titre"> Quelques probas :
+		<div>
+			<img alt="" src="./global/images/barre_bleue.png" style="border:none;">		
+		</div>
+	 </div>
+	 <div class='texte'>
+	 <h2 > Probabilité conditionnelle</h2> 
+		Pr{B/A} = Pr{A et B}<br>
+		Pr{B et A} = Pr{A} Pr{B/A} = Pr{B} Pr{A/B}
+
+		<h2 > Théorème de Bayes</h2> 
+		Pr{B/A} = k Pr{B} Pr{A/B} ( k facteur de proportionnalité )
+
+		<h2 > Indépendance de 2 événements </h2> 
+		Pr{A et B}=Pr{A} Pr{B}
+		Pr{B/A} = Pr{B/Â} = Pr{B}
+	</div>
+
+</div> <!--Fin de la page resume -->

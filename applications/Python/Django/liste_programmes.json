@@ -1,0 +1,45 @@
+{
+	"programme": [
+	{
+		"titre": "Les basics:",
+		"description": "Si-alors-Sinon",
+		"chemin": "./applications/Python/Basic/programmes/Si-alors-Sinon.txt"
+	},
+	{
+		"description": "Les boucles",
+		"chemin": "./applications/Python/Basic/programmes/Boucles.txt"
+	},
+	{
+		"description": "Gestion des chaines de caractères",
+		"chemin": "./applications/Python/Basic/programmes/Caracteres.txt"
+	},
+	{
+		"description": "Les fonctions lambda",
+		"chemin": "./applications/Python/Basic/programmes/Lambda.txt"
+	},
+	{
+		"description": "Les exceptions",
+		"chemin": "./applications/Python/Basic/programmes/Exception.txt"
+	},
+	{
+		"description": "Entête de programme : Encodage & les méthodes d'importation",
+		"chemin": "./applications/Python/Basic/programmes/enteteProgrammes.txt"
+	},
+	{
+		"description": "Les conteneurs",
+		"chemin": "./applications/Python/Basic/programmes/Conteneur.txt"
+	},
+	{
+		"description": "Les Tris",
+		"chemin": "./applications/Python/Basic/programmes/Tris.txt"
+	},
+	{
+		"description": "Echange avec le système",
+		"chemin": "./applications/Python/Basic/programmes/Systeme.txt"
+	},
+	{
+		"description": "La programmation parallèle avec threading",
+		"chemin": "./applications/Python/Basic/programmes/Threads.txt"
+	}
+	]
+}

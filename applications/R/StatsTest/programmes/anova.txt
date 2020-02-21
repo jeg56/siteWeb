@@ -1,0 +1,3 @@
+/*** y est la variable numérique et A indique les groupes ***/
+fit <- aov(y ~ A, data=mydataframe)
+summary(fit)

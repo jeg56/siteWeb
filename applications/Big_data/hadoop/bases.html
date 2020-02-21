@@ -1,0 +1,159 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+<link rel="stylesheet" href="./global/css/style_text.css" type="text/css" media="all">
+<div id="bigdata">	
+		<div id="titre"> Les bases de données NoSQL - Not Only SQL
+				<div>
+					<img alt="" src="./global/images/barre_bleue.png" style="border:none;">	
+				</div>
+		 </div>
+
+	 <div class="texte">
+
+		<h2 > Triangle CAP</h2> 
+		<center><img alt="" src="./applications/Big_data/hadoop/image/triangleCAP.png" style="border:none;width:100%"></center>
+
+
+	
+				<h2 > Les bases orientées graphes</h2> 
+				<p>	Neo4j (écrite en java mais non scalable horizontalement) est une base orientée graphes, complètement compatible avec les transactions ACID, mieux adapté dans la gestion des réseau sociaux, les catégories de produits, le trading sémantique et la détection de fraudes dans le monde financier, etc...</p>
+				Ces bases de type graphe implémentent un certain nombre de d'algoritmes de la théorie des graphes tels que la recherche du plus court chemin ( A*)
+				<br>
+				<center><img alt="" src="./applications/Big_data/hadoop/image/BDD_graphe.png" style="border:none;width:50%"></center><br><br>
+
+
+				<h2 > Base clé/Valeur – ECV</h2> 
+					<p> Format le plus simple. Seules opérations possibles de type CRUD : Create(key,value) / Read(key) / update(key,value) / Delete (key,value) </p>
+
+<center><img alt="" src="./applications/Big_data/hadoop/image/BDD_cle-valeur.png" style="border:none;width:50%"></center><br><br>
+
+					<strong>Exemple avec Riak</strong>
+					<pre>
+<span style="color:#12EA4B;">/*** Exemple avec un interfaçage Java: ***/</span>
+<span class="comment">// Connexion à Riak </span>
+RiakClient riak = new RiakClient('http://localhost/8098/riak');
+<span class="comment">// Ecriture d'un objet</span>
+RiakObject obj = new RiakObject("bucket","key","value");
+riak.store(obj);
+<span class="comment">//Lecture de l'objet </span>
+FecthResponse r = riak.fetch("bucket","key");
+if (r.hasObject()){
+	obj = r.getObject();
+	//Affichage de l'objet
+	System.out.println("Bucket : " + obj.getBucket()+",Clé :"+obj.getKey()+",Valeur : "+obj.getValue())
+}</pre> 
+
+
+<pre><span style="color:#12EA4B;">/*** Exemple d'organisation logiques clés / valeurs sous forme de buckets ***/</span>
+<span class="comment"> // Définition d'un coef de réplication N=5 pour le bucket</span>
+RiakBucketInfo bucketInfo = new RiakBucketInfo();
+RiakBucketInfo.setNVal(5);
+riak.setBucketShema("bucket",bucketInfo);
+<span class="comment"> // Ecriture d'un objet en spécifiant le quorum en écriture W=3</span>
+riak.store(obj,RequestMeta.writePamrams(3));
+<span class="comment"> // Lecture d'un objet en spécifiant le quorum en lecture R=2</span>
+Riak.fecth("bucket",RequestMeta.readParams(2));
+</pre>
+Exemple de base de données Base clé/Valeur : Riak et Voldemort.
+					<br>
+				<h2 > Base orientée document</h2> 
+					Les bases de données orientées document sont semblables aux ECV (base Clé/Valeur), mais avec des valeurs qui sont semi-structurées (format JSON, XML), appelées documents
+
+					Les bases orientées document offrent des fonctionnalités avancées, comme la sélection et la modification de la valeur d'un champ à l'intérieur d'un document, le requêtage et l'indexation de certains champs, ce qui réduit les développements niveau client.<br>
+Ce modèle est très utilisé dans le développement des <strong> applications web </strong> ou on cherche avant tout à répondre à des problématiques de performance en temps réel en lecture et écriture versionnée tout en garantisant une saclabilité horizontale.<br>
+<br> Exemple de base de données orientée colonnes : MongoDB, CouchDB, RavenDB...<br>
+<center><img alt="" src="./applications/Big_data/hadoop/image/BDD_Document.png" style="border:none;width:50%"></center><br><br>
+
+<strong>Exemple avec MongoDB</strong>
+<pre>
+Mongo mongo = new Mongo();
+<span class="comment"> // Création de la base de données</span>
+DB db = mongo.getDB("database");
+
+<span class="comment"> // création de la collection dans laquelle seront stockées les personnes</span>
+DBCollection persons = db.getCollection("persons");
+
+<span class="comment"> // Mise en forme des données </span>
+BasicObject person1 = new BasicDBObject();
+person1.put("Prenom","Jean");
+person1.put("Nom","Dupond");
+
+Map<String, String> hobbies = new HasMap<String, String>();
+hobbies.put("Sport","Running");
+hobbies.put("Sport","Running");
+hobbies.put("Sport","Running");
+
+person1.put("Hobbies",new BasicDBObject(hobbies));
+
+<span class="comment"> // Ecriture des données </span>
+persons.insert(person1);
+
+
+<span class="comment"> // Recherche de données avec une requête utilisant un BasicObject </span>
+BasicObject query = new BasicObject();
+query.put("Prenom","Jean");
+DBCursor cursor = persons.find("query");
+
+<span class="comment"> // Lecture des résultats </span> 
+
+while(cursor.hasnext()){
+	System.out.println(cursor.next());
+}</pre>
+
+
+					<br>
+
+				<h2 > Base orientée colonnes</h2> 
+				Mode de représentation à l'opposé de l'orientation ligne exploité pas les SGBDR. Base de données Dé-normalisée. Inconvénient : la mise a jours couteuse (nécessite de mettre a jours toutes les données de la colonne).<br>Prévues pour le stockage de millions de colonnes. <br> Exemple de base de données orientée colonnes : Cassandra et HBase.<br>
+				<center><img alt="" src="./applications/Big_data/hadoop/image/BDD_Oriente_Colonne.png" style="border:none;width:50%"></center><br><br>
+				<strong>Exemple avec HBase</strong>
+					<pre>
+HbaseConfiguration conf = new HbaseConfiguration(); 
+<span class="comment">// Chargement de la configuration Hbase où sont définies les familles de colonnes (Identité et Divers) </span>
+conf.addRessources(new Path("../hbase-conf.xml"));
+HTable table = new HTable(conf,"persons");
+<span class="comment">// Création des lignes à insérer </span>
+BatchUpdate person1 = new BatchUpdate('persons');
+person1.put("Identite:Prenom", Bytes.toBytes("Jean"));
+person1.put("Identite:Nom", Bytes.toBytes("Dupond"));
+
+BatchUpdate person1 = new BatchUpdate('persons');
+person2.put("Identite:Prenom", Bytes.toBytes("Marc"));
+person2.put("Identite:Nom", Bytes.toBytes("Dupont"));
+person2.put("Divers:Metier", "Employé"));
+
+<span class="comment">//Ecriture </span>
+table.commit(person1);
+table.commit(person2);
+
+<span class="comment">//Sélection de valeur spécifique  </span>
+Cell cell table.get("person1","Identite:Prenom");
+if (cell != null){
+	System.out.println("Prénom : " + Bytes.toString(cell.getValues()));
+}
+
+<span class="comment">//Sélection de plusieurs lignes pour une colonne donnée  </span>
+Scanner scanner = table.getScanner(new String[] {"Identite:Prenom"});
+
+for(RowResult result : scanner){
+	System.out.println("Ligne : " + Bytes.toString(result.getRow()) + " avec prénom : "
+						 + result.get(Bytes.toBytes("identite:Prenom")));
+}
+}
+
+Cell cell table.get("person1","Identite:Prenom");
+if (cell != null){
+	System.out.println("Prénom : " + Bytes.toString(cell.getValues()));
+}
+
+<span class="comment">//Fermeture du scanner et de la table </span>
+scanner.close();
+table.close();
+</pre>
+					<br>
+		</div>
+
+
+
+
+</div>

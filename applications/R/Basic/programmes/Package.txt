@@ -1,0 +1,13 @@
+/*** Import de package ***/
+install.packages('gplots', repos='http://cran.us.r-project.org')
+library(gplots)
+
+/*** Chemin work ***/
+setwd('/home/jegoux/projetR')
+
+/*** Affiche le chemin work ***/
+getwd()
+
+/*** Si le package n'existe pas alors on le télécharge ***/
+if (!require(package)) install.packages('package')
+library(package)

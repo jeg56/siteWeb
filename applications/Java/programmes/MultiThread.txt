@@ -1,0 +1,53 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import java.util.concurrent.TimeUnit;
+
+public class monAppli {
+    public static void main(String[] args) {
+        System.setProperty("webdriver.gecko.driver",".../geckodriver-v0.15.0-linux64/geckodriver");
+        
+         String[] data = new String[2];
+         data[0]="jegouxa";
+         data[1]="password";
+
+         ExecThread t1 = new ExecThread(data);
+         ExecThread t2 = new ExecThread(data);
+            
+         t1.start();
+         t2.start();
+    }
+}
+
+class ExecThread extends Thread{
+    private String[] data;
+    public ExecThread(String[] data){
+        this.data=data;
+    }
+    
+    public void run(){
+         WebDriver driver = new ChromeDriver();
+         driver.get("http://localhost/monAppli.html");
+             //driver.manage().window().setSize(new Dimension(1800, 1000));
+            try {             
+                 //Connexion -
+                 driver.findElement(By.id("username")).sendKeys(this.data[0]);
+                 driver.findElement(By.id("password")).sendKeys(data[1]);
+                 driver.findElement(By.xpath("/html/body/div/div/div/div[1]/form/div[3]/button")).click();
+                 
+                /**********************/
+                /*** action a mener ***/
+                /**********************/
+
+                driver.close();
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }    
+    }
+}

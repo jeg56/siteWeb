@@ -1,0 +1,24 @@
+/*** Html appelant une functionJS ***/
+<button onclick="maFonction(infosHTML)">Click me</button>
+
+
+/*** JS appelant la page PHP ***/
+function maFonction(varHTML){
+	request = $.ajax({
+	    url: "./php/page php.php",
+	    type: "post",
+	    data: { infosJS: varHTML }
+	});
+
+	request.done(function (response, textStatus){
+	  console.log(response)
+	  })
+}
+
+/*** PHP récupérant les données de JS***/
+
+<?php
+	// code PHP
+	// infosPHP prend la valeur infosJS
+	$infosPHP = isset($_POST['infosJS']) ? $_POST['infosJS'] : 'null
+?>

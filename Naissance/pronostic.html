@@ -1,0 +1,284 @@
+
+    <link rel="stylesheet" type="text/css" href="./easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="./easyui/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="./easyui/demo/demo.css">
+    <script type="text/javascript" src="./easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="./easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="./php/fonction.js"></script>
+<style>
+.tooltip {
+    position: relative;
+    display: inline-block;
+  /* border-bottom: 1px dotted black; */
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 150px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+     border-style: none;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+</style>
+
+
+<div id='page_pronos' style='margin: 0px 65px;'>
+
+  <span class='titre_page'>Pronos<span>
+<div>
+<img alt="" src="./global/images/barre_bleue.png" style="border:none;"> 
+</div>
+
+
+<br>
+<fieldset><legend align="left">Compte à rebours</legend>
+<center>
+<span style="display: block;"> Naissance théoriquement prévue le : <span id="date"></span> </span>soit dans <span id="jours" ></span> jours <span id="heure"></span> heures et <span id="minute"></span> min 
+<span id="seconde"></span> s
+</center>
+</fieldset>
+
+
+
+
+<br><br>
+<fieldset><legend align="left">A vos pronos</legend>
+
+<div class="texte">
+<span style="color: black"> La fermeture de ces pronostics aura lieu dans un mois, le 6 juillet 2018 !</span>
+    <center>
+
+<br><br>
+<table>
+    <tr ><td width="150px" >Votre pseudo :  <span id ="asterix1" class="tooltip"> * <span class="tooltiptext">Nom d'emprunt</span> </span></td> <td>  <input id='pseudo' type="text" style="color:black;"></td>  </tr>
+    <tr><td width="150px">Votre adresse mail : <span id ="asterix2" class="tooltip"> * <span class="tooltiptext">Une seule adresse mail sera prise en compte sinon ca actualisera vos précédents pronos</span> </span></td> <td>  <input id='email' type="text" style="color:black;"></td> </tr>
+    <tr> <td width="150px">Votre prono sur la date naissance : </td> <td><input id='dateNaissanceSelect' type="text" style="color:black;"> </td> </tr>
+    <tr> <td style="padding:1px 15%" colspan="2"><div id="dateNaissance" class="easyui-calendar" style="width:250px;height:250px;" data-options="formatter:formatDay"></div></td> </tr>
+</table> <table>
+    <tr> <td width="180px"> Sexe : </td><td>      <select  id='sexe' name="menu_destination">
+          <option disabled selected >Un garçon ou une fille ??</option>
+          <option value="Garcon">Un garçon !</option>
+          <option value="Fille">Une fille !</option>
+     </select> </td> 
+    </tr>
+
+    <tr> <td width="180px"> Une petite idée du prénom ? </td> <td>  <input id='prenom' type="text" style="color:black;"></td></tr>
+    <tr> <td  colspan="2" align="center">  <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-save'" onclick="saveGame(document.getElementById('email').value ,  document.getElementById('pseudo').value,
+      document.getElementById('dateNaissanceSelect').value  ,   document.getElementById('sexe').options[document.getElementById('sexe').selectedIndex].text ,document.getElementById('prenom').value )">Enregistrer</a></td></tr>
+</table>
+
+
+
+<br><br>
+
+
+
+
+
+  </center>
+
+
+
+  <br><br>
+
+  
+</fieldset>
+<div id="dlg" class="easyui-dialog" title="Prise en compte de vos pronos :"  data-options="closed:true" style="position:relative;width:400px;overflow:auto;padding: 10px">
+        Votre prono a bien été pris en compte !<br>
+Un mail vous a été envoyé pour rappel avec vos choix ci dessous : <br>
+
+<ul style="list-style-type:circle">
+  <li> <span id='valNais'></span> </li> 
+  <li><span id='valSex'></span></li>
+  <li><span id='valPrenom'></span></li>
+</ul> 
+
+         Merci <span id='valPseudo'></span> pour votre participation!!! <br><br>
+
+  <center>   <button onclick="$('#dlg').dialog('close');changeAsterix('inline-block')" > Fermer</button>  </center>  
+    </div>
+<br><br>
+
+<fieldset><legend align="left">Liste des lots</legend>
+
+<div class="texte" style="color:black">
+    Comme tous bons jeux, il y a de beaux cadeaux ! <br>
+
+    <h2>Pour les tops :  </h2>
+    <center>
+    <table class="tableau">
+        <thead> 
+            <tr> 
+                <th class="cellule " style=""> <h3>Catégories  </h3> </th>
+                <th class="cellule "> <h3>Enjeux </h3> </th>
+            </tr>
+        </thead> 
+            <tr> 
+                <td class="cellule "> La date de naissance la plus proche</td>
+                <td class="cellule "> Une bouteille de champagne </td>
+            </tr>
+            <tr> 
+                <td class="cellule ">Le bon prénom <span id ="asterix3" class="tooltip"> * <span class="tooltiptext">Si le prénom n'est pas trouvé, un tirage au sort parmi ceux qui ont le bon sexe aura lieu !</span> </span> </td>
+                <td class="cellule "> Un bon resto </td>
+            </tr>
+    </table>
+</center>
+    <br><br>
+    <h2>Pour les flops :  </h2>
+<center>
+    <table class="tableau">
+        <thead> 
+            <tr> 
+                <th class="cellule "> <h3 >Catégories  </h3> </th>
+                <th class="cellule "> <h3> Défis </h3> </th>
+            </tr>
+        </thead> 
+            <tr> 
+                <td class="cellule ">La date de naissance la plus éloignée </td>
+                <td class="cellule "> Une soirée baby-sitting pendant que l'on profitera d'un bon resto !</td>
+            </tr>
+            <tr> 
+                <td class="cellule ">Le mauvais sexe </td>
+                    <td class="cellule "> Une couche à changer durant sa première année ;-) </td>
+                </tr>
+    </table>
+</center>
+</div>
+
+</fieldset>
+
+
+
+
+</div>
+     
+
+
+    <script>
+
+        function formatDay(date){
+            var m = date.getMonth()+1;
+            var d = date.getDate();
+            var opts = $(this).calendar('options');
+            if (opts.month == 9 && d == 6){
+                return '<div class="icon-ok md">' + d + '</div>';
+            }
+            return d;
+        }
+        $('#dateNaissance').calendar({firstDay:1,
+    validator: function(date){
+        var now = new Date();
+        var datefin = new Date(2018,10,1);
+        return date>=now && date<=datefin;
+    }
+
+
+
+        })
+
+$('#dateNaissance').calendar({
+    onSelect: function(date){
+        if (date.getMonth()+1<10){
+             mois="0" + (date.getMonth()+1)
+        }else{
+             mois=(date.getMonth()+1)
+        }
+
+
+        if (date.getDate()<10){
+             jour = "0" + date.getDate();
+        }else{
+            jour = date.getDate();
+        }
+        
+        document.getElementById('dateNaissanceSelect').value =jour +"/" + mois+ "/" +date.getFullYear();
+
+    }
+});
+
+    </script>
+    <style scoped="scoped">
+        .md{
+            height:16px;
+            line-height:16px;
+            background-position:2px center;
+            text-align:right;
+            font-weight:bold;
+            padding:0 2px;
+            color:red;
+        }
+    </style>
+
+
+
+
+
+
+</div> <!--Fin de la page pronos -->
+
+
+<SCRIPT LANGUAGE="JavaScript">
+
+
+function Rebour() {
+    now = new Date().getTime();
+    futur = new Date(2018, 8, 06);
+    dinaHeure = Math.floor((futur - now) / 1000);
+
+
+
+    if (dinaHeure > 0) {
+        month = futur.getMonth();
+        if (month<10){month='0'+month}
+        day =  futur.getDate();
+        if (day<10){day='0'+day}
+        year = futur.getFullYear();
+
+        var jours=parseInt(dinaHeure / 3600/24);
+        var heure = parseInt((dinaHeure - (jours*3600*24))/3600 );
+        var minute = parseInt((dinaHeure - jours*3600*24 - heure*3600)  / 60);
+        var seconde = dinaHeure - jours*3600*24 - heure*3600-minute*60;
+        document.getElementById("date").innerHTML = day+'/'+month+'/'+year;
+        document.getElementById("jours").innerHTML = jours;
+        document.getElementById("heure").innerHTML = heure;
+        document.getElementById("minute").innerHTML = minute;
+        document.getElementById("seconde").innerHTML = seconde;
+ 
+        temporebour = setTimeout("Rebour()", 1000)
+    }else{
+        clearTimeout(temporebour);
+    }
+     document.getElementById('dateNaissance').style.height='220px'
+}
+
+
+window.onload=Rebour();
+
+
+
+</SCRIPT>

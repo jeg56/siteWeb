@@ -1,0 +1,4 @@
+TableauContigence=matrix(c(442,514,38,6),nrow=2,byrow=TRUE)
+colnames(TableauContigence)=c("homme","femme")
+rownames(TableauContigence)=c("voyant","aveugle")
+chisq.test(TableauContigence,correct=FALSE) 

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Leaflet Web Map</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link rel="stylesheet" href="./leaflet/leaflet.css" />
+<script src="./leaflet/leaflet.js"></script>
+
+<script type="text/javascript" src="./../../../global/js/jquery-2.1.3.js"></script>
+<script type="text/javascript" src="./../../../global/js/jquery.msgBox.js"></script>
+<link rel="stylesheet" href="./../../../global/css/msgBoxLight.css">
+
+<style>
+#map {
+    width: 960px;
+    height:500px;
+}
+</style>
+
+</head>
+
+
+
+<script>
+	function geolocalisation(){
+
+		var options = {
+		      enableHighAccuracy: true,
+		      timeout: 2000,
+		      maximumAge: Infinity
+		    };
+
+			    if (navigator.geolocation) {
+				          navigator.geolocation.getCurrentPosition(function(position) {
+							var lat=position.coords.latitude;
+							var long=position.coords.longitude;
+						    var map = L.map('map',{
+						    center: [lat, long],
+						    zoom: 15
+						    });
+
+							var circle = L.circle([lat, long], {
+							    color: 'blue',
+							    fillColor: 'red',
+							    fillOpacity: 0.02,
+							    radius: 500
+							}).addTo(map);
+
+						    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+						    	attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+						    }).addTo(map);
+
+
+							
+						    var marker = L.marker([lat, long], 400,{color:'blue',opacity:.01,fillColor: 'red',fillOpacity:.01});
+							marker.bindTooltip("Je vous ai trouv&eacute; ! ;-)", {permanent: true, className: "my-label", offset: [0, 0] });
+							marker.addTo(map);
+
+							document.getElementById('id_openstreetmap_msg').innerHTML='/!\\ ces informations envoyées par votre fournisseur de service sont des estimations de votre localisation.<br>La précision varie beaucoup d’un endroit à un autre. Dans certains endroits, nos fournisseurs de service peuvent être capables de fournir une localisation à quelques mètres près. Cependant, dans d’autres zones, cela pourrait être beaucoup plus que ça. Toutes les localisations fournies par nos fournisseurs de service ne sont que des estimations.<br>A Utiliser toujours avec bon sens... ';
+
+				          	
+							request = $.ajax({
+							            url: "./applications/Connexion/php/majLocalisation.php",
+							            type: "post",
+							            data: { id: id_value,
+							                    latitude: position.coords.latitude, 
+							                    longitude: position.coords.longitude
+							                }
+							 });
+				               
+
+				                // on recupere un retour
+				                request.done(function (response, textStatus){
+				                   })
+				                   
+				          }, function(error) {
+				        
+				             switch(error.code){
+				                    case error.PERMISSION_DENIED:
+				                     /*L''utilisateur n''a pas autorisé l''accès à sa position */
+
+									document.getElementById('id_openstreetmap_msg').innerHTML="/!\\ Vous n''avez pas autorisé l''accès à la géolocalisation ... ca risque pas de fonctionner";
+				                        break;          
+				                    case error.POSITION_UNAVAILABLE:
+				                    /* L''emplacement de l''utilisateur n''a pas pu être déterminé */ 
+									document.getElementById('id_openstreetmap_msg').innerHTML="/!\\ Oups ... Votre navigateur n''as pas réussi a obtenir les informations liées à la géolocalisation. Il faudait retester avec une meilleur connexion..." ;
+
+				                        break;
+				                    case error.TIMEOUT:
+				                    /* Le service n''a pas répondu à temps*/
+				                    document.getElementById('id_openstreetmap_msg').innerHTML="/!\\ Oups ... Votre navigateur n''as pas réussi a obtenir les informations liées à la géolocalisation. Il faudait retester avec une meilleur connexion...";
+				                        break;
+				                       
+				                    } 
+				          },options);
+				    } else {
+				          // Browser doesn't support Geolocation
+				    }
+
+			}
+
+    $(window).on('load', function () {
+     	geolocalisation();
+	});
+</script>
+<body>
+	<div id="id_openstreetmap_msg"> </div>
+
+    <div id="map"></div>
+</body>
+
+</html>

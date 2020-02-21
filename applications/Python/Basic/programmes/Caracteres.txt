@@ -1,0 +1,10 @@
+ /*** Découpage d'une chaine ***/
+ chaine[indice_debut:indice_fin]
+
+maChaine = "salut"
+maChaine[-1] # Dernière lettre de la chaîne
+maChaine[0] # Première lettre de la chaîne
+maChaine[2:] # De la troisième lettre (comprise) à la fin
+maChaine[:2] # Du début jusqu'à la troisième lettre non comprise
+maChaine[2:len(maChaine)] # On sélectionne la chaîne sauf les deux premières lettres
+maChaine[0:2] # On sélectionne les deux premières lettres

@@ -1,0 +1,45 @@
+les relations se déclarent dans la class qui contient la clé étrangères
+
+/*** un à un (one to one) :  ***/
+#un objet A possède un objet B
+
+class Reservation(models.Model):
+    ...
+    id_ref_produit = models.OneToOneField(Ref_Produit)
+
+/*** plusieurs à un (many to one) : ***/
+#un objet A possède plusieurs objets B et ce dernier n'appartient qu'à l'objet A
+
+class Reservation(models.Model):
+    ...
+    id_fournisseur = models.ForeignKey(Table_Fournisseur, on_delete=models.CASCADE) # supprime les réservations faites  si ce dernier est supprimé mais pas l'inverse ne supprime pas les fournisseurs.
+
+
+/*** plusieurs à plusieurs (many to many) : ***/
+#un objet A possède plusieurs objets B et un objet B appartient à plusieurs objets A
+
+class produit(models.Model):
+    ...
+     componsants= models.ManyToManyField(Table_Composant, related_name='produits', blank=True)
+
+
+
+
+sInstalle.objects.all().prefetch_related('producteur')
+
+
+producteurSel=producteur.objects.get(pk=1)
+listMarket=sInstalle.objects.filter(producteur=producteurSel)
+
+producteurSel=producteur.objects.all()
+listMarket=sInstalle.objects.filter(producteur=producteurSel)
+
+/*** les migrations  ***/
+python manage.py makemigrations mon_appli
+python manage.py migrate mon_appli
+python manage.py sqlmigrate
+
+python manage.py createsuperuser --username admin
+
+python manage.py migrate sessions
+

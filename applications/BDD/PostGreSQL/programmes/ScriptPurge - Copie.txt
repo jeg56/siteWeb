@@ -1,0 +1,18 @@
+/*** Suppression des users ***/
+drop role monAppli_dbo;
+drop role monAppli_user;
+drop role monAppli_lec;
+drop role monAppli_batch;
+drop role monAppli_supervision;
+
+/***  Suppression des objets database detenu par les roles ***/
+drop owned by role_monAppli_maj;
+drop owned by role_monAppli_lec;
+
+/*** Suppression des roles ***/
+drop role role_monAppli_maj;
+drop role role_monAppli_lec;
+
+/*** Suppression de la base ***/
+drop database maBase_monAppli
+

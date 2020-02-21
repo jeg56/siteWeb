@@ -1,0 +1,22 @@
+/*** Connexion a la base de données ***/
+# -*- coding: UTF8 -*-
+import sqlite3
+
+try:
+	connnexion = sqlite3.connect('Ma_base de données.db')
+	connnexion.text_factory = lambda x: unicode(x, "utf-8", "ignore")
+
+except:
+	print ('une erreur est survenue lors de la connection de la base')
+	exit(1)
+
+
+cursor = connnexion.cursor() 
+
+cursor.execute(""" SELECT VAR1, VAR2 FROM MA_TABLE""")
+rows = cursor.fetchall()
+for row in rows:
+	print('Ma variable 1' + row[0])
+	print('Ma variable 2' + row[1])
+
+connnexion.close()
