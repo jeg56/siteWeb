@@ -1,0 +1,891 @@
+
+ </!DOCTYPE html>
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+       <script src="./jquery.js"></script>
+        <script src="./jspdf.debug.js"></script>
+        <script src="./w3color.js"></script>
+        <script src="./Exemple.js"></script>
+<script>
+
+  var imgRF='data:image/png;base64,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'       ; 
+  
+  function cleanWordPaste( in_word_text ) {
+
+ var tmp = document.createElement("DIV");
+ tmp.innerHTML = in_word_text;
+ var newString = tmp.innerText;
+ newString  = newString.replace(/\n\n/g, "").replace(/<!--.*-->/g,"").replace(/<br .>/g,"").replace(/\n/g,'<br>');
+
+ return newString;
+}  
+function verifFormat(){
+    if(document.queryCommandState("bold")){      
+      $('#BtBold').addClass('buttonSelect')
+    }else{
+      $('#BtBold').removeClass('buttonSelect')
+    }
+    if(document.queryCommandState("italic")){      
+      $('#BtItalic').addClass('buttonSelect')
+    }else{
+      $('#BtItalic').removeClass('buttonSelect')
+    }
+
+    if(document.queryCommandState("underline")){      
+      $('#BtUnderline').addClass('buttonSelect')
+    }else{
+      $('#BtUnderline').removeClass('buttonSelect')
+    }
+
+    var focusedElement = document.activeElement;
+    try {
+       var selection = document.getElementById(focusedElement.id).querySelector('div taille').style.fontSize !== null;
+      if(selection){
+        $("#textPolice").val(document.getElementById(focusedElement.id).querySelector('div taille').style.fontSize.replace('px',''));
+      }
+    }
+    catch(err) {
+         $("#textPolice").val("14");
+    }
+
+    try {
+       var selection = document.getElementById(focusedElement.id).querySelector('div s').style.fontSize !== null;
+      if(selection){
+       $('#BtStrike').addClass('buttonSelect')
+      }
+    }
+    catch(err) {
+         $('#BtStrike').removeClass('buttonSelect')
+    }
+}
+
+function verifFinLigne(posDeb,posFin,initPos,txtWidth,hauteur){
+  if ((posDeb+txtWidth)>(posFin)){
+    hauteur+=5
+    posDeb=initPos
+  }else{
+    posDeb+=txtWidth
+  }
+  return [posDeb,hauteur];
+}
+
+function InsertMessageHtml(doc,hauteur,posDeb,str,posFin){
+
+  var posGras=-1;
+  var posItalic=-1;
+  var posUnderline=-1;
+  var posColor=-1;
+  var posImg=-1;
+  var posCenter=-1;
+  var posStrike=-1;
+
+  var initPos=posDeb;
+
+  var textCentre='';
+
+  var width = doc.internal.pageSize.width; 
+  var lMargin=15; //left margin in mm
+  var rMargin=15; //right margin in mm
+
+
+  var i=0;
+  var colorChoose='#000000';
+  var taille=[];
+  taille[0]=12;
+  x=0;
+
+  
+
+  while(str[i]) {
+    doc.setFontStyle('normal');
+   
+    /** Cas text en gras **/
+    if (str.substring(i, i+3)=='<b>'){
+      posGras=i
+      i=i+3
+      continue; 
+    }
+
+    if (str.substring(i, i+4)=='</b>'){ 
+      posGras=-1
+      i=i+4
+      continue; 
+    }
+
+    /** Cas text en italic **/
+    if (str.substring(i, i+3)=='<i>'){
+      posItalic=i
+      i=i+3
+      continue; 
+    }
+
+    if (str.substring(i, i+4)=='</i>'){
+      posItalic=-1
+      i=i+4
+      continue; 
+    }
+
+
+    /** Cas text en underline **/
+    if (str.substring(i, i+3)=='<u>'){
+      posUnderline=i
+      i=i+3
+      continue; 
+    }
+    if (str.substring(i, i+4)=='</u>'){
+      posUnderline=-1
+      i=i+4
+      continue; 
+    }
+
+    /** Cas text en strike **/
+    if (str.substring(i, i+3)=='<s>'){
+      posStrike=i
+      i=i+3
+      continue; 
+    }
+    if (str.substring(i, i+4)=='</s>'){
+      posStrike=-1
+      i=i+4
+      continue; 
+    }
+
+    /** Cas text en couleur **/
+    if (str.substring(i, i+13)=='<font color="'){
+      posColor=i
+      colorChoose=str.substring(i+13, i+20)
+      i=i+22
+      continue; 
+    }
+    if (str.substring(i, i+7)=='</font>'){
+      posColor=-1
+      colorChoose='#000000'
+      i=i+7
+      continue; 
+    }
+    /** Cas text en taille **/
+    if (str.substring(i, i+25)=='<taille style="font-size:'){
+      //taille.push(str.substring(i+25, i+27))
+      x++
+      taille[x]=str.substring(i+25, i+27)
+       
+      i=i+32
+      continue; 
+    }
+
+    if (str.substring(i, i+9)=='</taille>'){
+       x--    
+      i=i+9
+      continue; 
+    }
+
+    if (str.substring(i, i+4)=='<br>'){
+      hauteur+=5    
+      posDeb=initPos;
+      i=i+4
+      continue; 
+    }
+
+    /** Cas des images **/
+    if (str.substring(i, i+9)=='<img src='){
+      hauteur+=5    
+      posImg=i;
+      var image=''
+      i=i+10 
+      continue; 
+    }
+    
+    /** Cas text centrer **/
+    if (str.substring(i, i+8)=='<center>'){  
+      posCenter=i;
+      i=i+8
+      continue; 
+    }
+
+    if(posCenter!=-1){
+        textCentre+=str[i]
+     }
+
+
+    if (str.substring(i, i+9)=='</center>'){  
+      posCenter=-1;
+      i=i+9
+      continue; 
+    }
+
+
+    /***********************************************************************************************/
+    cObj = w3color(colorChoose); 
+    doc.setTextColor(cObj.red,cObj.green,cObj.blue);
+    doc.setFontSize(taille[x])
+
+    if(posStrike!=-1){
+        if (doc.getStringUnitWidth(str[i])*fontSize / doc.internal.scaleFactor){
+          largeur=doc.getStringUnitWidth(str[i])*fontSize / doc.internal.scaleFactor
+          doc.setDrawColor(cObj.red,cObj.green,cObj.blue);
+          hauteurBar=1
+          if (fontSize <10) { hauteurBar=0.5}
+            else if (fontSize <16) { hauteurBar=1.5}
+              else if (fontSize <20) { hauteurBar=2}
+                else if (fontSize <36) { hauteurBar=2.5}
+                  else{hauteurBar=3}
+
+            doc.line(posDeb-largeur,hauteur-hauteurBar,posDeb+largeur,hauteur-hauteurBar)
+        }
+
+    }
+
+
+
+    if(posCenter==-1 && textCentre!=''){
+      var txtWidth = doc.getStringUnitWidth(textCentre)*fontSize / doc.internal.scaleFactor;
+      posDeb+=txtWidth
+      posCenterDeb=(doc.internal.pageSize.width-txtWidth)/2;
+      for(var j=0;j<textCentre.length;j++){
+        doc.text(textCentre[j], posCenterDeb, 50, 0, 'center');
+        posCenterDeb+=doc.getStringUnitWidth(textCentre[j])*fontSize / doc.internal.scaleFactor;
+      }
+     }
+
+    if(posUnderline!=-1){
+        if (doc.getStringUnitWidth(str[i])*fontSize / doc.internal.scaleFactor){
+              doc.setDrawColor(cObj.red,cObj.green,cObj.blue);
+              largeur=doc.getStringUnitWidth(str[i])*fontSize / doc.internal.scaleFactor
+              doc.line(posDeb-largeur,hauteur+1,posDeb+largeur,hauteur+1);
+        }
+         
+    }
+
+
+    if(posImg!=-1){
+      if(str.substring(i, i+2)=='">'){
+          posImg=-1
+          var img = new Image();
+          img.src=image
+          doc.addImage(image, 'JPEG', posDeb, hauteur, img.width/3, img.height/3) 
+          hauteur+=50  
+          i=i+2
+          continue; 
+      }else{
+        image+=str[i]
+      }
+
+    }else if(posGras!=-1 && posItalic==-1){
+                  doc.setFontStyle('bold');
+                  var fontSize = doc.internal.getFontSize();
+                  var txtWidth = doc.getStringUnitWidth(str[i])*fontSize / doc.internal.scaleFactor;
+                  doc.text(posDeb, hauteur,str[i])
+
+                  var newVal=verifFinLigne(posDeb,posFin,initPos,txtWidth,hauteur);
+                  posDeb=newVal[0];
+                  hauteur=newVal[1]; 
+
+    } else if (posGras==-1 && posItalic!=-1) {
+                  doc.setFontStyle('italic');
+                  var fontSize = doc.internal.getFontSize();
+                  var txtWidth = doc.getStringUnitWidth(str[i])*fontSize / doc.internal.scaleFactor;
+                  doc.text(posDeb, hauteur,str[i])
+
+                  var newVal=verifFinLigne(posDeb,posFin,initPos,txtWidth,hauteur);
+                  posDeb=newVal[0];
+                  hauteur=newVal[1]; 
+    
+
+    } else if (posGras!=-1 && posItalic!=-1) {
+                  doc.setFontStyle('bolditalic');
+                  var fontSize = doc.internal.getFontSize();
+                  var txtWidth = doc.getStringUnitWidth(str[i])*fontSize / doc.internal.scaleFactor;
+                  doc.text(posDeb, hauteur,str[i])
+                  var newVal=verifFinLigne(posDeb,posFin,initPos,txtWidth,hauteur);
+                  posDeb=newVal[0];
+                  hauteur=newVal[1];  
+
+    }else{
+
+
+        doc.setFontStyle('normal');
+        var fontSize = doc.internal.getFontSize();
+        var txtWidth = doc.getStringUnitWidth(str[i])*fontSize / doc.internal.scaleFactor;
+        doc.text(posDeb, hauteur,str[i])
+
+        var newVal=verifFinLigne(posDeb,posFin,initPos,txtWidth,hauteur);
+        posDeb=newVal[0];
+        hauteur=newVal[1];        
+    }
+
+    i++
+  }
+
+  doc.setFontSize(12)
+  doc.setFontStyle('normal');
+  doc.setTextColor(0,0,0);
+  return hauteur;
+}
+
+
+function InsertParagraphe(doc,paragraphe,hauteur,width,lMargin,rMargin) {
+  var lines =doc.splitTextToSize(paragraphe, (width-lMargin-rMargin-10));
+
+  if (lines.length==0){
+    doc.text(lMargin+10, hauteur, lines[0])
+  }else{
+    doc.text(lMargin+10, hauteur, lines[0])
+    var paragrapheSuite=paragraphe.replace(lines[0],"");
+    var linesSuite =doc.splitTextToSize(paragrapheSuite, (width-lMargin-rMargin));
+
+    for(var i=0;i<linesSuite.length;i++){
+   
+      if (linesSuite[i]!='') {
+        hauteur+=5
+      }
+      if (i==0) {
+        doc.text(lMargin, hauteur, linesSuite[i]) 
+      }else{
+        doc.text(lMargin, hauteur, linesSuite[i]) 
+      } 
+    }
+  }
+  return hauteur;
+}
+
+function InsertParagraphe_Justifie(doc,paragraphe,hauteur,width,lMargin,rMargin,colorEncadre) {
+  var lines =doc.splitTextToSize(paragraphe, (width-lMargin-rMargin));
+  var fontSize = doc.internal.getFontSize();
+  if (lines.length==0){
+        if(colorEncadre!='non'){
+            doc.setDrawColor(0);
+            doc.setFillColor(255,255,0);
+            doc.rect(lMargin, hauteur-4,  doc.getStringUnitWidth( lines[0] )*fontSize / doc.internal.scaleFactor, 6, 'F');
+        }
+    doc.text(lMargin, hauteur, lines[0].trim())
+
+
+  }else{
+        if(colorEncadre!='non'){
+            doc.setDrawColor(0);
+            doc.setFillColor(255,255,0);
+            doc.rect(lMargin, hauteur-4,  doc.getStringUnitWidth( lines[0] )*fontSize / doc.internal.scaleFactor, 6, 'F');
+        }
+    doc.text(lMargin, hauteur, lines[0].trim())
+    var paragrapheSuite=paragraphe.replace(lines[0],"");
+    var linesSuite =doc.splitTextToSize(paragrapheSuite, (width-lMargin-rMargin));
+
+    for(var i=0;i<linesSuite.length;i++){
+   
+      if (linesSuite[i]!='') {
+        hauteur+=5
+      }
+      if (i==0) {
+        if(colorEncadre!='non'){
+            doc.setDrawColor(0);
+            doc.setFillColor(255,255,0);
+            doc.rect(lMargin, hauteur-4,  doc.getStringUnitWidth( linesSuite[i] )*fontSize / doc.internal.scaleFactor, 6, 'F');
+        }
+        doc.text(lMargin, hauteur, linesSuite[i].trim()) 
+
+      }else{
+        if(colorEncadre!='non'){
+            doc.setDrawColor(0);
+            doc.setFillColor(255,255,0);
+            doc.rect(lMargin, hauteur-4,  doc.getStringUnitWidth( linesSuite[i] )*fontSize / doc.internal.scaleFactor, 6, 'F');
+        }
+        doc.text(lMargin, hauteur, linesSuite[i].trim()) 
+      } 
+    }
+  }
+  return hauteur;
+}
+
+
+
+String.prototype.trim = function() {
+  return this.replace(/^\s+|\s+$/g,"");
+}
+String.prototype.ltrim = function() {
+  return this.replace(/^\s+/,"");
+}
+String.prototype.rtrim = function() {
+  return this.replace(/\s+$/,"");
+}
+
+
+
+    $(window).on('load', function () {
+      $('#pdfdiv').bind("DOMSubtreeModified",function(){
+    });
+
+       MajPDF(1,'auto','non') 
+
+
+    $("#textPolice").val("14");
+    document.getElementById('InfoComplementairePage2').addEventListener('paste', handlePaste);
+    document.getElementById('PropalMotivation').addEventListener('paste', handlePaste);
+    document.getElementById('InfoComplementaire').addEventListener('paste', handlePaste);
+    document.getElementById('PropalRapporteur').addEventListener('paste', handlePaste);
+    document.getElementById('DOV').addEventListener('paste', handlePaste);
+    document.getElementById('FinancementHebergement').addEventListener('paste', handlePaste);
+    document.getElementById('Recours').addEventListener('paste', handlePaste);
+    document.getElementById('DossierPoste').addEventListener('paste', handlePaste);
+ 
+    document.getElementById('pdfdiv').onclick = function(e) {
+      verifFormat()
+    }   
+
+    
+});
+
+function handlePaste (e) {
+  var focusedElement = document.activeElement;
+    var clipboardData, pastedData;
+
+    // Stop data actually being pasted into div
+    e.stopPropagation();
+    e.preventDefault();
+
+    // Get pasted data via clipboard API
+    clipboardData = e.clipboardData || window.clipboardData;
+    pastedData = clipboardData.getData('Text');
+
+    // Do whatever with pasteddata
+    document.getElementById(focusedElement.id).innerHTML=cleanWordPaste(pastedData)
+}
+
+
+ function readURL(input){
+ var ext = input.files[0]['name'].substring(input.files[0]['name'].lastIndexOf('.') + 1).toLowerCase();
+if (input.files && input.files[0] && (ext == "gif" || ext == "png" || ext == "jpeg" || ext == "jpg")) 
+    var reader = new FileReader();
+    reader.onload = function (e) {
+
+    var x = document.createElement("IMG");
+
+    x.setAttribute("src", e.target.result);
+    document.getElementById("pdfdiv").appendChild(x);
+     
+    }
+
+    reader.readAsDataURL(input.files[0]);
+}
+
+function initElement(text){
+  if(document.getElementById('InfoComplementaire').innerHTML=='<i> /**** Indiquer ici vos remarques ****/ </i>') {
+    document.getElementById('InfoComplementaire').innerHTML=text
+  }else{
+      if(document.getElementById('InfoComplementaire').innerHTML.replace(/<br>/gi, "").replace(/&nbsp;/gi, "").trim()=='')  document.getElementById('InfoComplementaire').innerHTML='<i> /**** Indiquer ici vos remarques ****/ </i>'
+  }
+};
+
+function alimPDF(){
+    texte=''
+    var searchEles = document.getElementById("pdfdiv").children;
+   
+
+    console.log(texte)
+    var doc = new jsPDF('portrait','mm','a4');
+    var width = doc.internal.pageSize.width; 
+
+    var lMargin=15; //left margin in mm
+    var rMargin=15; //right margin in mm
+
+    doc.setFontStyle('normal');
+    str=document.getElementById("pdfdiv").innerHTML.replace(/&nbsp;/gi, " ")
+
+    InsertMessageHtml(doc,10,20,str)
+
+    var string = doc.output('datauristring');
+    document.getElementById('viewerPDF').src = string;
+
+    
+}
+
+
+
+function getSelectionHtml(debBalise,finBalise) {
+    var html = "";
+        var sel = window.getSelection();
+        if (sel.rangeCount==1) {
+            var container = document.createElement("div");
+            for (var i = 0, len = sel.rangeCount; i < len; ++i) {
+                container.appendChild(sel.getRangeAt(i).cloneContents());
+            }
+            html = container.innerHTML
+
+            var re = new RegExp(debBalise,"g");
+            html = container.innerHTML.replace(re, "");
+
+            var re = new RegExp(finBalise,"g");
+            html = html.replace(re, "");
+
+        }else{
+          alert("Une sélection à la fois mon champion!!!")
+        }
+    return html;
+}
+
+
+
+
+function replaceSelection(html, selectInserted) {
+    var sel, range, fragment;
+    if (typeof window.getSelection != "undefined") {
+        // IE 9 and other non-IE browsers
+        sel = window.getSelection();
+
+        // Test that the Selection object contains at least one Range
+        if (sel.getRangeAt && sel.rangeCount) {
+            // Get the first Range (only Firefox supports more than one)
+            range = window.getSelection().getRangeAt(0);
+             range.deleteContents();
+            if (range.createContextualFragment) {
+                fragment = range.createContextualFragment(html);     
+            } else {
+                // In IE 9 we need to use innerHTML of a temporary element
+                var div = document.createElement("div"), child;
+                div.innerHTML = html;
+                fragment = document.createDocumentFragment();
+
+                while ( (child = div.firstChild) ) {
+                    fragment.appendChild(child);
+                }
+            }
+
+            var firstInsertedNode = fragment.firstChild;
+            var lastInsertedNode = fragment.lastChild;
+            range.insertNode(fragment);
+            if (selectInserted) {
+                if (firstInsertedNode) {
+                    range.setStartBefore(firstInsertedNode);
+                    range.setEndAfter(lastInsertedNode);
+                }
+                sel.removeAllRanges();
+                sel.addRange(range);
+            }
+        }
+    } else if (document.selection && document.selection.type != "Control") {
+        // IE 8 and below
+        range = document.selection.createRange();
+        range.pasteHTML(html);
+    }
+}
+
+
+function SetBold() {
+  /** document.execCommand('bold'); **/
+  sel=getSelectionHtml('<b>','</b>')
+  if(sel!="") replaceSelection('<b>'+sel+'</b>',true)
+  verifFormat()
+}
+
+function SetUnderline() {
+  sel=getSelectionHtml('<u>','</u>')
+  replaceSelection('<u>'+sel+'</u>',true)
+  verifFormat()
+}
+
+function SetItalic() {
+  sel=getSelectionHtml('<i>','</i>')
+  replaceSelection('<i>'+sel+'</i>',true)
+  verifFormat()
+}
+
+function SetStrick() {
+  sel=getSelectionHtml('<s>','</s>')
+  replaceSelection('<s>'+sel+'</s>',true)
+  verifFormat()
+}
+
+function clickColor(){
+ color=document.getElementById('html5colorpicker').value
+  sel=getSelectionHtml('<font color="(.*?)">','</font>')
+  replaceSelection('<font color="'+color+'">'+sel+'</font>',true)
+  verifFormat()
+}
+
+function clickPolice(){
+    selectPolice=document.getElementById('textPolice').value
+    sel=getSelectionHtml('<taille style="font-size:(.*?)px;">','</taille>')
+    replaceSelection('<taille style="font-size:'+selectPolice+'px;">'+sel+'</taille>',true) 
+    verifFormat()
+}
+
+function SetImage(){
+    selectPolice=document.getElementById('textPolice').value
+    sel=getSelectionHtml('<taille style="font-size:(.*?)px;">','</taille>')
+    replaceSelection('<taille style="font-size:'+selectPolice+'px;">'+sel+'</taille>',true) 
+    verifFormat()
+}
+
+ function chooseFile() {
+    $("#fileInput").click();      
+ }
+
+function SetJustify(){
+  sel=getSelectionHtml('<taille style="font-size:(.*?)px;">','</taille>')
+  replaceSelection('<taille style="font-size:'+selectPolice+'px;">'+sel+'</taille>',true) 
+
+}
+
+function SetLeft(){
+  sel=getSelectionHtml('<taille style="font-size:(.*?)px;">','</taille>')
+  replaceSelection('<taille style="font-size:'+selectPolice+'px;">'+sel+'</taille>',true) 
+}
+
+function SetCenter(){
+  sel=getSelectionHtml('<centrer style="display: inline;text-align: center;color:red">','</centrer>')
+  replaceSelection('<centrer style="display: inline;text-align: center;color:red">'+sel+'</centrer>',true) 
+}
+
+function SetRight(){
+  sel=getSelectionHtml('<taille style="font-size:(.*?)px;">','</taille>')
+  replaceSelection('<taille style="font-size:'+selectPolice+'px;">'+sel+'</taille>',true) 
+
+}
+
+function SupprFormat(){
+ document.execCommand('selectAll',false,null)
+if(window.getSelection().toString().substring(0,20).trim()!=''){
+
+  replaceSelection(cleanWordPaste(window.getSelection()),true)
+  MajPDF(1,'auto','non')
+  verifFormat()
+  }else{
+  alert("Efface les formats dans les zones d'éditions ou le curseur est positionné" )
+  document.getElementById('dateDuJour').focus()
+  }
+}
+
+function Save(){
+    alert('Lettre PDF enregistrée dans la base de données');
+
+}
+
+
+function getWidthPDF (doc,Text){
+  return doc.getStringUnitWidth(Text)*doc.internal.getFontSize() / doc.internal.scaleFactor;
+}
+
+function ViewerPDF(){
+   $('#viewerPDF').toggle();
+
+}
+function PrintPDF(){
+MajPDF(1,'auto','oui')
+}
+
+ function toggle_visibility(id) {
+       var e = document.getElementById(id);
+       if(e.style.display == 'block'){
+          e.style.display = 'none';
+
+       }else{
+          e.style.display = 'block';
+       }
+   }
+ 
+function getSelected (e){
+  var focusedElement = document.activeElement;
+  alert(focusedElement.id+'-'+focusedElement.innerHTML)
+}
+function detectFocus (event){
+  alert(event.id)
+
+}
+
+
+    </script>
+    </head>
+<body id='body' style=" background-color: #e4e4e4;">
+
+
+
+
+
+
+  <div id='menuBar' class="borderedMenu">
+    <input id='BtBold' title='Pour mettre en gras' type="image" onclick='SetBold()'  src="./img/bold.svg" style="width:20px;">
+    <input id='BtUnderline' title='Pour souligner' type="image"onclick='SetUnderline()' src="./img/underline.svg" style="width:20px;">
+    <input id='BtItalic' title='Pour mettre en italic' type="image"onclick='SetItalic()' src="./img/italic.svg" style="width:20px;">
+    <input id='BtStrike' title='Pour rayer' type="image"onclick='SetStrick()' src="./img/strike.svg" style="width:20px;">
+    <input title='Pour supprimer le format' type="image"onclick='SupprFormat()' src="./img/deleteFormat.svg" style="width:20px;"> 
+    <input id="html5colorpicker" onchange="clickColor()" value="#000000"  type="color">
+    <select id='textPolice' onchange='clickPolice()' >
+      <option disabled > -- Taille de la police -- </option>
+      <option value="08">8</option>
+      <option value="09">9</option>
+      <option value="10">10</option>
+      <option value="12">12</option>
+      <option value="14">14</option>
+      <option value="16">16</option>
+      <option value="18">18</option>
+      <option value="20">20</option>
+      <option value="22">22</option>
+      <option value="24">24</option>
+      <option value="36">36</option>
+    </select>
+<!--<input type="image"onclick='chooseFile()' src="./img/image.svg" style="width:20px;">
+<input type="image"onclick='SetJustify()' src="./img/justify.svg" style="width:20px;">
+<input type="image"onclick='SetLeft()' src="./img/left.svg" style="width:20px;">
+<input type="image"onclick='SetCenter()' src="./img/center.svg" style="width:20px;">
+<input type="image"onclick='SetRight()' src="./img/right.svg" style="width:20px;"> -->
+    <input title='Pour actualiser le PDF' type="image"onclick='MajPDF(1,"auto","non")' src="./img/reload.svg" style="width:20px;">
+    <input title='Pour enregistrer le PDF' type="image"onclick='Save()' src="./img/save.svg" style="width:20px;">
+  <!--  <input title='Viewer PDF' type="image"onclick='ViewerPDF()' src="./img/PDF.svg" style="width:20px;"> -->
+    <input title='Print PDF' type="image"onclick='PrintPDF()' src="./img/print.svg" style="width:20px;">
+</div>
+
+<div id='box' style="display: flex;width: 108%;height: 110%">
+
+
+
+
+
+
+<div id="pdfdiv" class="bordered" contextmenu="mymenu"  >
+  <u><i>Page 1 </i> </u> <br>
+<span class="fixe noselect">Date du jours:</span><div id='dateDuJour' contenteditable="true" class="message">Nantes, le 20/12/2015</div>
+<br>
+<span class="fixe noselect">Adresse:</span><div id='adresse' contenteditable="true"  class="message" >Mr Jégoux Arnaud </div>
+<div id='adresse1' contenteditable="true"  class="message"  style="margin-left: 92px;margin-top: -2px;">21 rue de Nantes</div>
+<div id='adresse2' contenteditable="true"  class="message "   style="margin-left: 92px;margin-top: -2px;">44160 Pontchateau</div>
+<br>
+<span class="fixe noselect">Information Complémentaire:</span><div id='InfoComplementaire' contenteditable="true" onfocus="initElement(' ')" class="message2" ><i> /**** Indiquer ici vos remarques ****/ </i></div> 
+ <center>------------------------------------------------------------------------------------</center>
+ <u><i>Page 2 </i> </u><br>
+<span class="fixe noselect">Autres infos complémentaire :</span><div id='InfoComplementairePage2' contenteditable="true" class="message2">Et une page en paysage avec un tableau</div>
+
+ <center>------------------------------------------------------------------------------------</center>
+ <u><i>Page 3 </i> </u><br>
+<span class="fixe noselect">Dossier Poste:</span><div id='DossierPoste' contenteditable="true" class="message2" ></div><br>
+<span class="fixe noselect">Recours:</span><div id='Recours' contenteditable="true" class="message2"  ></div><br>
+<span class="fixe noselect">Financement et hébergement:</span><div id='FinancementHebergement' contenteditable="true" class="message2"  ></div><br>
+<span class="fixe noselect">DOV:</span><div id='DOV' contenteditable="true" class="message2"  ></div><br>
+
+<span class="fixe noselect">Proposition du rapporteur:</span><div id='PropalRapporteur' contenteditable="true" class="message2"  ></div><br>
+
+<span class="fixe noselect">Proposition de motivation:</span><div id='PropalMotivation' contenteditable="true" class="message2"  ></div><br>
+
+
+
+</div>
+
+
+
+
+
+  <div id="editor"></div>
+<iframe id='viewerPDF' style="width:100%;height:100%; flex-grow: 5; overflow-y: scroll;padding-right:10px" > </iframe>
+
+<div style="height:0px;overflow:hidden;" >
+   <input type="file" id="fileInput" name="fileInput" onChange="readURL(this);" accept="image/*"/>
+</div>
+
+</div>
+<menu type="context" id="mymenu">
+  <menuitem label="Actualiser PDF" onclick="MajPDF(1,'auto','non')" icon="./img/reload.svg"></menuitem>
+<menu>
+<menu type="context" id="mymenu">
+  <menuitem label="Enregistrer PDF" onclick="Save()" icon="./img/save.svg"></menuitem>
+<menu>
+  <menuitem label="Gras" onclick="SetBold()" icon="./img/bold.svg"></menuitem>
+  <menuitem label="Italic" onclick="SetItalic()" icon="./img/italic.svg"></menuitem>
+  <menuitem label="Souligner" onclick="SetUnderline()" icon="./img/underline.svg"></menuitem>
+  <menuitem label="Rayer" onclick="SetStrick()" icon="./img/strike.svg"></menuitem>
+</menu>
+<menu>
+  <menuitem label="Couleur" onclick="clickColor()" ></menuitem>
+  <menuitem label="Police" onclick="clickPolice()" ></menuitem>
+</menu>
+  <menuitem label="Envoyer un mail" icon="./img/email.svg" onclick="window.location='mailto:?body='+window.location.href;"></menuitem>
+</menu>
+
+</menu>
+ <menuitem label="Test selection" onclick="getSelected()"></menuitem>
+</menu>
+
+
+<style type="text/css">
+.buttonSelect{
+  background: rgb(184,224,254);
+   border-radius: 10px;
+}
+
+  .bordered {
+    width: 100%;
+    height: 100%;
+    padding: 2px 0px 20px 5px;
+    border: 1px solid black;
+    border-radius: 8px;
+    margin-left: 10px;
+    margin-top: 10px;
+    background-color: white;
+    white-space : pre-wrap;
+    overflow:auto; 
+  }
+
+.borderedMenu {
+    width: 50%;
+    height: 10px;
+    padding: 5px 0px 20px 5px;
+    border: 1px solid black;
+    border-radius: 8px;
+    margin-left: 10px;
+    margin-top: 10px;
+    background-color: white;
+  }
+
+.fixe {
+  font-weight: bold;
+  font-style: italic;
+  border-radius: 10px;
+  border: 2px solid #1e89f2;
+  background: #1e89f2;
+  color: #FFFFFF;
+  padding-left: 1%;
+  padding-right: 1%;
+  text-decoration: none;
+}
+
+.message {
+  -webkit-user-modify: read-write;
+  -moz-user-modify: read-write;
+  margin-left: 2%;
+  display: inline-flex;
+  min-width: 150px;
+  font-size: 16px;
+  padding: 6px 6px 6px 6px;
+  min-width: 250px;
+  border : 2px solid;
+  white-space: pre;
+}
+.message2 {
+    -webkit-user-modify: read-write;
+    -moz-user-modify: read-write;
+    margin-left: 10px;
+    font-size: 16px;
+    padding: 6px 6px 6px 6px;
+    min-height : 100px;
+    border : 2px solid;
+    white-space: pre-line;
+}
+
+
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+s{ 
+    text-decoration: line-through;
+}
+
+</style>
+
+
+</body>
+</html>

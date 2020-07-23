@@ -1,0 +1,5 @@
+/*** Si-alors-sinon ***/
+if toto==1:
+	print("toto=1")
+else:
+	print("toto<>1")

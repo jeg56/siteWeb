@@ -1,0 +1,36 @@
+.presentation {
+	margin: 0px 65px;
+
+}
+
+.presentation p{
+padding: 5px 0px 0px ;
+
+}
+
+.proverbe{
+	padding: 0px 40px 10px ;
+	font-style: italic;
+	font-weight: bold;
+}
+
+.retrait {
+	padding: 0px 40px 10px ;
+	cursor: pointer;
+}
+.retrait:hover {
+	padding: 0px 40px 10px ;
+	cursor: pointer;
+	color: red;
+}
+
+
+a.lien { 
+	color: blue; 
+	font-weight: bold;
+}
+a.lien:hover { 
+	color: green;
+	font-size: 16px;
+	cursor: pointer; 
+}

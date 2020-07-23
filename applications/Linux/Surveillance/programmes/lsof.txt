@@ -1,0 +1,5 @@
+/*** Fichier ouverts par l'utilisateur "toto" ***/
+lsof -u toto
+
+/*** Trouver la liste des fichiers ouverts par un processus ***/
+lsof -p PID

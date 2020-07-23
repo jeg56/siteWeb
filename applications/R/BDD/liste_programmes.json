@@ -1,0 +1,15 @@
+{
+	"programme": [
+	{
+		"titre": "Les bases de données",
+		"description": "Connexion",
+		"chemin": "./applications/R/BDD/programmes/BDD.txt"
+	},{
+		"titre": "Les DataFrames",
+		"description": "Gestion des dataframes",
+		"chemin": "./applications/R/BDD/programmes/DataFrame.txt"
+	}
+	]
+}
+
+

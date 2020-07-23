@@ -1,0 +1,9 @@
+/*** Pour supprimer tout les objets ***/
+rm(list=ls())
+
+/*** Pour déclarer l'objet de référence ***/
+attach(maTable)
+detach(maTable)
+
+/*** Pour mettre en facteur une variable ***/
+TabData$FINISHER <- factor(FINISHER)

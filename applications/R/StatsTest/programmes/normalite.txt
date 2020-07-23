@@ -1,0 +1,15 @@
+/*** Test de normalité ***/
+rm (list=ls())
+setwd("G:\\Projet_Perso\\04 - R")
+data = read.csv(".\\PMU.csv", header = TRUE,sep=";",fileEncoding = "UTF-8")
+summary(data)
+VerifNormaliteTpsCourse<-data[data$TYPE == "Trot Monté" & data$TEMPS >0  & data$DISTANCE==2850  ,c('TEMPS')]
+
+shapiro.test(VerifNormaliteTpsCourse)
+print("p-value = 6.229e-16 <0.05 => H0 est retenue")
+print("la variable ne suit pas une loi normale ")
+
+
+shapiro.test(rnorm(100,210,0.3))
+print("p-value = 0.5507 >0.05 => H0 est rejetée")
+print("La variable suit une loi normale ")

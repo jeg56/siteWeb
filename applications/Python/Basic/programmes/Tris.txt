@@ -1,0 +1,43 @@
+etudiants = [
+    Etudiant("Clément", 14, 16),
+    Etudiant("Charles", 12, 15),
+    Etudiant("Oriane", 14, 18),
+    Etudiant("Thomas", 11, 12),
+    Etudiant("Damien", 12, 15),
+]
+
+sorted(etudiants, key=lambda etudiant: etudiant.moyenne)
+sorted(etudiants, key=lambda etudiant: etudiant.moyenne)
+[
+    <Étudiant Thomas (âge=11, moyenne=12)>,
+    <Étudiant Charles (âge=12, moyenne=15)>,
+    <Étudiant Damien (âge=12, moyenne=15)>,
+    <Étudiant Clément (âge=14, moyenne=16)>,
+    <Étudiant Oriane (âge=14, moyenne=18)>
+]
+
+sorted(etudiants, key=lambda etudiant: etudiant.age, reverse=True)
+[
+    <Étudiant Clément (âge=14, moyenne=16)>,
+    <Étudiant Oriane (âge=14, moyenne=18)>,
+    <Étudiant Charles (âge=12, moyenne=15)>,
+    <Étudiant Damien (âge=12, moyenne=15)>,
+    <Étudiant Thomas (âge=11, moyenne=12)>
+]
+
+sorted(etudiants, key=lambda etudiant: etudiant[2])
+
+from operator import itemgetter
+sorted(etudiants, key=itemgetter(2))
+
+from operator import attrgetter
+sorted(etudiants, key=attrgetter("moyenne"))
+
+sorted(etudiants, key=attrgetter("age", "moyenne"))
+[
+    <Étudiant Thomas (âge=11, moyenne=12)>,
+    <Étudiant Charles (âge=12, moyenne=15)>,
+    <Étudiant Damien (âge=12, moyenne=15)>,
+    <Étudiant Clément (âge=14, moyenne=16)>,
+    <Étudiant Oriane (âge=14, moyenne=18)>
+]

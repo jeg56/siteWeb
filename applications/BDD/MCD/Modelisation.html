@@ -1,0 +1,200 @@
+<div id='page_BDD'  style='margin: 0px 65px;'>
+<span class='titre_page'> Construire une base de données</span>
+<br><br>
+Les SGBDR garantissent les transactions informatiques de manière fiable. Ces propriétés sont nommées ACID pour Atomicité, Cohérence, Isolation et Durabilité.<br>
+
+	<div id="titre">Terminologie du MCD
+			<div>
+				<img alt="" src="./global/images/barre_bleue.png" style="border:none;">	
+			</div>
+	</div>	
+	<center>
+		<div id="tableau_MCD">
+				<table class="tableau">
+					<thead> 
+						<tr> 
+							<th class="cellule "> <h3>Mots clés  </h3> </th>
+							<th class="cellule cellule_elargie"> <h3>Explication </h3> </th>
+							<th class="cellule cellule_elargie"> <h3>Exemple </h3> </th>
+						</tr>
+					</thead> 
+						<tr> 
+							<td class="cellule ">MCD </td>
+							<td class="cellule cellule_elargie">Modèle Conceptuel de données. Il s'agit donc d'une représentation des données, facilement compréhensible, permettant de décrire le système d'information à l'aide d'entités. </td>
+							<td class="cellule cellule_elargie"><center><img alt="" align="middle" src="./applications/BDD/MCD/Images/ExMCD.png" style="border:none;width: 95%"></center></td>
+						</tr>
+						<tr> 
+							<td class="cellule ">MDL </td>
+							<td class="cellule cellule_elargie">Modèle Logique de Données. La clé primaire est en soulignée </td>
+							<td class="cellule cellule_elargie"> RESIDENCE (<u>NUM_RES</u>, NOM_RES, ADRESSE_RES, CP_RES, VILLE_RES)</td>
+						</tr>
+						<tr> 
+							<td class="cellule ">L'entité</td>
+							<td class="cellule cellule_elargie">Ce sont des regroupements d'informations. Les informations contenues dans les entités que l'on appelle "attributs" doivent être des informations variables, mais communes à une même classe d'objets.</td>
+							<td class="cellule cellule_elargie"><center><img alt=""  src="./applications/BDD/MCD/Images/ExEntite.png" style="border:none;width: 50%"></center></td>
+						</tr>
+						<tr> 
+							<td class="cellule ">Les attributs </td>
+							<td class="cellule cellule_elargie"> Les attributs sont les caractéristiques décrivant les entités et doivent être représentés comme une liste de mots, la plus simple possible, dans le cadre de l'entité correspondante. On devra préciser le type des données attendues pour chaque attribut.Type d’attribut ( Date/Varchar /Boolean…)</td>
+							<td class="cellule cellule_elargie"> <center><img alt=""  src="./applications/BDD/MCD/Images/ExAttribut.png" style="border:none;width: 50%"></center></td>
+						</tr>						
+						<tr> 
+							<td class="cellule "> Les associations (ou relations)</td>
+							<td class="cellule cellule_elargie"> Les associations sont les liens logiques entre les entités </td>
+							<td class="cellule cellule_elargie"><center><img alt=""  src="./applications/BDD/MCD/Images/ExAssociations.png" style="border:none;width: 100%"> </td>
+						</tr>
+						<tr> 
+							<td class="cellule "> Les cardinalités</td>
+							<td class="cellule cellule_elargie"> Les cardinalités permettent de dénombrer les éléments de l'entité d'arrivée en relation avec un élément de l'entité de départ, et inversement </td>
+							<td class="cellule cellule_elargie"><center><img alt=""  src="./applications/BDD/MCD/Images/ExCardinalites.png" style="border:none;width: 100%"> </td>
+						</tr>	
+				</table>
+		</div>
+	</center>
+
+
+	<div id="titre">Normaliser une base de données
+			<div>
+				<img alt="" src="./global/images/barre_bleue.png" style="border:none;">	
+			</div>
+	</div>
+	 <div class="texte">
+	 		<br>
+	 		La normalisation correspond au processus d'organiser ses données afin de limiter les redondances en dividant une table en plusieurs et en les reliant par des clefs primaires et étrangères.<br>
+	 		L'objectif est d'isoler les données afin que l'ajout,l'effacement ou la modification d'un champ puisse se faire sur une seule table, et se propager au reste de la base par le biais des relations.<br>
+
+	 		Pour ce faire, la normalisation introduit en tout 8 formes normales. <br>
+	 		Ces règles sont essentiellement appliquées pour les modèles transactionnels exploités par une application de gestion par exemple.<br>En environnement transactionnel (cas d'une appli de gestion) on tendra a appliquer les les 8 formes normales c-dessous .<br>
+			
+
+			<h2 > Forme 1 </h2>Chaque table doit avoir une clef primaire. Il faut éliminer les colonnes en doublon. Chaque ligne doit contenir une seule valeur (unicité/atomicité de l'information).<br>
+
+			<h2 > Forme 2 </h2>Si une table dispose d'une clef, toutes les propriétés doivent en dépendre : les données que l'on retrouve dans plusieurs lignes doivent être sorties dans une table séparée. Un attribut non clé ne dépend pas d'une partie de la clé mais de toute la clé.Le non-respect de la 2FN entraîne une redondance des données qui encombrent alors inutilement la mémoire et l'espace disque.
+			<img alt=""  src="./applications/BDD/MCD/Images/Regle1.png" style="border:none;width: 95%"><br>
+			Il peut y avoir plusieurs auteurs pour un livre particulier.<br>
+
+			<h2 > Forme 3</h2> Les données d'une table ne dépendent que de la clef, et pas d'une autre colonne de la table : toute colonne dépend non seulement de la clef, mais également d'une autre colonne qui doit être sortie dans sa propre table.<br>
+			<img alt=""  src="./applications/BDD/MCD/Images/Regle2.png" style="border:none;width: 95%">
+			L'adresse dépend du nom de l'acteur mais pas du numéro du film<br>
+			Le non-respect entraîne de la redondance, une même donnée étant répétée un nombre considérable de fois.<br>
+
+			<h2 > Forme 4 :</h2> Pour les relations de dimension n-1, aucune propriété faisant partie de la clef d'une relation Forme 3, ne doit dépendre d'une propriété ne faisant pas partie de la clef primaire. Il faut donc créer une nouvelle table dont la clef primaire sera la propriété dont provient la relation.<br>
+
+			<img alt=""  src="./applications/BDD/MCD/Images/Regle3.png" style="border:none;width: 95%">
+			<img alt=""  src="" style="border:none;width: 95%">
+			<h2 > Forme 5 :</h2> Il ne doit y avoir qu'une et une seule dépendance multivaluée élémentaire.
+			<img alt=""  src="" style="border:none;width: 95%">
+			<h2 > Forme 9 : </h2> Toute dépendance de jointure est impliquée par des clefs candidates de la relation.<br>
+			<img alt=""  src="" style="border:none;width: 95%">
+			<h2 > Forme 7 : </h2> Il ne doit exister aucune contrainte sinon celles de domaine ou de clef.<br>
+			<img alt=""  src="" style="border:none;width: 95%">
+			<h2 > Forme 8 : </h2> La sixième forme demande à prendre en compte la dimension temporelle.<br>
+			<img alt=""  src="" style="border:none;width: 95%">
+
+			<div id="titre">Cas d'usage entre clé étrangère et table associative
+					<div>
+						<img alt="" src="./global/images/barre_bleue.png" style="border:none;">	
+					</div>
+			</div>
+			<br>
+
+			<h2 > Cardinalité 0,1 ou 1,1</h2>
+			 En cas de cardinalité 0,1 ou 1,1, l'entité qui a cette cardinalité devient une table qui accueille en clé étrangère la clé primaire de l'autre table entrant en jeu dans l'association.<br>
+
+			<u><b>Exemples :</b></u><br>
+			"Une adresse appartient au plus à une personne" donnera le MCD suivant :<br>
+			
+			<img alt=""  src="./applications/BDD/MCD/Images/ExCardinalité 01.png" style="border:none;width: 50%">
+			<br>
+			"Une adresse appartient à une et une seule personne " donnera le MCD suivant :<br>
+			
+			<img alt=""  src="./applications/BDD/MCD/Images/ExCardinalité 110N.png" style="border:none;width: 50%">
+			<br>
+			Dans les deux cas, nous aurons les tables :<br>
+			T_Personne_P(P_Id, P_Nom, P_Prénom...)<br>
+			T_Adresse_A(A_Id, A_IdPersonne, A_Rue...)<br>
+			<br>
+			Dans les deux cas, A_IdPersonne est la clé étrangère qui accueille une valeur de P_Id. La différence est que dans le premier cas (0,1), A_IdPersonne peut être NULL mais pas dans le second. Ceci implique dans le second cas que la personne doit être créée avant son adresse<br>
+			 
+			<h2 > Cardinalité 0,N ou 1,N </h2>
+
+			En cas de cardinalité 0,N ou 1,N de chaque côté de l'association, celle-ci devient une "table associative" dont la clé primaire est composée des clés primaires des N tables entrant en jeu dans l'association (il peut y en avoir plus de deux).<br>
+			<br>
+			<u><b>Exemples :</b></u><br>
+			"Une adresse peut ou pas appartenir à plusieurs personnes" donnera le MCD suivant :<br>
+		
+			<img alt=""  src="./applications/BDD/MCD/Images/ExCardinalité 0N0N.png" style="border:none;width: 50%">
+			<br>
+			"Une adresse appartient à 1 ou plusieurs personnes" donnera le MCD suivant :<br>
+			
+			<img alt=""  src="./applications/BDD/MCD/Images/ExCardinalité 1N0N.png" style="border:none;width: 50%">
+			<br>
+			Dans les deux cas, nous aurons les tables : <br>
+			T_Personne_P(P_Id, P_Nom, P_Prénom...)<br>
+			T_Adresse_A(A_Id, A_Rue...)<br>
+			TJ_AdressePersonne_AP(AP_IdAdresse, AP_IdPersonne, ...)<br>
+			<br>
+
+<b><i>Note :</i></b> En environnement décisionnel au niveau des DataMarts / DataWareHouses, on aura tendance à limiter la normalisation de la base de données afin de tendre vers un modèle en étoile <br>
+<u><i>Avantage : </i></u><br>
+- Performant en lecture pour des requêtes complexes en filtrant sur les tables de dimension (REF_)<br>
+- Sans accès concurrent <br>
+- Conseillé d'un point vue global pour les traitements analystiques dans les DataWareHouses / DataMarts / OLAP<br>
+
+<u><i>Inconvénient :</i></u><br>
+- Concurrence des écritures : mal généré à cause de la forte dé-normalisation (UPDATE sur plusieurs champs parfois liés les uns aux autres et peuvent même faire perdre la cohérence des données entre elles sur une meme ligne)<br>
+- UPDATE sur les champs indexés ralenti<br>
+- Ralentissement général en écriture lié aux contraintes très nombreuses de la table des faits.<br>
+- Requête analytiques peu performantes<br>
+- DELETE peu performants <br>
+- Déconseillé d'un point vue global pour les OLTP - Traitements en temps réel dans un système opérationnel 
+
+			
+			<div id="titre">Accès concurentiels : Gestion des locks 
+					<div>
+						<img alt="" src="./global/images/barre_bleue.png" style="border:none;">	
+					</div>
+			</div>
+			<br>
+			<h2>Lock pessimiste</h2>
+
+			Si un utilisateur charge des données en édition, on place un lock avec une date, son id ==> plus personne ne peut charger ces meme données en édition, sauf si le lock à expiré.<br>
+			<br>
+			Fonctionne bien à petite échelle, à plus grande echelle il faut mieux utiliser les transactions<br>
+			<br>
+
+			<u><i>Avantage : </i></u>une fois engagée, la mise à jour sera effectuée, durée transactionnelle moindre, volumétrie stable<br>
+			<u><i>Inconvénient : </i></u>blocage des écritures par les lectures<br><br>
+
+			<h2>Lock optimiste</h2>
+			Ce n'est pas de lock en fait...<br>
+
+			le principe est de travailler avec un champ permettant de numéroté les versions du tuple (ligne d'enregistrement) qui s'incrémenteront a chaque modification. Par exemple chargeons le tuple avec la dernière version, la version 2. Lorsque l'on souhera modifier le tuple on effectuera un "INSERT INTO ... VALUES (.....,version=3) afin d'enregistrer le chargement. Si au moment de cet insert, il se trouve que quelqu'un d'autre a fait la même chose avant nous le numéro de version aura été incrémenté. Notre insert plantera. Dans 90% des cas pas de problème. Dans les 10% des cas il faut traiter le problème ... <br>
+			<br>
+			<u><i>Avantage : </i></u>pas de blocage des écritures par les lectures
+			<u><i>Inconvénient : </i></u>perte possible de mise à jour, volumétrie accrue due à la génération des versions de ligne, augmentation de la durée des traitements du fait de la génération des copies pour les versions<br>
+
+
+			<b><i>Note :</i></b><br>
+			Sous ORACLE, il existe le  SELECT FOR UPDATE permettant de verrouiller un ensemble d'enregistrements avant même de les modifier dans notre programme.<br>
+			Personne d'autre ne sera en mesure de modifier l'un de ces enregistrements jusqu'à ce que l'on effectuera un ROLLBACK ou un COMMIT.<br>
+
+ 			Si rester bloqué lors d'un SELECT FOR UPDATE est désagréable, il existe une option NOWAIT que l'on peut ajouter à la fin de la requête SQL. Son effet sera de renvoyer immédiatement une erreur si le SELECT FOR UPDATE est bloqué par un autre.<br>
+
+			<div id="titre">Conseil sur l'organisation de la données sur le modèle physique
+					<div>
+						<img alt="" src="./global/images/barre_bleue.png" style="border:none;">	
+					</div>
+			</div>
+			<br>
+
+			Les tables types historiques ayant de fort nombre de données doivent être partitionée. <br>
+			Les tables possédant des objects complexes doivent être isolées dans la base de données dans des espaces pointant dans des  fileSystems dédiés
+
+
+
+
+	</div>
+
+</div> <!--Fin de la page MCD -->
+	

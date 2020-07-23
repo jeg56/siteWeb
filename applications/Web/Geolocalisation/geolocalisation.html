@@ -1,0 +1,234 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+<link rel="stylesheet" href="./global/css/style_text.css" type="text/css" media="all">
+<link rel="stylesheet" href="./applications/Web/Geolocalisation/leaflet/leaflet.css" />
+<script src="./applications/Web/Geolocalisation/leaflet/leaflet.js"></script>
+
+<div id="Carto">	
+		<div id="titre"> Géolocalisation
+				<div>
+					<img alt="" src="./global/images/barre_bleue.png" style="border:none;">	
+				</div>
+		 </div>
+		 <div class="texte">
+		 	<br>
+La géolocalisation est un procédé permettant de localiser géographiquement une position.<br>
+La géolocalisation présente deux grands intérêts :<br>
+- Customiser une publicité<br>
+- Comprendre des comportements à l'échelle locale<br><br>
+
+Cette page explique comment on peut récupérer ces informations et comment on peut les exploiter.<br>
+</div>
+		 <div class="texte">
+		 	<h2 > Leaflet.js openstreetmap</h2> 
+			<p>On importe la librairie <strong> leaflet.js </strong> & la mise en forme<strong> leaflet.css </strong> </p>
+
+<pre>
+&lt;link rel="stylesheet" href="./leaflet/leaflet.css"/&gt;  
+&lt;script src="./leaflet/leaflet.js"&gt; &lt;/script&gt;  </pre> 
+
+
+On test si le navigateur est compatible avec la géolocalisation
+<pre>if (navigator.geolocation) </pre>	
+
+Via une pop up, le navigateur demande à l'utilisateur s'il veut bien partager sa position
+<pre>navigator.geolocation.getCurrentPosition(function(position) </pre>
+
+Si l'utilisateur accepte de partager sa position,on récupère les coordonnées géographique
+<pre> var lat=position.coords.latitude;
+var long=position.coords.longitude;</pre>
+		
+On prépare la carte en centrant sur les coordonnées fournit par le navigateur
+<pre> var map = L.map('map',{ center: [lat, long],zoom: 15 });</pre>
+
+On trace un cercle
+<pre>var circle = L.circle([lat, long], {
+	color: 'blue',
+	fillColor: 'red',
+	fillOpacity: 0.02,
+	radius: 500
+}).addTo(map);</pre>
+
+On choisi le fond de carte / la couche 
+<pre>L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+				attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);</pre>
+<center>
+<img style="width: 50%;height: 50%"  src="./applications/Web/Geolocalisation/Image/CarteExample.PNG" alt="Carte exemple">		</center>
+</center>
+
+mais il y en a bien d'autres ! 
+<pre>var wmsLayer = L.tileLayer.wms('https://demo.boundlessgeo.com/geoserver/ows?', {
+    layers: 'nasa:bluemarble'
+}).addTo(map);
+</pre>		
+<center>
+<img style="width: 50%;height: 50%"  src="./applications/Web/Geolocalisation/Image/CarteSatellite.PNG" alt="Carte Europe">		</center>
+
+On positionne un cercle
+<pre>var marker = L.marker([lat, long], 400,{color:'blue',opacity:.01,fillColor: 'red',fillOpacity:.01});</pre>
+
+
+
+On place un marqueur sur la carte pour vous situer 
+<pre>marker.bindTooltip("Je suis ici! ;-)", {permanent: true, className: "my-label", offset: [0, 0] });
+marker.addTo(map);</pre>
+
+
+Fonction permettant de connaitre le motif d'erreur de la non géolocalisation
+<pre>function(error) {
+	switch(error.code){
+		case error.PERMISSION_DENIED:
+			/*L''utilisateur n''a pas autorisé l''accès à sa position */
+			break;          
+		case error.POSITION_UNAVAILABLE:
+			/* L''emplacement de l''utilisateur n''a pas pu être déterminé */ 
+			break;
+		case error.TIMEOUT:
+			/* Le service n''a pas répondu à temps */
+			break;
+		},options);
+} else {
+/* Le navigateur ne supporte pas la Géolocalisation */ 
+}
+<span class="comment"># Option pour le navigateur </span>
+var options = {
+  enableHighAccuracy: true, <span class="comment"># booléen qui indique que l'application souhaite recevoir les meilleurs<br>résultats possibles. Si vrai et si l'appareil est capable de fournir une position plus précise, il le fera. </span>
+  timeout: 5000, <span class="comment"># délai avant le time out.</span> 
+  maximumAge: 0 <span class="comment"># Si  0, alors on tente de récupérer la position actuelle réelle. Si un délai est présent<br> dans le cache depuis une fraicheur inférieure a maximumAge alors récupère ces positions indépendemment<br> de sa fraicheur.</span>
+};
+</pre> 
+
+
+Ci-dessous le programme complet :
+<pre>function geolocalisation(){
+var options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0
+};
+
+if (navigator.geolocation) {
+	navigator.geolocation.getCurrentPosition(function(position) {
+		var lat=position.coords.latitude;
+		var long=position.coords.longitude;
+		
+		var map = L.map('map',{
+				center: [lat, long],
+				zoom: 15
+		});
+
+		var circle = L.circle([lat, long], {
+				color: 'blue',
+				fillColor: 'red',
+				fillOpacity: 0.02,
+				radius: 500
+		}).addTo(map);
+
+		L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+			attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+		}).addTo(map);
+
+		var marker = L.marker([lat, long], 400,{color:'blue',opacity:.01,fillColor: 'red',fillOpacity:.01});
+		
+		marker.bindTooltip("Je suis ici! ;-)", {permanent: true, className: "my-label", offset: [0, 0] });
+		
+		marker.addTo(map);
+
+	}, function(error) {
+			switch(error.code){
+	    		case error.PERMISSION_DENIED:
+	     			/*L''utilisateur n''a pas autorisé l''accès à sa position */
+				break;          
+	    		case error.POSITION_UNAVAILABLE:
+	    			/* L''emplacement de l''utilisateur n''a pas pu être déterminé */ 
+				break;
+				case error.TIMEOUT:
+	    			/* Le service n''a pas répondu à temps*/
+	    		break;
+	    	} 
+	},options);
+} else {
+	/* navigateur ne support pas la géolocalation */
+}</pre>
+
+<div id='testGeo'> 	
+/!\ ces informations envoyées par votre fournisseur de service sont des estimations de votre localisation.<br>La précision varie beaucoup d’un endroit à un autre. Dans certains endroits, nos fournisseurs de service peuvent être capables de fournir une localisation à quelques mètres près. Cependant, dans d’autres zones, cela pourrait être beaucoup plus que ça. Toutes les localisations fournies par nos fournisseurs de service ne sont que des estimations.<br>A Utiliser toujours avec bon sens...
+
+<center>
+<img style="width: 50%;height: 50%"  src="./applications/Web/Geolocalisation/Image/carteLocalisation.PNG" alt="Carte Europe">		
+</center>
+
+</div>
+
+<script type="text/javascript">
+	function openstreetmap(){
+
+		if(autorisationGeolocalisation==1){
+			
+			var map = L.map('id_openstreetmap',{
+			center: [lat, long],
+			zoom: 19
+			});
+
+			var circle = L.circle([lat, long], {
+			    color: 'blue',
+			    fillColor: 'red',
+			    fillOpacity: 0.02,
+			    radius: 500
+			}).addTo(map);
+
+			L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+				attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+			}).addTo(map);
+
+			var marker = L.marker([lat, long], 400,{color:'blue',opacity:.01,fillColor: 'red',fillOpacity:.01});
+			marker.bindTooltip("Je suis ici ! ;-)", {permanent: true, className: "my-label", offset: [0, 0] });
+			marker.addTo(map);
+
+			document.getElementById('id_openstreetmap_msg').innerHTML='/!\\ ces informations envoyées par votre fournisseur de service sont des estimations de votre localisation.<br>La précision varie beaucoup d’un endroit à un autre. Dans certains endroits, nos fournisseurs de service peuvent être capables de fournir une localisation à quelques mètres près. Cependant, dans d’autres zones, cela pourrait être beaucoup plus que ça. Toutes les localisations fournies par nos fournisseurs de service ne sont que des estimations.<br>A Utiliser toujours avec bon sens... ';
+
+		}else{
+			$.msgBox({
+				title: "Accès navigateur",
+				content: "Si vous souhaitez tester la géolocalisation, vous devez partager votre emplacement avec votre navigateur...? \n chrome://settings/content/location",
+				type: "confirm",
+				buttons: [{ value: "OK" }],
+				success: function (result) {
+					window.open('./applications/Web/Geolocalisation/geolocalisation_leaflet.html','_blank')
+				}
+			});	
+		}
+	};
+
+/*
+    $(window).on('load', function () {
+     	etatGeo();
+	});
+*/
+	function etatGeo(){
+		     switch(autorisationGeolocalisation){
+            case 1:
+ 				document.getElementById('testGeo').innerHTML="Et maintenant on teste ! <button onclick='openstreetmap()''>Execute code</button> <br>	<div id='id_openstreetmap_msg'> </div> 	<div id='id_openstreetmap' style='height: 500px'> </div>  });";
+                break;          
+            case 2:
+	            document.getElementById('testGeo').innerHTML="Et maintenant on teste !  <button onclick='openstreetmap()''>Execute code</button> <br>	<div id='id_openstreetmap_msg'> </div> 	<div id='id_openstreetmap' style='height: 500px'> </div>  });";
+
+                break;
+            case 3:
+	           document.getElementById('testGeo').innerHTML="/!\\ Oups ... Votre navigateur n''as pas réussi a obtenir les informations liées à la géolocalisation. Il faudait retester avec une meilleur connexion...";
+                break;
+            case 4:
+           		document.getElementById('testGeo').innerHTML="/!\\ Oups ... Votre navigateur n''as pas réussi a obtenir les informations liées à la géolocalisation. Il faudait retester avec une meilleur connexion..." ;
+                break; 
+            default :
+            	document.getElementById('testGeo').innerHTML="/!\\ Oups ... Votre navigateur n''as pas réussi a obtenir les informations liées à la géolocalisation. Il faudait retester avec une meilleur connexion..." ;
+                break;              
+            } 
+
+	}
+
+
+</script>
+
+</div>
+

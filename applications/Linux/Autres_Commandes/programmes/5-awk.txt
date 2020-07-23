@@ -1,0 +1,2 @@
+/*** Pour préfixer chaque ligne ***/
+awk '$0="mon_prefix"$0' fichierACompléter > fichierModifier

@@ -1,0 +1,7 @@
+/*** Lecture Excel ***/
+library("xlsx")
+res <- read.xlsx("Mon_chemin\\mon_fichier.xlsx", 1) 
+res <- read.xlsx("Mon_chemin\\mon_fichier.xlsx", 'Feuil3') 
+
+/*** Résumé ***/
+str(res)

@@ -1,0 +1,165 @@
+
+
+
+#application {
+	margin: 15px 0px 0px 0px;
+}
+
+.infos {
+  color:rgb(227,0,98);
+  font-weight:bold;
+  background-color: white;
+}
+.infos2 {
+  color:rgb(0,255,0);
+  font-weight:bold;
+  background-color: white;
+}
+
+.code {
+	color           :  white;
+	background-color: dimgray;
+	font-size: 12px;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	margin-left:2em
+}
+
+#titre {
+	font-size: 16px;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	color: rgb(0,155,180);
+	padding: 20px 0px 0px 60px;
+}
+
+.tableau{
+	padding: 20px 0px 0px 0px;
+}
+
+.cellule{
+	width:250px;
+	height: 30px;
+	border-right: 1px solid #CCCCCC;
+    border-bottom: 1px solid #CCCCCC;
+    background-repeat:no-repeat;
+    padding: 0px 0px 0px 0px;
+    vertical-align:top;
+     font-weight: normal;
+    text-align: left;
+    background-position: center;
+}
+
+.cellule_elargie{
+	width:350px;
+}
+
+.tabulation{
+	margin-left:2em;
+}
+
+
+
+.gras{
+	font-weight:bold;
+	text-align: left;
+	margin-left:0px;
+	padding: 0px 0px 0px 60px;
+}
+
+th.diagonalFalling
+{
+	background: linear-gradient(to right top, #ffffff 0%,#ffffff 49.9%,#000000 50%,#000000 51%,#ffffff 51.1%,#ffffff 100%);
+}
+
+
+.texte{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	padding: 0px 15px 0px 60px;
+ 
+}
+
+h2 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: bold;
+	color: #0099FF;
+	background: url(../images/fleche_bleu.png) no-repeat;
+	text-indent: 10px;
+	padding: 7px 0px 0px 15px;
+
+
+
+
+#cv_presentation {
+	font-size:12px;
+	color:black;
+	left: auto;
+	padding: 10px;
+	margin: 0px 65px;
+}
+
+.monCV{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 50px 0px 0px 60px;
+}
+
+
+
+
+
+
+
+.cv_cellule_entete1{
+    background-image:url("../images/etoiles_1sur4.png");
+    height: 40px;
+}
+
+.cv_cellule_entete2{
+    background-image:url("../images/etoiles_2sur4.png");
+    height: 40px;
+}
+
+.cv_cellule_entete3{
+    background-image:url("../images/etoiles_3sur4.png");
+    height: 40px;
+}
+
+.cv_cellule_entete4{
+    background-image:url("../images/etoiles_4sur4.png");
+    height: 40px;
+}
+
+
+
+
+
+.entete_experience {
+	width:465px;
+	border-style: inset;
+	font-weight:bold;
+	vertical-align:text-top;
+}
+.pos_droit{
+	text-align: right;
+	font-weight:bold;
+}
+.infos_emploi {
+	color:rgb(227,0,98);
+	font-weight:bold;
+}
+.caracteristique{
+	vertical-align:top;
+	width:120px;
+	font-weight:bold;
+	padding: 10px;
+}
+.detail_caracteristique{
+	vertical-align:top;
+	font-weight:normal;
+	padding: 10px;
+}

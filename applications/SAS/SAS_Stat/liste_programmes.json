@@ -1,0 +1,21 @@
+{
+	"programme": [
+	{
+		"titre": "Correlation",
+		"description": "Intensité de relation entre deux variables",
+		"chemin": "./applications/SAS/SAS_Stat/programmes/correlation.sas"
+	},{
+		"titre": "Régression logistique",
+		"description": "La régression logistique permet de traiter le cas où la variable réponse est de type binaire (oui/non, Je détiens/Je détiens pas, etc.) à partir d’une série de variables explicatives continues",
+		"chemin": "./applications/SAS/SAS_Stat/programmes/regression_logistique.sas"
+	},{
+		"titre": "Analyse des Correspondances Principales",
+		"description": "L'analyse en composantes principales (ACP) est une méthode qui permet d'étudier l'association entre au moins deux <b><u>variables quantitatives</u></b> (L'Analyse des Correspondances Multiples (ACM) c'est entre au moins deux <b><u>variables qualitatives</u></b>). L'ACP consiste à transformer des variables liées entre elles (ou 'corrélées') en nouvelles variables décorrélées les unes des autres. Ces nouvelles variables sont nommées 'composantes principales'. Cela permet de réduire le nombre de variables et de rendre l'information moins redondante.",
+		"chemin": "./applications/SAS/SAS_Stat/programmes/ACP.sas"
+	},{
+		"titre": "Analyse discriminante",
+		"description": "L'analyse discriminante permet de trouver les variables qui expliquent le mieux l'appartenance à une classe déterminée , d'autre part elle permet de déterminer, dans un but de segmentation, la classe d'appartenance d'un individu non encore classé.",
+		"chemin": "./applications/SAS/SAS_Stat/programmes/analyse_discriminante.sas"
+	}
+	]
+}

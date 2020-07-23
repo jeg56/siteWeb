@@ -1,0 +1,247 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+<link rel="stylesheet" href="./global/css/style_text.css" type="text/css" media="all">
+<div id="bigdata">	
+		<div id="titre"> Hadoop
+				<div>
+					<img alt="" src="./global/images/barre_bleue.png" style="border:none;">	
+				</div>
+		 </div>
+
+		 <div class="texte">
+				<h2 > Le concept</h2> 
+				Il s'agit d'un framework <strong>Open Source</strong> conçu pour réaliser des traitements sur des volumes de données massifs, de l'ordre de plusieurs petaoctets (soit plusieurs milliers de To) de façon distribuée et échelonnable (scalable*) sur du matériel standard. Il s'inscrit donc typiquement sur le terrain du <strong>Big Data</strong>.<br>
+
+
+				L'infrastructure applique le principe bien connu des grilles de calcul, consistant à répartir l'exécution d'un traitement sur plusieurs nœuds, ou grappes de serveurs.<br>
+
+				Hadoop pour la partie stockage s'appuie sur un système de fichiers, <strong>baptisé HDFS </strong>(pour Hadoop Distributed File System). Il gère la répartition du stockage des données par blocs d'informations sur les différents nœuds.
+				La partie de traitement est appelée <strong>MapReduce</strong>.<br>
+
+				Les cluster HDFS repose sur deux types de composants : <strong>NameNode</strong> et <strong>DataNode</strong>  <br>
+				<strong>NameNode </strong>: gère l'arborescence du système de fichiers et les métadonnées des fichiers et des répertoires. Il est unique.<br>
+				<strong>DataNode </strong>: stocke et restitue les blocs de données.<br>
+				Lors du processus, le NameNode est interrogé pour localiser l'ensemble des blocs de données.  Pour chacun d'entre eux, le NameNode renvoie l'adresse du DataNode. <br><br>
+
+
+	<strong>La scalabilité </strong> est la capacité qu’a l’architecture pour évoluer en cas de montée en charge si nécessaire.<br>
+
+    <strong>Scalabilité horizontale : </strong> c'est la possibilité d’ajouter des serveurs d’un type donné. Par exemple : ajout possible de serveurs d'application web avec répartition de charge.<br>
+    <strong>Scalabilité verticale : </strong> possibilité d’upgrader un serveur (ajout de processeurs, RAM, disques…).
+
+
+		</div>
+		<div id="titre">Installation sous Ubuntu 
+			<div>
+				<img alt="" src="./global/images/barre_bleue.png" style="border:none;">	
+			</div>
+		</div>	
+
+		<div class="texte">
+			<h2 >Préparation de votre serveur :</h2> 
+			<span class="infos">Mise à jour de votre serveur</span><br>
+			<span class="code">sudo apt-get update</span><br><br>
+
+			<span class="infos">Installation de java</span><br>
+			<span class="code">sudo apt-get install default-jdk</span><br><br>
+
+
+			<span class="infos">Création d’user spécifique pour Hadoop</span><br>
+			<span class="infos2">Création du groupe:</span>
+			<span class="code">sudo addgroup hadoop</span><br>
+			<img alt="" src="./applications/Big_data/hadoop/image/create_user.png" style="border:none;with:100px"><br><br>	
+
+			<span class="infos2">Ajout de l’utilisateur "hduser" au groupe hadoop:</span>
+			<span class="code">sudo adduser --ingroup hadoop hduser</span><br>
+			
+			<span class="infos2">Ajout du user "hduser" au sudo pour ajouter privilèges root:</span>
+			<span class="code">sudo adduser hduser sudo</span><br><br>
+
+			<span class="infos">Téléchargement de la commande permettant de se connecter a une machine distante (remplace de manière sécurisée Telnet , FTP...)</span><br>
+			<span class="code">sudo apt-get install ssh</span><br>
+
+			<span class="infos2">Vérification de l’installation</span><br>
+			<img alt="" src="./applications/Big_data/hadoop/image/install_ssh.png" style="border:none;with:100px"><br><br>	
+
+			<span class="infos">Création d’une clé public d’authentification pour permettre l’accès au nœud d’hadoop</span><br>
+			<span class="infos2">Connexion avec notre nvx user "hduser"</span>
+			<span class="code">su hduser</span><br>
+			<img alt="" src="./applications/Big_data/hadoop/image/connexion_user.png" style="border:none;with:100px"><br><br>
+
+			<span class="infos">Création de la clé public vide</span><br>
+			<span class="code">ssh-keygen -t rsa -P ""</span><br>
+			<img alt="" src="./applications/Big_data/hadoop/image/creation_cle.png" style="border:none;with:100px"><br><br>
+
+			<span class="infos">Ajoute à la nvlle clé à la liste des clés autorisées afin que Hadoop puisse utiliser ssh sans demander un mot de passe</span><br>
+			<span class="code">cat $HOME/.ssh/id_rsa.pub >> $HOME/.ssh/authorized_keys</span><br>
+			<img alt="" src="./applications/Big_data/hadoop/image/ajout_liste_des_cles.png" style="border:none;with:100px"><br><br>
+
+			<span class="infos">Vérification de la connexion à la machine via SSH</span><br>
+			<img alt="" src="./applications/Big_data/hadoop/image/Verif_SSH.png" style="border:none;with:100px"><br><br>
+
+
+			<h2 >Installation de Hadoop :</h2> 
+			<span class="infos">A adapter en fonction de la vesion du moment</span><br>
+			<span class="code">wget http://mirrors.sonic.net/apache/hadoop/common/hadoop-3.0.0-alpha1/hadoop-3.0.0-alpha1.tar.gz</span><br>
+			<img alt="" src="./applications/Big_data/hadoop/image/installation_hadoop.png" style="border:none;with:100px"><br><br>
+
+			<span class="infos">Détarre & dézippe le fichier télécharger</span><br>
+			<span class="code">tar -xvzf hadoop-3.0.0-alpha1.tar.gz</span><br>
+
+			<span class="infos">On déplace les fichiers téléchargés & dézippés sous leur emplacement final en changeant les droits pour le user hduser</span><br>
+			<span class="code">sudo mkdir /usr/local/hadoop</span><br>
+			<span class="code">sudo mv * /usr/local/hadoop</span><br>
+			<span class="code">sudo chown -R hduser:hadoop /usr/local/hadoop</span><br>
+			<img alt="" src="./applications/Big_data/hadoop/image/relocalisation_hadoop.png" style="border:none;with:100px"><br><br>
+
+
+			<h2 >Configuration et paramétrage d'hadoop</h2> 
+			Apres l’installation d'hadoop nous allons modifier les 5 fichiers suivant:<br>
+			<strong class="tabulation">1.~/.bashrc :</strong> Le fichier .bashrc se situe dans le dossier /home/$USER/.bashrc. Il est lu à chaque ouverture de console par l'utilisateur $USER (ici hduser).<br>
+			Il est possible de saisir des alias dedans de la forme: alias code="commande"<br>
+			<strong class="tabulation">2.</strong> /usr/local/hadoop/etc/hadoop/<strong>hadoop-env.sh</strong> <br>
+			<strong class="tabulation">3.</strong> /usr/local/hadoop/etc/hadoop/<strong>core-site.xml</strong> <br>
+			<strong class="tabulation">4.</strong> /usr/local/hadoop/etc/hadoop/<strong>mapred-site.xml.template</strong> <br>
+			<strong class="tabulation">5.</strong> /usr/local/hadoop/etc/hadoop/<strong>hdfs-site.xml</strong> <br><br>
+
+			<span class="infos">1. ~/.bashrc:</span><br>
+			<span class="infos2">Ajout  de la variable JAVA_HOME pour le user hduser</span><br>
+			<span class="infos2">On localise Java </span>
+			<span class="code">update-alternatives --config java</span><br>
+			<img alt="" src="./applications/Big_data/hadoop/image/JAVA_HOME.png" style="border:none;with:100px"><br><br>
+
+			<span class="infos2">Déclaration des variables dans le bashrc (dont JAVA_HOME)</span><br>
+			<span class="code">vi ~/.bashrc</span><br>
+			<span class="infos2">Ajout du code ci-dessous ( rappel de commande VI des echap+i = insertion ; echap+x = sauvegarde)</span><br>
+			<span class="code">#HADOOP VARIABLES START</span><br>
+			<span class="code">export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64</span><br>
+			<span class="code">export HADOOP_INSTALL=/usr/local/hadoop</span><br>
+			<span class="code">export PATH=$PATH:$HADOOP_INSTALL/bin</span><br>
+			<span class="code">export PATH=$PATH:$HADOOP_INSTALL/sbin</span><br>
+			<span class="code">export HADOOP_MAPRED_HOME=$HADOOP_INSTALL</span><br>
+			<span class="code">export HADOOP_COMMON_HOME=$HADOOP_INSTALL</span><br>
+			<span class="code">export HADOOP_HDFS_HOME=$HADOOP_INSTALL</span><br>
+			<span class="code">export YARN_HOME=$HADOOP_INSTALL</span><br>
+			<span class="code">export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_INSTALL/lib/native</span><br>
+			<span class="code">export HADOOP_OPTS="-Djava.library.path=$HADOOP_INSTALL/lib"</span><br>
+			<span class="code">#HADOOP VARIABLES END</span><br>
+
+			<span class="infos2">Recharge du fichier </span><br>
+			<span class="code">source ~/.bashrc</span><br><br>
+
+			<span class="infos">2. /usr/local/hadoop/etc/hadoop/hadoop-env.sh</span><br>
+			<span class="infos2">Déclaration de Java dans hadoop-env.sh </span><br>
+			<span class="code">vi /usr/local/hadoop/etc/hadoop/hadoop-env.sh</span><br>
+			<span class="infos2">Ajout du code </span><br>
+			<span class="code">export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64</span><br><br>
+
+			<span class="infos">3. /usr/local/hadoop/etc/hadoop/core-site.xml:</span><br>
+			<span class="infos2">Création d'un espace de travail pour hadoop </span><br>
+			<span class="code">sudo mkdir -p /app/hadoop/tmp</span><br>
+			<span class="code">sudo chown hduser:hadoop /app/hadoop/tmp</span><br>
+			<img alt="" src="./applications/Big_data/hadoop/image/workspace_hadoop.png" style="border:none;with:100px"><br><br>
+
+			<span class="infos2">Déclaration de l'espace de travail pour hadoop </span><br>
+			<span class="code">vi /usr/local/hadoop/etc/hadoop/core-site.xml</span><br>
+			<span class="code">&lt;configuration></span><br>
+			<span class="code"> &lt;property></span><br>
+			<span class="code">  &lt;name>hadoop.tmp.dir&lt;/name></span><br>
+			<span class="code">  &lt;value>/app/hadoop/tmp&lt;/value></span><br>
+			<span class="code">  &lt;description>Espace temporaire&lt;/description></span><br>
+			<span class="code"> &lt;/property></span><br><br>
+
+			<span class="code"> &lt;property></span><br>
+			<span class="code">  &lt;name>fs.default.name&lt;/name></span><br>
+			<span class="code">  &lt;value>hdfs://localhost:54310&lt;/value></span><br>
+			<span class="code">  &lt;description> Nom par defaut et Url d'acces au FileSystem hadoop</span><br>
+			<span class="code">  &lt;/description></span><br>
+			<span class="code"> &lt;/property></span><br>
+			<span class="code">&lt;/configuration></span><br><br>
+
+
+			<span class="infos">4. /usr/local/hadoop/etc/hadoop/mapred-site.xml:</span><br>
+			<span class="infos2">Copie et modification du fichier mapred-site.xml permettant de spécifier le framework utilisé pour MapReduce. </span><br>
+			<span class="code">cp /usr/local/hadoop/etc/hadoop/mapred-site.xml.template /usr/local/hadoop/etc/hadoop/mapred-site.xml</span><br><br>
+			<span class="infos2">Préparation du fichier mapred-site.xml</span><br>
+			<span class="code">vi /usr/local/hadoop/etc/hadoop/mapred-site.xml</span><br>
+			<span class="code">&lt;configuration></span><br>
+			<span class="code"> &lt;property></span><br>
+			<span class="code">  &lt;name>mapred.job.tracker&lt;/name></span><br>
+			<span class="code">  &lt;value>localhost:54311&lt;/value></span><br>
+			<span class="code">  &lt;description>Machine et port de la MapReduce</span><br>
+			<span class="code">  &lt;/description></span><br>
+			<span class="code"> &lt;/property></span><br>
+			<span class="code">&lt;/configuration></span><br>
+
+			<span class="infos">5. /usr/local/hadoop/etc/hadoop/hdfs-site.xml:</span><br>
+			<span class="infos2">Création de deux répertoires qui contiendront le namenode et le datanode de cette installation Hadoop.</span><br>
+			<span class="code">sudo mkdir -p /usr/local/hadoop_store/hdfs/namenode </span><br>
+			<span class="code">sudo mkdir -p /usr/local/hadoop_store/hdfs/datanode </span><br>
+			<span class="code">sudo chown -R hduser:hadoop /usr/local/hadoop_store </span><br>
+
+			<img alt="" src="./applications/Big_data/hadoop/image/namenode_datanode.png" style="border:none;with:100px"><br><br>
+			
+
+			<span class="infos2">Modifications des répertoires qui seront utilisés comme namenode et le datanode sur cet hôte </span><br>
+
+			<span class="code">&lt;configuration></span><br>
+			<span class="code"> &lt;property></span><br>
+			<span class="code">  &lt;name>dfs.replication&lt;/name></span><br>
+			<span class="code">  &lt;value>1&lt;/value></span><br>
+			<span class="code">  &lt;description>Nbre de bloc de réplications</span><br>
+			<span class="code">  &lt;/description></span><br>
+			<span class="code"> &lt;/property></span><br>
+			<span class="code"> &lt;property></span><br>
+			<span class="code">   &lt;name>dfs.namenode.name.dir&lt;/name></span><br>
+			<span class="code">   &lt;value>file:/usr/local/hadoop_store/hdfs/namenode&lt;/value></span><br>
+			<span class="code"> &lt;/property></span><br>
+			<span class="code"> &lt;property></span><br>
+			<span class="code">   &lt;name>dfs.datanode.data.dir&lt;/name></span><br>
+			<span class="code">   &lt;value>file:/usr/local/hadoop_store/hdfs/datanode&lt;/value></span><br>
+			<span class="code"> &lt;/property></span><br>
+			<span class="code">&lt;/configuration></span><br><br>
+
+			<h2 >Formatage d'un filesystem Hadoop:</h2> 
+			<span class="code">hadoop namenode -format</span><br><br>
+
+			<h2 >Fichier de démarrage d'Hadoop:</h2> 
+			sous <i>/usr/local/hadoop/sbin </i>: creation du fichier <strong>hadoop-start.sh</strong> 
+			<span class="code">#!/bin/bash</span><br>
+			<span class="code">./start-dfs.sh</span><br>
+			<span class="code">./start-yarn.sh</span><br>
+
+			<img alt="" src="./applications/Big_data/hadoop/image/fichier_de_demarrage.png" style="border:none;with:100px"><br><br>
+
+			<h2 >Fichier d'arrêt d'Hadoop:</h2> 
+			sous <i>/usr/local/hadoop/sbin </i> démarrage de hadoop : creation du fichier <strong>hadoop-stop.sh</strong> 
+			<span class="code">#!/bin/bash</span><br>
+			<span class="code">./stop-dfs.sh</span><br>
+			<span class="code">./stop-yarn.sh</span><br>
+
+			<img alt="" src="./applications/Big_data/hadoop/image/fichier_arret.png" style="border:none;with:100px"><br><br>
+			<span class="code">chmod 755 hadoop-*</span><br>
+
+
+			<h2 >Lancement d'Hadoop:</h2> 
+			Après le lancement d'Hadoop via le fichier <strong>hadoop-start.sh</strong>, on peut accéder à l’interface via url : http://localhost:9870/.<br> De mon coté, l'installation était OK mais au démarage, il s'avère que la connexion était KO... :-(<br>
+			<img alt="" src="./applications/Big_data/hadoop/image/erreur_hadoop.png" style="border:none;with:100px"><br>
+			Direction le répertoire des logs : <i> /usr/local/hadoop/logs </i><br>
+			Après une recherche rapide du mot "error" dans les logs, hadoop a besoin d’un espace disponible d’au moins 10 % ...<br>
+			<img alt="" src="./applications/Big_data/hadoop/image/error_log.png" style="border:none;with:100px"><br>
+			Après vérification<br>
+			<img alt="" src="./applications/Big_data/hadoop/image/taile_ko.png" style="border:none;with:100px"><br>
+			Du coup, un redimensionnement de mes partitions s'imposent ! Ci-dessous le résultat :<br>
+			<img alt="" src="./applications/Big_data/hadoop/image/taile_Ok.png" style="border:none;with:100px"><br>
+			Et puis, ca marche... ;-)<br>
+			<img alt="" src="./applications/Big_data/hadoop/image/cluster.png" style="border:none;with:100px"><br>
+			<img alt="" src="./applications/Big_data/hadoop/image/hadoop.png" style="border:none;with:100px"><br>
+
+
+
+
+
+		</div>
+
+
+
+</div>

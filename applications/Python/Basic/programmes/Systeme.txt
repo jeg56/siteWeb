@@ -1,0 +1,10 @@
+/*** Récupère les paramètres ***/ 
+import sys
+print(sys.argv)
+
+/*** Exécute une commande ***/ 
+import os
+os.system("ls") # Sur Linux
+os.system("dir") # Sur Windows
+
+

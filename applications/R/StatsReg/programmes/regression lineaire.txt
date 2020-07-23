@@ -1,0 +1,10 @@
+/*** Regression lineaire ***/
+lm(variable à expliquer ~ variable(s) explicative(s), ...)
+
+model=lm(VAR_Y~ VAR_X1+VAR_X.+VAR_Xn,data=MATABLE)
+summary(model)
+coef(model)
+
+
+/*** Prédiction ***/
+predict(model, data.frame(VAR_X1 = valeurDeX1,VAR_X2 = valeurDeX2 ...), level = 0.95, interval = "confidence")

@@ -1,0 +1,228 @@
+#navH {
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+}
+
+#navH a{
+	display: block;
+	text-decoration: none;
+	height: auto;
+	color: #fff;
+}
+#navH li {
+	float: left;
+	margin: 0px;
+	height: 21px;
+	padding: 8px 15px 3px 15px;
+}
+
+#navH li:hover, #navH li.sfhover, #navH li.active {
+	background-color: rgb(0,154,177);
+}
+#navH li.active{
+	background-color: #484848;
+}
+
+
+#navH li ul {
+	position: absolute;
+	z-index: 200;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	width: 215px;
+	height: auto;
+	left: -999em;
+	border: solid 1px #484848;
+	border-top: solid 9px #484848;
+	background-color: white; 
+}
+#navH li ul li {
+	padding: 2px 0px;
+}
+#navH li ul li a {
+	color: #484848;
+	text-decoration: none;
+	padding: 4px 0px 4px 15px;
+	width: 200px;
+}
+#navH li ul li:hover, #navH li ul li.shover{
+	background-color: rgb(0,154,177);
+}
+
+#navH li ul li:hover a,	#navH li ul li.sfhover a{
+	color: #fff;
+	background-color: rgb(0,154,177);
+}
+
+#navH li ul li.active{
+	color: #fff;
+	background-color: rgb(0,154,177);
+	max-height: 13em;
+
+}
+#navH li:hover ul,#navH li.sfhover ul {
+	left: auto;
+	margin-left: -15px;
+	
+}
+
+body{
+	font-family: Arial,Helvetica, sans-serif;
+	font-size: 85%;
+	color: #484848;
+	text-align: center;
+	margin: O; 
+}
+
+/*** pour Opera ***/
+html:first-child body{
+	font-size: 90%;
+}
+form {
+	margin: O;
+}
+
+a {
+	text-decoration:none; 
+}
+a:hover{
+	text-decoration: underline;
+}
+
+#mainContainer{
+	width: 1000px;
+	margin: auto;
+	text-align: left;
+}
+#topContainer {
+	background-image:url("../images/bg_page.gif");
+	background-repeat:repeat-y;
+	width: 964px;
+	margin: auto;
+	padding:0px 18px;
+}
+#bottomContainer{
+	background-image:url("../images/bg_footer.gif");
+	background-repeat:no-repeat;
+}
+
+
+#outils{
+	background-image:url("../images/bg_outils.gif");
+	background-repeat:repeat-x;
+	height: 28px;
+}
+#outils a {
+	color: #484848;
+}
+#outilsGroupe {
+	float: left;
+	margin: O;
+	width: 30%;
+	padding: 6px 0px 0px 10px;
+	font-size: 80%;
+}
+#outilsGroupe ul {
+	margin: O;
+	padding: 0;
+	list-style: none;
+}
+#outilsGroupe ul li {
+	float: left;
+	margin-right: 8px;
+}
+
+#outilsSite {
+	float: right;
+	margin: O;
+	width: 65%;
+	font-size: 80%;
+	text-align: right;
+}
+
+#outilsSite ul {
+	margin: O;
+	padding: 0;
+	list-style: none;
+	float: right;
+}
+#outilsSite ul li{
+	float: left;
+	margin-right: 8px;
+	padding: 6px 0px 0px 0px;
+}
+#header{
+	height: 93px;
+	background-color: #fff;
+}
+#header #logo{
+	float: left;
+	padding: 33px 0px 0px 30px;
+}
+
+#onglets{
+	background-color: #fff;
+	padding: 0px 0px 0px 30px;
+	height: 30px;
+}
+#onglets ul {
+	margin: 0;
+	padding: 0px;
+	list-style: none;
+}
+#onglets ul li {
+	float: left;
+	padding: 8px 9px 0px 9px;
+	background-color: #e7e7eb;
+	margin-right: 3px;
+	font-size: 16px;
+	height: 22px;
+}
+#onglets ul li:hover, #onglets ul li.ongletsHover{
+	background-color: rgb(0,154,177);
+}
+
+
+#onglets ul li.active{
+	background-color: rgb(0,154,177);
+	color: #fff;
+}
+#onglets ul li.active a{
+	color: #fff;
+}
+#onglets ul li.homeLink{
+	padding: 0;
+	margin-right: 2px;
+	font-size: 1px;
+	height: 30px;
+}
+#onglets ul li a {
+	color: #484848;
+}
+#onglets ul li a:hover{
+	text-decoration:none;
+
+}
+#navigationHoriz{
+	background-image: url("../images/bg_navigation.gif");
+	background-repeat: repeat-x;
+	padding: 1px 0px 0px 30px;
+	height: 35px;
+	font-size: 90%;
+}
+
+#application{
+	background-color: #fff;
+}
+#footer{
+	padding: 15px 0px;
+	font-size: 80%;
+	text-align: center;
+	color: #828286;
+}
+#footer a {
+	color: #828286;
+}
+

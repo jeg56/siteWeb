@@ -1,0 +1,3 @@
+/*** ACM ***/
+res.mca = MCA(tea, quanti.sup=19, quali.sup=c(20:36))
+dimdesc(res.mca)

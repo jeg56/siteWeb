@@ -1,0 +1,41 @@
+/*** connexion a une base sqlite ***/
+
+$dir = 'sqlite:./maBaseDeDonnees.db';
+$dbh  = new PDO($dir);
+
+/*****  requete SQL : Ecriture****/
+$query =  "SELECT count(*) FROM maTable " ;
+
+foreach ($dbh->query($query) as $row)	
+{
+    if ($row[0]==0) {
+			// si le résulat de ma requete est égal à 0 alors insert
+	  		$dbh->query($query);
+
+			$query =  "insert into maTable (variable) values ('$infosPHP');";
+			$dbh->query($query);
+	} else {
+		// si le résulat de ma requete est différent de 0 alors update
+
+			$query =  "update maTable ...";
+			$dbh->query($query);
+
+
+			echo json_encode($return_arr);
+	}
+
+}
+
+/*****  requete SQL : Lecture ****/
+$query =  "SELECT ChampVar1,ChampVar2  FROM maTable " ;
+foreach ($dbh->query($query) as $row)
+{
+	$var1Php = $row['ChampVar1'];
+	$var2Php = $row['ChampVar2'];
+
+
+ 	$return_arr[] = array("var1 php " => $var1Php,
+ 							"var2 php " => $var2Php );		 
+}
+// ecrit le résultat
+echo json_encode($return_arr);

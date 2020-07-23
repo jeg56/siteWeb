@@ -1,0 +1,2 @@
+/*** Après s'être connecté avec le user postgres ***/
+sudo -u postgres psql -c "ALTER USER postgres PASSWORD 'Mon nvx mot de passe';"

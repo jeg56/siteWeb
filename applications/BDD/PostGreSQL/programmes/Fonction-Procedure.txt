@@ -1,0 +1,60 @@
+/*** Exemple de fonction en PostGreSQL ***/
+
+!--Déclaration de la fonction ici en mode procédure : void exploitant 2 variables d'entrées--
+create or replace function transfertDossier (VAR_1 VARCHAR, VAR_2 VARCHAR) RETURNS void as $$
+declare
+
+!--Déclaration des constantes internes à la procédure--
+        VAR_3 integer;
+        VAR_4 integer;
+        VAR_5 varchar;
+        VAR_6 integer;
+        VAR_7 varchar;
+
+        n integer;
+
+begin
+        !--                                                                                       --
+        !-- On bloque la table le temps de la manipulation                                        --
+        !--                                                                                       --
+
+        lock TABLE REGROUPANT in EXCLUSIVE MODE;
+        !--                                                                                       --
+        !-- On récupere l'ID de l'identifiant dans MA_TABLE pour identifiant=VAR_1 ($1)           --
+        !--                                                                                       --
+
+        select id into VAR_4 from MA_TABLE where identifiant=$1 ;
+
+        !-- Verification --
+        if VAR_4 is null then
+          !-- Message d'alerte --
+          raise notice '/!\ WARNING - L''agent % est inconnu dans l''application BFR',$1;
+          !-- Sortie  --
+          return;
+        else
+          raise notice 'INFOS - la valeur de l'Id de  %  est  %',$1,VAR_4;
+        end if;
+
+        !--                                                                                       --
+        !-- On actualise toute une table avec VAR_2 ( $2)                                         --
+        !--                                                                                       --
+
+        update regroupant
+        set  autre_variable=$2;
+
+        !-- On récupère le nombre de ligne mise à jour --
+        get diagnostics n=row_count;
+ 
+        if n=0 then
+          raise notice '/!\ ERROR - Aucune mise a jour effectué';
+        return;
+        else
+            raise notice 'INFOS - Félicitation !!! les % dossiers ont été mis à jour par l''infos "%" ',n,$2;
+        end if;
+
+!-- Pour capter tous les anos-- 
+exception when others then
+        raise notice 'ERREUR : % %', SQLERRM,SQLSTATE;
+end;
+
+$$ LANGUAGE plpgsql;

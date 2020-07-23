@@ -1,0 +1,15 @@
+﻿/*** Espace répertoire ***/
+du -sh /*** répertoire ***/
+
+
+/*** Taille trié  ***/
+du -sk * | sort -rn | more
+
+
+/*** Retourne les 50 fichiers les plus volumineux ***/
+find . -xdev -type f -exec ls -al {}  \; | awk '{print $5 "\t" $3 "     
+\t" $7 "\t" $6 "\t" $8 "\t" $9}' | sort -nr | uniq | head -50
+
+
+/*** Retourne 50 fichiers de plus +100000k  ***/
+find /home/logs -type f -size +100000k 

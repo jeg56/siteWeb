@@ -1,0 +1,61 @@
+Manipuler un tableau de données
+
+/*** les dimensions N*C ***/
+dim(db)
+[1] 7 4
+
+/*** nombre de lignes ou observations ***/
+ nrow(db)
+[1] 7
+/*** nombre de colonnes ou variables ***/
+ ncol(db) 
+
+/*** Les librairies ***/
+library(tibble)
+library(tidyr)
+library(dplyr)
+
+/*** Résume tableau ***/
+str() 
+
+/*** Affiche les premieres lignes ***/
+head() 
+
+/*** Parcourir les données  ***/ 
+View()
+
+/*** Filtrer un tableau de données en fonction des numéros de ligne  ***/
+slice()
+
+/*** Filtrer la table en fonction d'une condition logique ***/
+filter()
+
+/*** Sélectionner les colonnes ***/
+select()
+MA_TABLE_APRES <-MA_TABLE_AVANT[, c("VAR1", "VAR5", "VAR6")]
+
+/*** fonctions pour sélectionner rapidement plusieurs colonnes ***/
+starts_with()
+ends_with()
+contains()
+
+/*** Trier  ***/
+arrange()
+base<-base[order(VAR1,rev(var2),]
+
+/*** Nouvelles variables  ***/
+mutate()
+
+/*** Synthétiser  ***/
+summarise()
+
+/*** Afficher les noms de variables ***/
+names()
+
+/*** Renommer une variable ***/
+rename()
+
+
+/*** lag/lead ***/
+library(Hmisc)
+base$N+1 <- Lag(base$N, +1)

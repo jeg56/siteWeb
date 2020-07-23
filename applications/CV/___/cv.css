@@ -1,0 +1,346 @@
+@import url("gpa.css");
+
+/* couleur bandeau cv */
+
+.cv_bandeau_version_T {
+	border: 1px solid #ccc; 
+	background-color: #fdf5e6; 
+	padding: 4px;			
+	vertical-align: top;	
+	margin-bottom: 3px;
+}
+
+.cv_bandeau_version_P {
+	border: 1px solid #ccc; 
+	background-color: #D9EDFF; 
+	padding: 4px;			
+	vertical-align: top;	
+	margin-bottom: 3px;
+}
+
+/* comparaison cv */
+
+.cv_modification {
+	color: blue;
+	width:100%; 
+	height:100%;
+	resize:none;
+	overflow:auto;
+	padding:0px; 
+	margin:0px;
+}
+
+.cv_ajout {
+	color: #108010;
+	width:100%; 
+	height:100%;
+	resize:none;
+	overflow:auto;
+	padding:0.1px; 
+	margin:0.1px;
+}
+
+.cv_suppression {
+	color: #ff0000;
+	width:100%; 
+	height:100%;
+	resize:none;
+	overflow:auto;
+	padding:0.1px; 
+	margin:0.1px;
+}
+
+.cv_titre{
+	font-size: 18px;
+	font-weight: bold;
+	font-family: Arial, Verdana;
+	color: rgb(200,206,109);
+	text-decoration: underline;
+}
+
+.cv_differences {
+	width:100%; 
+	word-wrap:break-word; 
+	padding:0px; 
+	margin:0;
+	overflow:hidden;
+}
+
+/* prewiew cv */
+
+.cv_saisie{
+	font-size: 13px;
+	font-weight: bold;
+	font-family: Arial, Verdana;
+	padding-right: 15px;
+	color: rgb(0,66,109);
+}
+
+.cv_lecture{
+	font-size: 13px;
+	font-weight: bold;
+	font-family: Arial, Verdana;
+	padding-right: 15px;
+	color: rgb(0,66,109);
+}
+
+.cv_alerteTitle1_OK{
+	font-size: 13px;
+	font-weight: bold;
+	font-family: Arial, Verdana;
+	font-style: Italic;
+	color: green;
+}
+
+.cv_alerteTitle1_KO{
+	font-size: 13px;
+	font-weight: bold;
+	font-family: Arial, Verdana;
+	font-style: Italic;
+}
+
+.cv_alerteTitle2_OK{
+	font-size: 13px;
+	font-family: Arial, Verdana;
+	font-style: Italic;
+	color: green;
+}
+
+.cv_alerteTitle2_KO{
+	font-size: 13px;
+	font-family: Arial, Verdana;
+	font-style: Italic;
+}
+
+.cv_alerte{
+	white-space: pre;
+	font-size: 13px;
+	font-weight: bold;
+	font-family: Arial, Verdana;
+	color: red;
+}
+
+.cv_identifiant{
+	font-size: 24px;
+	font-weight: bold;
+	font-family: Arial, Verdana;
+	color: rgb(0,66,109);
+}
+
+.cv_fonction{
+	font-size: 22px;
+	font-weight: bold;
+	font-family: Arial, Verdana;
+	color: rgb(0,66,109);
+}
+
+.cv_titre{
+	font-size: 18px;
+	font-weight: bold;
+	font-family: Arial, Verdana;
+	color: rgb(0,66,109);
+}
+
+.cv_rubrique{
+	font-size: 16px;
+	font-weight: bold;
+	font-family: Arial, Verdana;
+	color: rgb(0,154,177);
+}
+
+.cv_text{
+	font-size: 12px;
+	font-family: Arial, Verdana;
+	color: black;
+}
+.cv_puce tr,td{
+	vertical-align:top;
+}
+
+.cv_textPageGarde{
+	font-size: 12px;
+	font-family: Arial, Verdana;
+	color: rgb(112,113,115);
+}
+
+.cv_textPageGardeBig{
+	font-size: 14px;
+	font-family: Arial, Verdana;
+	color: rgb(112,113,115);
+}
+
+.cv_messageVide{
+	font-size: 11px;
+	font-family: Arial, Verdana;
+	font-style: Italic;
+}
+
+.cv_textbold{
+	font-size: 12px;
+	font-weight: bolder;
+	font-family: Arial, Verdana;
+	color: rgb(112,113,115);
+}
+
+.cv_textboldbig{
+	font-size: 14px;
+	font-weight: bolder;
+	font-family: Arial, Verdana;
+	color: rgb(112,113,115);
+}
+
+
+.cv_smallcaps{
+	font-size: 14px;
+	font-weight: bold;
+	font-family: Arial, Verdana;
+	color: rgb(112,113,115);
+	font-variant: small-caps;
+	text-decoration: underline;
+}
+
+.cv_textTableHeader {
+	font-weight: bold;
+	font-family: Arial, Verdana;
+	color: rgb(0,154,177);
+}
+
+.cv_experienceClientHeader {
+	font-size: 14px;
+	font-weight: bolder;
+	font-family: Arial, Verdana;
+	color: rgb(112,113,115);
+	padding: 5px;
+}
+
+.cv_experienceLocalisationHeader {
+	font-size: 13px;
+	font-family: Arial, Verdana;
+	color: rgb(112,113,115);
+	padding: 5px;
+}
+
+.cv_experienceFonctionHeader {
+	font-size: 14px;
+	font-weight: bolder;
+	font-family: Arial, Verdana;
+	color: rgb(227,0,98);
+}
+
+.cv_experienceTitle{
+	width: auto;
+	font-weight: bold;
+	text-align: left;
+	vertical-align:top;
+}
+
+.cv_experienceValue{
+	width: auto;	
+	text-align: justify;
+	font-size: 1.1em;
+	vertical-align:top;
+}
+/* tooltip */
+
+.competence_tooltip{
+	background: #FFFFFF;
+  	border: 4px solid #2278BA;
+}
+
+.mobilite_tooltip{
+	background: #FFFFFF;
+  	border: 4px solid #2278BA;
+  	text-align: left;
+}
+
+.experience_tooltip{
+	background: #FFFFFF;
+  	border: 4px solid #2278BA;
+}
+
+.alerte_tooltip{
+	background: #FFFFFF;
+  	border: 4px solid red;
+}
+
+.comparaison_tooltip{
+	background: #FFFFFF;
+	border: 4px solid #2278BA;
+}
+
+.icePnlTlTipBody {
+    padding:0px;
+}
+
+
+
+.saisiePanel{
+	border: 1px solid #ccc; 
+	background-color: #e0eee0; 
+	padding: 4px;			
+	vertical-align: top;	
+	margin-bottom: 3px;		
+}
+
+.lecturePanel{
+	border: 1px solid #ccc; 
+	background-color: #FCCFCF;
+	padding: 4px;			
+	vertical-align: top;	
+	margin-bottom: 3px;		
+}
+
+/*
+------------- Pertinence progress bar -----------
+*/
+.iceOutProg {
+}
+	 	 	
+.iceOutProgBg {
+	width: 80px;
+	height: 13px;
+}
+	 	 	
+.iceOutProgFill {
+    background-color: green;
+    background-position: top left;
+    background-repeat: repeat-x;
+    height: 13px;
+    display: block;
+}
+	 	 	
+.iceOutProgTxt {
+    color: black;
+}
+
+.cv_label_panelSeries{
+	width: auto;
+	font-weight: bold;
+	text-align: right;
+	vertical-align: top;
+	padding-top: 2px;
+}
+
+.cv_accolade {
+	border-left: 2px solid #999999;
+	border-top: 2px solid #999999;
+	border-bottom: 2px solid #999999;
+}
+
+.cv_champ_obligatoire{
+	font-size: 1.5em;
+	font-weight: bolder;
+	color: red;	
+}
+
+.panelGridVerticalAlignTop td{
+    vertical-align: top;
+}
+
+.panelGridVerticalAlignTop table{
+    border-collapse: collapse;
+}
+
+.texteBarre{
+	text-decoration:line-through;
+}

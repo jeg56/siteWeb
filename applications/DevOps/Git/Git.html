@@ -1,0 +1,161 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+<link rel="stylesheet" href="./global/css/style_text.css" type="text/css" media="all">
+<div id="Git">	
+		<div id="titre"> Git 
+				<div>
+					<img alt="" src="./global/images/barre_bleue.png" style="border:none;">	
+				</div>
+		 </div>
+
+		 <div class="texte">
+				<h2 > Le concept</h2> 
+				Git est un logiciel de gestion de versions décentralisé. C'est un logiciel libre créé par Linus Torvalds, auteur du noyau Linux
+		</div>
+
+		<div id="titre"> Certification 
+			<div>
+				<img alt="" src="./global/images/barre_bleue.png" style="border:none;">	
+			</div>
+	 	</div>
+
+	 <div class="texte">
+			<h2 > Présentation de ma certification Openclassrooms</h2> 
+			<img alt="" src="./applications/DevOps/Git/Certification_Git.PNG" style="border:none;width: 80%">	
+	</div>
+
+	<div id="titre"> Git en résumé 
+		<div>
+			<img alt="" src="./global/images/barre_bleue.png" style="border:none;">	
+		</div>
+	 </div>
+
+ <div class="texte">
+		<h2 > Ci-dessous les principales commandes positionnées dans un workflow GIT</h2> 
+			<img alt=""  src="./applications/DevOps/Git/Schema_Git.png" style="border:none;width: 95%">
+			<br>Code du workflow ci-dessus : <a href="./applications/DevOps/Git/Code_Workflow.txt"  target="_blank" charset="UTF-8">
+				<img border="0" alt="Code du workflow" src="./applications/DevOps/Git/fichier.png" width="35" height="35"/> </a>
+		
+</div>
+
+
+
+		<div id="titre">Les commandes à connaitre
+			<div>
+				<img alt="" src="./global/images/barre_bleue.png" style="border:none;">	
+			</div>
+		</div>	
+	<center>
+		<div id="tableau_Git">
+				<table class="tableau">
+					<thead> 
+						<tr> 
+							<th class="cellule "> <h3>Commande  </h3> </th>
+							<th class="cellule "> <h3>Objectif </h3> </th>
+						</tr>
+					</thead> 
+						<tr> 
+							<td class="cellule cellule_elargie">git init </td>
+							<td class="cellule cellule_elargie">Pour activer un dossier comme repository Git</td>
+						</tr>
+						<tr> 
+							<td class="cellule cellule_elargie">git add mon_fichier </td>
+							<td class="cellule ">Pour ajouter à l'index mon_fichier </td>
+						</tr>
+						<tr> 
+							<td class="cellule ">git add .</td>
+							<td class="cellule ">Pour ajouter tous les fichiers dans le répertoire courant</td>
+						</tr>			
+						<tr> 
+							<td class="cellule ">git status </td>
+							<td class="cellule ">Pour afficher l'état des commits </td>
+						</tr>	
+						<tr> 
+							<td class="cellule ">git commit -m "initialisation site" </td>
+							<td class="cellule ">Pour enregistrer vos modifications </td>
+						</tr>	
+						<tr> 
+							<td class="cellule ">git commit --amend -m "Votre nouveau message"  </td>
+							<td class="cellule ">Pour modifier le message de votre dernier commit</td>
+						</tr>	
+						<tr> 
+							<td class="cellule ">git log </td>
+							<td class="cellule ">Pour afficher les commits avec leur  SHA : les identifiants uniques des commits</td>
+						</tr>	
+						<tr> 
+							<td class="cellule ">git clone https://github.com/facebook/react.git </td>
+							<td class="cellule ">Pour télécharger un projet </td>
+						</tr>	
+						<tr> 
+							<td class="cellule "> git pull origin master </td>
+							<td class="cellule "> Pour ne récupérer que les modifications d'un tiers</td>
+						</tr>
+						<tr> 
+							<td class="cellule ">git remote add origin https://github.com/jeg56/monsite.git</td>
+							<td class="cellule ">Pour ajouter une nouvelle machine </td>
+						</tr>	
+						<tr> 
+							<td class="cellule ">git push --force origin master</td>
+							<td class="cellule ">Pour envoyer un commit sur githup (origine etant la machine et le master la branche)</td>
+						</tr>	
+						<tr> 
+							<td class="cellule ">git remote -v </td>
+							<td class="cellule ">Pour afficher les dépôts distants </td>
+						</tr>	
+						<tr> 
+							<td class="cellule "> git branch</td>
+							<td class="cellule "> Pour afficher toutes les branches disponibles dans mon repository</td>
+						</tr>	
+						<tr> 
+							<td class="cellule ">git branch nouvelle-branche </td>
+							<td class="cellule ">Pour créer une nouvelle branche</td>
+						</tr>	
+						<tr> 
+							<td class="cellule ">git checkout nouvelle-branche</td>
+							<td class="cellule ">Pour se placer dans une autre branche à l'intérieur de votre repository</td>
+						</tr>	
+						<tr> 
+							<td class="cellule "> git checkout SHADuCommit</td>
+							<td class="cellule "> Pour se positionner sur un commit</td>
+						</tr>	
+						<tr> 
+							<td class="cellule ">git revert SHADuCommit </td>
+							<td class="cellule ">Pour créer un commit qui fait l'inverse du précédent</td>
+						</tr>	
+						<tr> 
+							<td class="cellule ">git reset --hard‌ </td>
+							<td class="cellule ">Pour annuler tous les changements non commités </td>
+						</tr>	
+						<tr> 
+							<td class="cellule ">git merge brancheB </td>
+							<td class="cellule ">Pour mettre à jours la branche positionné par rapport à brancheB</td>
+						</tr>	
+						<tr> 
+							<td class="cellule ">git blame nomFichier </td>
+							<td class="cellule ">Pour connaitre l'origine de la modification de chaque ligne (user + SHADuCommit)</td>
+						</tr>	
+						<tr> 
+							<td class="cellule ">Git show SHADuCommit </td>
+							<td class="cellule ">Pour afficher les modifications </td>
+						</tr>	
+						<tr> 
+							<td class="cellule "> git stash </td>
+							<td class="cellule "> Pour mettre ses modifications de coté</td>
+						</tr>	
+						<tr> 
+							<td class="cellule "> git stash pop </td>
+							<td class="cellule "> Pour récupérer ses modifications</td>
+						</tr>		
+						<tr> 
+							<td class="cellule "> fork </td>
+							<td class="cellule "> Pour faire une copie d'un projet distant et le mettre sur son compte</td>
+						</tr>		
+				</table>
+		</div>
+	</center>
+
+
+
+
+
+</div>

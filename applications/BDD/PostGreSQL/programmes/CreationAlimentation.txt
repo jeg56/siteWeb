@@ -1,0 +1,21 @@
+/*** Création de la structure de la table  MA_TABLE ***/
+CREATE TABLE MA_TABLE (
+    id bigint NOT NULL,
+    code character varying(3) NOT NULL,
+    flag boolean NOT NULL,
+    last_modified timestamp without time zone DEFAULT (now())::timestamp without time zone NOT NULL,
+    start_time timestamp without time zone NOT NULL
+
+);
+ 
+COMMENT ON COLUMN MA_TABLE.ID IS 'Identifiant technique';
+COMMENT ON COLUMN MA_TABLE.CODE IS 'Code fonctionnel du genre F : féminin; M : masculin; X: non précisé';
+COMMENT ON COLUMN MA_TABLE.flag IS 'Booléen indiquant si le pays est une destination possible ou non';
+COMMENT ON COLUMN MA_TABLE.LAST_MODIFIED IS 'Date de la dernière modification';
+COMMENT ON COLUMN MA_TABLE.START_TIME IS 'Date de début de validité';
+COMMENT ON COLUMN MA_TABLE.END_TIME IS 'Date de fin de validité'
+
+ 
+/*** Alimentation de la table MA_TABLE depuis un fichier plat avec séparateur ***/
+\set path '\'' `pwd` '/DATA/data_MA_TABLE.txt\''
+COPY MA_TABLE (id, code, flag, last_modified, start_time) FROM :path with delimiter ';';

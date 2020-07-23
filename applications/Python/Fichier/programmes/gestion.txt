@@ -1,0 +1,45 @@
+/*** ecrire dans un fichier ***/
+def writeFile(texte,path):
+        fichier = open(path,"w")
+        fichier.write(texte.encode('utf-8'))
+        fichier.close()
+
+def writeFileAppend(texte,path):
+        fichier = open(path,"a+b")
+        fichier.write(texte.encode('utf-8'))
+        fichier.close()
+ 
+/*** lire un fichier ***/
+def readFile(path):
+        fichier = open(path,"r")
+        file = fichier.read()
+        #return ligne
+        fichier.close()
+
+/*** lire un fichier ***/
+with open("fichier.txt", "r") as mon_fichier:
+        texte = mon_fichier.read()
+
+/*** lire un fichier ligne par ligne***/
+with open("fichier.txt", "r") as mon_fichier:
+        for line in mon_fichier.readlines():
+                print(line.strip())
+
+
+/*** Enregistrer des objets dans des fichiers ***/
+import pickle
+score = {
+        "joueur 1":    5,
+        "joueur 2":   35,
+        "joueur 3":   20,
+        "joueur 4":    2,
+        }
+
+with open('donnees', 'wb') as fichier:
+        mon_pickler = pickle.Pickler(fichier)
+        mon_pickler.dump(score)
+
+/*** Lire des objets dans des fichiers ***/
+with open('donnees', 'rb') as fichier:
+        mon_depickler = pickle.Unpickler(fichier)
+        score_recupere = mon_depickler.load()

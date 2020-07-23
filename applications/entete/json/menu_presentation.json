@@ -1,0 +1,20 @@
+{
+	"menu_niveau1":[{
+					"nom":"Présentation",
+					"chemin":"http://adresse_onglet1",
+					"menu_niveau2":[{
+								"nom":"CV",
+								"chemin":"http://adresse_onglet1",
+								"menu_niveau2":[{
+											"nom":"Mon CV",
+											"chemin":"http://adresse_onglet1"
+								
+								}]
+						}]
+					},
+					{
+					"nom":"Compétence Technique",
+					"chemin":"http://adresse_onglet1"
+					}
+				]
+}

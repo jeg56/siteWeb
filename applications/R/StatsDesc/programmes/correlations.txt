@@ -1,0 +1,3 @@
+/*** Corrélation entre valeur numérique ***/
+cor(Table)
+

@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang="fr" xml:lang="fr" dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta http-equiv="expires" content="0">
+      <meta http-equiv="pragma" content="no-cache">
+      <meta http-equiv="cache-control" content="no-cache, must-revalidate">
+
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+      <meta name="viewport" content="initial-scale=1.0, user-scalable=0" />      
+      <title>Site d'Arnaud Jégoux</title>
+
+      <script type="text/javascript" src="./global/js/change_color_textArea.js"></script>
+      <script type="text/javascript" src="./global/js/import_programme.js"></script>
+      <script type="text/javascript" src="./global/js/jquery-2.1.3.js"></script>
+      <script type="text/javascript" src="./global/js/jquery-ui.js"></script>
+      <script type="text/javascript" src="./global/js/jquery.msgBox.js"></script>
+
+      <link rel="stylesheet" href="./global/css/color_Textarea.css" type="text/css" media="all">
+      <link rel="stylesheet" href="./global/css/style_text.css" type="text/css" media="all">
+      <link rel="stylesheet" href="./global/css/jquery-ui.css">
+      <link rel="stylesheet" href="./global/css/msgBoxLight.css">
+      
+<script src="./Highcharts-6.1.1/code/highcharts.src.js"></script>
+
+      <script type="text/javascript" src="./entete/js/import_menu.js"></script>
+
+
+</head>
+<body>
+
+<div id="mainContainer">
+  <div id="topContainer">
+      <div id="entete"></div>
+      
+      <div id="application" class="application"></div>
+            <script> 
+            $(function(){
+                $.ajax({
+                  type  : "GET",
+                  url   : './entete/entete.html',
+                  async   : false,
+                  dataType: 'html',
+                  success   : function(html){
+                     $('#entete').append(html);
+                      },
+                  error : function(){
+                          alert('Probleme du html');
+                  }
+                })
+            });
+   
+            //loadHTML("./pronostic.html");
+           loadHTML("./resultatJeuxConcours.html");
+         // loadHTML("./applications/Web/Geolocalisation/geolocalisation.html"); 
+
+
+
+      </script> 
+
+
+
+  </div> <!--Fin topContainer-->
+    <div id="bottomContainer">
+      <div id="footer">
+        <marquee class='message_infos'> Steph et Arnaud ... </marquee>
+      </div>
+    </div>
+</div> <!--Fin mainContainer-->
+
+
+
+</body>
+</html>

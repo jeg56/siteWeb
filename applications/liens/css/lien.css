@@ -1,0 +1,25 @@
+.texte{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	padding: 5px 0px 0px 0px;
+	margin-left: 30px;
+	margin-right:  30px;
+	text-align: justify;
+}
+
+.monCV{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 50px 0px 0px 60px;
+}
+
+
+#sf_se_titre {
+	font-size: 16px;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	color: rgb(0,154,177);
+	padding: 0px 0px 0px 60px;
+}
+

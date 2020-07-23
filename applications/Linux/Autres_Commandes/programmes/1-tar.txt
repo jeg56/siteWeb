@@ -1,0 +1,5 @@
+/*** Détarer fichier ***/
+tar -xvf fichier_tare
+
+/*** Tarer fichier : fichier1 fichier2 ***/
+tar -cvf fichier_tare fichier1 fichier2

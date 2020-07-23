@@ -1,0 +1,21 @@
+{
+	"programme": [
+	{
+		"titre": "Test du chi2",
+		"description": "Permet de tester le lien existant entre de variables qualitatives X et Y à partir d’un échantillon sous forme de table de contingence (de croisement) ",
+		"chemin": "./applications/R/StatsTest/programmes/chi2.txt"
+	},{
+		"titre": "Test de normalité",
+		"description": "Permet de tester si des données suivent une loi normale (gaussienne) ou non",
+		"chemin": "./applications/R/StatsTest/programmes/normalite.txt"
+	},{
+		"titre": "Test de student",
+		"description": "Permet de tester l’egalité entre deux moyennes au vu d’un échantillon de chaque sous-population x= (X1, . . . , Xn1) et y=(Y1, . . . , Yn2) ",
+		"chemin": "./applications/R/StatsTest/programmes/student.txt"
+	},{
+		"titre": "Anova : Analyse de variance",
+		"description": "L'ANOVA permet de voir si une variable numérique a des valeurs différentes en fonction de plusieurs groupes. C'est une généralisation du test de Student permettant de comparer plus de deux groupes. ",
+		"chemin": "./applications/R/StatsTest/programmes/anova.txt"
+	}
+	]
+}

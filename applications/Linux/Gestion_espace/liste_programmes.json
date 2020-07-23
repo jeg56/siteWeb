@@ -1,0 +1,17 @@
+{
+	"programme": [
+	{
+		"titre": "Gestion des fichiers :",
+		"description": "Pour effectuer des recherches sur des mots clés",
+		"chemin": "./applications/Linux/Gestion_espace/programmes/1 - Commande Unix de recherche.txt"
+	},
+	{
+		"description": "Pour effectuer des tris & des actions sur les fichiers",
+		"chemin": "./applications/Linux/Gestion_espace/programmes/2  - ls-ltr.txt"
+	},
+	{
+		"description": "Taille des fichiers",
+		"chemin": "./applications/Linux/Gestion_espace/programmes/3 - Taille.txt"
+	}
+	]
+}

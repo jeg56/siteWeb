@@ -1,0 +1,18 @@
+﻿/*** listing du répertoire ne faisant ressortir que le 8eme bloc : soit les heures des fichiers ***/
+ls -ltr | awk '{print $8}'
+
+
+/*** liste les fichiers de l'année 2012 ***/
+ls -ltr | awk '$8 == 2012  {print $9 }'
+
+
+/*** liste les fichiers de l'année 2012 et les supprime ***/
+ls -ltr | awk '$8 == 2012 {print "rm " $9 }'  | sh
+
+
+/*** liste les fichiers de l'année 2012 et déplace vers un espace temporaire ***/
+ls -ltr | awk '$8 == 2012 {print "mv " $9 " /tmp/" }'  | sh 
+
+
+/*** liste les fichiers de l'année 2012 et les compress ***/ 
+ls -ltr | awk '$8 == 2012 {print "compress " $9 }'  | sh 

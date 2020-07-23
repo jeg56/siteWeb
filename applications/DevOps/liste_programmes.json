@@ -1,0 +1,21 @@
+{
+	"programme": [
+	{
+		"titre": "Principe",
+		"description": "Principe pour produire des pages Web dynamiques ",
+		"chemin": "./applications/Web/Php/programmes/principe.txt"
+	},{
+		"titre": "Gestion des fichiers",
+		"description": " Pour créer et lire un fichier texte ",
+		"chemin": "./applications/Web/Php/programmes/fichier.txt"
+	},{
+		"titre": "Base de données",
+		"description": "Commande de base pour gérer des BDD",
+		"chemin": "./applications/Web/Php/programmes/BDD.txt"
+	},{
+		"titre": "Envoi mail",
+		"description": " ",
+		"chemin": "./applications/Web/Php/programmes/envoiMail.txt"
+	}
+	]
+}

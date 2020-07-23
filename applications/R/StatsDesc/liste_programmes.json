@@ -1,0 +1,13 @@
+{
+	"programme": [
+	{
+		"titre": "Statistiques descriptives",
+		"description": "Quelques stats",
+		"chemin": "./applications/R/StatsDesc/programmes/stat_desc.txt"
+	},	{
+		"titre": "Matrice des corrélations",
+		"description": "Une corrélation proche de 0 signifie que les deux variables ne sont pas corrélées. Une corrélation proche de 1 ou de -1 signifie que les deux variables sont très corrélées.",
+		"chemin": "./applications/R/StatsDesc/programmes/correlations.txt"
+	}
+	]
+}

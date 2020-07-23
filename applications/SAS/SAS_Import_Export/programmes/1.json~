@@ -1,0 +1,26 @@
+ data _null_;
+ %let _EFIERR_ = 0; 
+ %let _EFIREC_ = 0;   
+ file 'U:\01 - Projet\008 - RECHERCHE IMPACTS\Cd_nsm.csv' delimiter='¤' DSD DROPOVER lrecl=32767;
+ if _n_ = 1 then 
+  do;
+    put "MOT" '¤' "MOT_ANALYSE" '¤' "ARBORESCENCE" '¤' "FICHIER" ;
+  end;
+set  U_WORK.Cd_nsm   end=EFIEOD;
+    format MOT $200. ;
+    format MOT_ANALYSE $200. ;
+    format ARBORESCENCE $2000. ;
+    format FICHIER $200. ;
+  do;
+    EFIOUT + 1;
+    put MOT $ @;
+    put MOT_ANALYSE $ @;
+    put ARBORESCENCE $ @;
+    put FICHIER $ ;
+    ;
+  end;
+ if _ERROR_ then call symputx('_EFIERR_',1);  /* set ERROR detection macro variable */
+ if EFIEOD then call symputx('_EFIREC_',EFIOUT);
+ run;
+
+

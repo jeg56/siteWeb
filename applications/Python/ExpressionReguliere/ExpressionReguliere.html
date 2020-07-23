@@ -1,0 +1,98 @@
+<div id='page_Python'  style='margin: 0px 65px;'>
+		<div id="titre"> Les exepressions régulières :
+				<div>
+					<img alt="" src="./global/images/barre_bleue.png" style="border:none;">		
+				</div>
+		 </div>
+
+		 <div class="texte">
+				<h2 > Définition </h2> 
+
+		</div>
+		<table class="tableau">
+			<thead> 
+				<tr> 
+					<th class="cellule cellule_simple typeResume" > Sigle</th>
+					<th class="cellule cellule_simple typeResume"> Explication </th>
+				</tr>
+			</thead> 
+				<tr> 
+					<td class="cellule cellule_simple " > abc*  </td>
+					<td class="cellule cellule_simple">0, 1 ou plus => 'ab','abc','abcc','abcccccc' </td>
+				</tr>
+				<tr> 
+					<td class="cellule cellule_simple " > abc+ </td>
+					<td class="cellule cellule_simple">1 ou plus => 'abc','abcc','abccc'</td>
+				</tr>
+				<tr> 
+					<td class="cellule cellule_simple " > abc? </td>
+					<td class="cellule cellule_simple">0 ou 1 =>'ab','abc'</td>
+				</tr>
+				<tr> 
+					<td class="cellule cellule_simple " >E{4} </td>
+					<td class="cellule cellule_simple"> signifie 4 fois la lettre E majuscule </td>
+				</tr>
+				<tr> 
+					<td class="cellule cellule_simple " > E{2,4} </td>
+					<td class="cellule cellule_simple"> signifie de 2 à 4 fois la lettre E majuscule </td>
+				</tr>
+				<tr> 
+					<td class="cellule cellule_simple " > E{,5} </td>
+					<td class="cellule cellule_simple"> signifie de 0 à 5 fois la lettre E majuscule</td>
+				</tr>
+				<tr> 
+					<td class="cellule cellule_simple " > E{8,} </td>
+					<td class="cellule cellule_simple"> signifie 8 fois minimum la lettre E majuscule</td>
+				</tr>
+				<tr> 
+					<td class="cellule cellule_simple " > [abcd] </td>
+					<td class="cellule cellule_simple"> l'une des lettres parmia,b,c et d. </td>
+				</tr>
+				<tr> 
+					<td class="cellule cellule_simple " > [A-Z] </td>
+					<td class="cellule cellule_simple"> signifie « une lettre majuscule ». </td>
+				</tr>
+				<tr> 
+					<td class="cellule cellule_simple " >[A-Za-z0-9] </td>
+					<td class="cellule cellule_simple"> signifie « une lettre, majuscule ou minuscule, ou un chiffre ».</td>
+				</tr>
+				<tr> 
+					<td class="cellule cellule_simple " > [A-Z]{5}</td>
+					<td class="cellule cellule_simple">  5 lettres majuscules qui se suivent dans une chaîne</td>
+				</tr>
+				<tr> 
+					<td class="cellule cellule_simple " > ^ </td>
+					<td class="cellule cellule_simple"> on cherche l'expression au début de la chaîne</td>
+				</tr>
+				<tr> 
+					<td class="cellule cellule_simple " > $ </td>
+					<td class="cellule cellule_simple">  l'expression doit être à la fin de la chaîne</td>
+				</tr>
+		</table>
+
+
+ <div class="texte">
+		<h2 > Quelques cas d'usage </h2> 
+
+</div>
+
+<pre>
+<span class="infos_code">import re </span>
+<span style="color:#12EA4B;">/*** Vérifie si le n° de téléphone est valide ***/</span>
+chaine = "06.33.02.11.89"
+expression = r"^0[0-9]([ .-]?[0-9]{2}){4}$"
+while re.search(expression, chaine) is None:
+    chaine = input("Saisissez un numéro de téléphone (valide) :")
+
+<span style="color:#12EA4B;">/*** Vérifie si le mot de passe et constitué d'au moins 6 caractères ou chiffres ***/</span>
+chn_mdp = r"^[A-Za-z0-9]{6,}$"
+exp_mdp = re.compile(chn_mdp)
+mot_de_passe = ""
+if exp_mdp.search(mot_de_passe) is None:
+    mot_de_passe = input("Tapez votre mot de passe : ")
+
+<span style="color:#12EA4B;">/*** Substitution de 'ab' par 'ab' ***/</span>
+re.sub(r"(ab)", r" \1 ", "abcdef")
+' ab cdef'
+
+</pre>

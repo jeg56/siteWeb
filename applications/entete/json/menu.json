@@ -1,0 +1,328 @@
+﻿{
+	"menu_niveau1":[{
+					"nom":"Présentation",
+					"chemin":"./applications/presentation/presentation.html",
+					"menu_niveau2":[{
+								"nom":"Présentation",
+								"chemin":"./applications/presentation/presentation.html"
+						},{
+								"nom":"CV",
+								"chemin":"./applications/CV/cv_online2.html"	
+						  }
+						]
+					},{
+					"nom":"Compétences fonctionnelles",
+					"chemin":"./applications/Savoir_etre-savoir_faire/savoir_faire-savoir_etre.html",
+					"menu_niveau2":[{
+								"nom":"Savoir faire/Savoir Etre",
+								"chemin":"./applications/Savoir_etre-savoir_faire/savoir_faire-savoir_etre.html"
+						},
+						{
+								"nom":"Gestion de projet",
+								"chemin":"./applications/Gestion_de_projet/Agile/Agile.html",
+								"menu_niveau3":[{
+												"nom":"Méthode Agile",
+												"chemin":"./applications/Gestion_de_projet/Agile/Agile.html"
+												},{
+												"nom":"Cycle V",
+												"chemin":"./applications/Gestion_de_projet/CycleV/CycleV.html"
+												}]
+						},
+						{
+								"nom":"Statistique",
+								"chemin":"./applications/Statistique/resume_statistique.html",
+								"menu_niveau3":[{
+												"nom":"Résumé Statistique",
+												"chemin":"./applications/Statistique/resume_statistique.html"
+												},{
+												"nom":"Régression logistique",
+												"chemin":"./applications/Statistique/Reg_logistique.html"
+												}]
+						}		
+						]
+					},{
+					"nom":"Compétences techniques",
+					"chemin":"./applications/Web/Javascript/Javascript.html",
+					"menu_niveau2":[{
+								"nom":"Web",
+								"chemin":"./applications/Web/Html/Html.html",
+								"menu_niveau3":[{
+												"nom":"Javascript",
+												"chemin":"./applications/Web/Javascript/Javascript.html" 
+												},{
+												"nom":"Html",
+												"chemin":"./applications/Web/Html/Html.html"
+												},{
+												"nom":"Css",
+												"chemin":"./applications/Web/CSS/CSS.html" 
+												},{
+												"nom":"Php",
+												"chemin":"./applications/Web/Php/php.html" 
+												},{
+												"nom":"Ajax",
+												"chemin":"./applications/Web/Ajax/Ajax.html"
+												},{ 
+												"nom":"Géolocalisation",
+												"chemin":"./applications/Web/Geolocalisation/geolocalisation.html" 
+												},{
+												"nom":"Exemple de POC",
+												"chemin":"./applications/Web/Appli/Appli.html" 
+												}
+											]
+						},
+						{
+								"nom":"DevOps",
+								"chemin":"./applications/DevOps/Principe/Principe.html",
+								"menu_niveau3":[{
+												"nom":"Principe",
+												"chemin":"./applications/DevOps/Principe/Principe.html"
+												},{
+												"nom":"Git & Github",
+												"chemin":"./applications/DevOps/Git/Git.html"
+												}
+												]
+						},
+						{
+								"nom":"SAS",
+								"chemin":"./applications/SAS/SAS_Import_Export/sas_ImpExp.html",
+								"menu_niveau3":[{
+												"nom":"Import/Export",
+												"chemin":"./applications/SAS/SAS_Import_Export/sas_ImpExp.html"
+												},{
+												"nom":"Sorties Xls / Pdf /Rtf",
+												"chemin":"./applications/SAS/SAS_Sorties/sas_Sorties.html"
+												},{
+												"nom":"Les formats",
+												"chemin":"./applications/SAS/SAS_Format/sas_format.html"
+												},{
+												"nom":"Statistique",
+												"chemin":"./applications/SAS/SAS_Stat/sas_statistique.html"
+												},{
+												"nom":"Graphique",
+												"chemin":"./applications/SAS/SAS_graphe/sas_graph.html"
+												}
+												]
+						},
+						{
+								"nom":"Python",
+								"chemin":"./applications/Python/BDD/python.html",
+								"menu_niveau3":[{
+												"nom":"Les basics",
+												"chemin":"./applications/Python/Basic/python.html"
+												},{
+												"nom":"Les class & l'héritage",
+												"chemin":"./applications/Python/Class/python.html"
+												},{
+												"nom":"Base de données",
+												"chemin":"./applications/Python/BDD/python.html"
+												},{
+												"nom":"Gestion des fichiers",
+												"chemin":"./applications/Python/Fichier/python.html"
+												},{
+												"nom":"Les expressions régulières",
+												"chemin":"./applications/Python/ExpressionReguliere/ExpressionReguliere.html"
+												}
+												]
+						},{
+								"nom":"R",
+								"chemin":"./applications/R/Carto/Carto.html",
+								"menu_niveau3":[{
+												"nom":"Aide mémoire",
+												"chemin":"./applications/R/Basic/R.html"
+												},{
+												"nom":"Fichier",
+												"chemin":"./applications/R/Fichiers/R.html"
+												},{
+												"nom":"Base de données",
+												"chemin":"./applications/R/BDD/R.html"
+												},{
+												"nom":"Stats descriptives",
+												"chemin":"./applications/R/StatsDesc/R.html"
+												},{
+												"nom":"Stats les tests",
+												"chemin":"./applications/R/StatsTest/R.html"
+												},{
+												"nom":"Stats regressions",
+												"chemin":"./applications/R/StatsReg/R.html"
+												},{
+												"nom":"Stats analyse des composantes",
+												"chemin":"./applications/R/StatsAnalysesComposantes/R.html"
+												},{
+												"nom":"Cartographie",
+												"chemin":"./applications/R/Carto/Carto.html"
+												}
+												]
+						},
+						{
+								"nom":"Base de données-SQL",
+								"chemin":"./applications/BDD/MCD/Modelisation.html",
+								"menu_niveau3":[{
+												"nom":"Construire un SGBD : MCD...",
+												"chemin":"./applications/BDD/MCD/Modelisation.html"
+												},{
+												"nom":"SQL-Oracle",
+												"chemin":"./applications/BDD/SQL-Oracle/SQL-Oracle.html"
+												},{
+												"nom":"PL/SQL",
+												"chemin":"./applications/BDD/PLSQL/PLSQL.html"
+												},{
+												"nom":"PostGreSQL",
+												"chemin":"./applications/BDD/PostGreSQL/PostGreSQL.html"
+												}
+												]
+						},
+						{
+								"nom":"Talend",
+								"chemin":"./applications/Talend/Talend.html",
+								"menu_niveau3":[{
+												"nom":"Tutoriel (en Vidéo)",
+												"chemin":"./applications/Talend/Talend.html"
+												}
+												]
+						},
+						{
+								"nom":"Java",
+								"chemin":"./applications/Java/java.html",
+								"menu_niveau3":[{
+												"nom":"Test automatisé",
+												"chemin":"./applications/Java/java.html"
+												}
+												]
+						},
+						{
+								"nom":"NodeJs",
+								"chemin":"./applications/Nodejs/NodeJs.html",
+								"menu_niveau3":[{
+													"nom": "De la théorie ... ",
+													"chemin": "./applications/Nodejs/Theorie/theorie.html"
+												},{
+													"nom": "... à la pratique",
+													"chemin": "./applications/Nodejs/Pratique/pratique.html"
+												}
+												]
+						},
+						{
+								"nom":"Linux",
+								"chemin":"./applications/Linux/Gestion_espace/Gestion_espace.html",
+								"menu_niveau3":[{
+												"nom":"Gestion d'espace",
+												"chemin":"./applications/Linux/Gestion_espace/Gestion_espace.html"
+												},{
+												"nom":"Surveillance",
+												"chemin":"./applications/Linux/Surveillance/Surveillance.html"
+												},{
+												"nom":"Autres Commandes",
+												"chemin":"./applications/Linux/Autres_Commandes/Autres_Commandes.html"
+												}
+												]
+						},
+						{
+								"nom":"Big Data",
+								"chemin":"./applications/Big_data/concept/big_data.html",
+								"menu_niveau3":[{
+												"nom":"Concept",
+												"chemin":"./applications/Big_data/concept/big_data.html"
+												},{
+												"nom":"Hadoop",
+												"chemin":"./applications/Big_data/hadoop/hadoop.html"
+												},{
+												"nom":"Les bases - NoSQL",
+												"chemin":"./applications/Big_data/hadoop/bases.html"
+												},{
+												"nom":"Les principes du MapReduce",
+												"chemin":"./applications/Big_data/hadoop/MapReduce.html"
+												},{
+												"nom":"Spark",
+												"chemin":"./applications/Big_data/Spark/Spark.html" 
+												}
+												]
+						}
+						]
+					},
+
+					{
+							"nom":"Certification",
+							"chemin":"./applications/Certification/certificationBigData.html",
+
+							"menu_niveau2":[
+											{
+												"nom":"Big Data",
+												"chemin":"./applications/Certification/certificationBigData.html",
+												"menu_niveau3":[{
+																"nom":"Architecture Big Data",
+																"chemin":"./applications/Certification/certificationBigData.html"
+																},{
+																"nom":"Bases de données NoSQL",
+																"chemin":"./applications/Certification/Certification_NOSQL.html"
+																},{
+																"nom":"Créez votre Data Lake",
+																"chemin":"./applications/Certification/certificationData-lake.html"
+																}
+																]
+											},{
+												"nom":"Langage",
+												"chemin":"./applications/Certification/Python.html",
+												"menu_niveau3":[{
+																"nom":"Python",
+																"chemin":"./applications/Certification/Python.html"
+																},{
+																"nom":"Java EE",
+																"chemin":"./applications/Certification/Java_EE.html"
+																},{
+																"nom":"Php MySQL",
+																"chemin":"./applications/Certification/Php_MySQL.html"
+																},{
+																"nom":"Flask",
+																"chemin":"./applications/Certification/Flask.html"
+																},{
+																"nom":"Angular",
+																"chemin":"./applications/Certification/Angular.html"
+																},{
+																"nom":"Django",
+																"chemin":"./applications/Certification/Django.html"
+																},{
+																"nom":"Symfony",
+																"chemin":"./applications/Certification/Symfony.html"
+																}
+																]
+											},
+											{
+												"nom":"Architecture",
+												"chemin":"./applications/Certification/certificationBDD_UML.html",
+												"menu_niveau3":[{
+																"nom":"Modélisation BDD avec UML",
+																"chemin":"./applications/Certification/certificationBDD_UML.html"
+																},{
+																"nom":"Architecture Orientée Services",
+																"chemin":"./applications/Certification/ArchitectureSOA_Java.html"
+																},{
+																"nom":"Docker",
+																"chemin":"./applications/Certification/ConteneurDocker.html"
+																}
+																]
+											},										
+											{
+											"nom":"Git",
+											"chemin":"./applications/Certification/certificationGit.html"
+											},
+											{
+											"nom":"Scrum",
+											"chemin":"./applications/Certification/certificationScrum.html"
+											},
+											{
+											"nom":"Probabilité",
+											"chemin":"./applications/Certification/certificationBase_Proba.html"
+											}														
+											]
+					},
+					
+					{	
+						"nom":"Liens",
+						"chemin":"./applications/liens/liens_utils.html"
+					}
+
+
+
+
+	]
+}

@@ -1,0 +1,13 @@
+/*** Lancement d un programme SAS ***/
+./sas.exe -sysin chemin/mon_programme.sas -sysparam param1 -syslog chemin/ma_log.log 
+
+/*** Récupération de l'état du programme (Si CR=0 alors tout est Ok ; ***/
+/*** Si CR=1 alors qques Warning et si CR=2 alors Ko ***/
+CR=$?
+if [ $CR -gt 1 ]
+then
+	echo 'Erreur' > /tmp/log_shell.log
+	exit $CR
+else
+	echo 'Ok' > /tmp/log_shell.log
+fi

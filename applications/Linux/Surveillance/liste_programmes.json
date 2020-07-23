@@ -1,0 +1,18 @@
+{
+	"programme": [
+	{
+		"titre": "Etat de vos programmes:",
+		"description": "Pour récupérer l'état du programme",
+		"chemin": "./applications/Linux/Surveillance/programmes/cr.txt"
+	},
+	{
+		"titre": "Surveillance systeme :",
+		"description": "Liste les process en cours",
+		"chemin": "./applications/Linux/Surveillance/programmes/1_ top.txt"
+	},
+	{
+		"description": "Lsof : lister les fichiers ouverts",
+		"chemin": "./applications/Linux/Surveillance/programmes/lsof.txt"
+	}
+	]
+}

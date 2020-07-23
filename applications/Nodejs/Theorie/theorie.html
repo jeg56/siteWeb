@@ -1,0 +1,441 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+<link rel="stylesheet" href="./global/css/style_text.css" type="text/css" media="all">
+<div id="NodeJsPratique">	
+	 <div class="texte">
+		<div id="titre"> Node.js : le JavaScript côté serveur 
+				<div>
+					<img alt="" src="./global/images/barre_bleue.png" style="border:none;">	
+				</div>
+		 </div>
+ <br>
+				Il vient en remplacement de langages serveur comme PHP, Java EE... Node.js étant développé en JS. Il est lui même basé sur les évènements d'ou il tire sa rapidité. En effet, même s'il s'exécute en séquentielle (1 seul threads), il est non bloquant. Le programme n'exécute plus les lignes dans l'ordre où elles sont écrites. Dès qu'un évènement apparaît, une fonction callback est appelée<br><br>
+
+				<h2>Architecture Nodejs:</h2><br> 
+				<img alt="" src="./applications/Nodejs/Theorie/img/architecture.png" style="border:none;width: 80%"><br><br><br> 
+				<h2>Logique:</h2><br> 				
+				<img alt="" src="./applications/Nodejs/Theorie/img/logique.png" style="border:none;width: 80%">	<br><br><br> 
+				<h2>Résultat du principe non bloquante:</h2><br> 
+				<img alt="" src="./applications/Nodejs/Theorie/img/resultat.png" style="border:none;width: 80%"><br><br><br> 
+
+
+		<div id="titre"> NPM : Installation de module
+				<div>
+					<img alt="" src="./global/images/barre_bleue.png" style="border:none;">	
+				</div>
+		 </div>
+		 <br>
+		 NPM (Node Package Manager) est l'utilitaire permettant de gérer les modules NodeJs.
+
+  <center>
+    <table class="tableau">
+        <thead> 
+            <tr> 
+                <th class="cellule cellule_simple typeResume" > Commande </th>
+                <th class="cellule cellule_tres_elargie typeResume "> Description </th>
+
+            </tr>
+        </thead> 
+            <tr> 
+                <td class="cellule  " >npm search postgresql </td>
+                <td class="cellule ">Permet d'effectuer des recherches sur le site NPM</td>
+            </tr>
+            <tr> 
+                <td class="cellule  " >npm install nomdumodule </td>
+                <td class="cellule ">Permet d'installer un module <b>localement</b> dans le répertoire <i>node_modules</i> </td>
+            </tr>
+            <tr> 
+                <td class="cellule  " >npm install markdown -g</td>
+                <td class="cellule ">Installation <b>global</b> du module markdown</td>
+            </tr>
+            <tr> 
+                <td class="cellule  " >npm update </td>
+                <td class="cellule ">Pour mettre à jour les modules </td>
+            </tr>
+            <tr> 
+                <td class="cellule  " >npm adduser</td>
+                <td class="cellule ">Pour créer un compte NPM</td>
+            </tr>
+            <tr> 
+                <td class="cellule  " >npm publish </td>
+                <td class="cellule ">Pour publier son module </td>
+            </tr>
+   </table>
+</center>
+
+
+		<div id="titre"> Création d'un module
+				<div>
+					<img alt="" src="./global/images/barre_bleue.png" style="border:none;">	
+				</div>
+		 </div>
+		 <br>
+Les modules sont des fichiers comportant des fonctions Javascript.<br>
+Une seule particularité : on doit les "exporter" pour que d'autres personnes puissent réutiliser sinon il s'agit de fonction local.<br>
+Exemple de module : <br>
+<pre>
+var fctGlobale = function() {
+    console.log('Ex. de fonction globale !');
+}
+
+var fctLocale = function() {
+    console.log('Ex. de fonction locale !');
+}
+<span class="comment">// Export de la fonction qui devient globale </span>
+exports.fctGlobale = fctGlobale;
+</pre>
+<pre>
+<span class="comment">// Fait appel à test.js dans le sous-dossier node_modules</span>
+var test = require('http'); 
+<span class="comment">// Fait appel à Mon_module.js dans le répertoire Modules_internes</span>
+var test2 = require('./Modules_internes/Mon_module.js'); 
+</pre>
+
+<img alt="" src="./applications/Nodejs/Theorie/img/CreateModule.png" style="border:none;width: 80%"><br><br><br> 
+
+		<div id="titre"> Gestion des dépendances : package.json
+				<div>
+					<img alt="" src="./global/images/barre_bleue.png" style="border:none;">	
+				</div>
+		 </div>
+<pre>
+{
+<span class="comment">//Nom de l'application </span>
+    "name": "monApplicatio",
+    <span class="comment">//Numéro de version de votre application </span>
+    "version": "0.1.0",
+    <span class="comment">// Liste des noms des modules dont l'application a besoin pour
+     fonctionner ainsi que les versions compatibles </span>
+    "dependencies": {
+        "markdown": "0.4" <span class="comment"> // Versions 0.4 uniquement </span>
+        "http": "~0.3.5" <span class="comment"> // OK pour les versions 0.3.5, 0.3.6, 0.3.7, etc. 
+        jusqu'à la version 0.4.0 non incluse </span>
+    }
+}
+</pre>
+<img alt="" src="./applications/Nodejs/Theorie/img/versionning.png" style="border:none;width: 80%"><br><br><br> 
+
+
+		<div id="titre"> Construire son serveur HTTP 
+				<div>
+					<img alt="" src="./global/images/barre_bleue.png" style="border:none;">	
+				</div>
+		 </div>
+
+<pre><span class="comment">//Importation de la bibliothèque "http" qui nous permet de créer un serveur web </span>
+var http = require('http');
+
+<span class="comment">//fonction exécutée quand un visiteur se connecte </span>
+<span class="comment">//req : la requête du visiteur ; res : la réponse renvoyée</span>
+var server = http.createServer(function(req, res) {
+<span class="comment">//En-tête de la réponse : 200->Ok; 404->page non trouvé ... +
+		le types MIME de la réponse : texte brut : text/plain; HTML : text/html </span>
+  res.writeHead(200, {"Content-Type": "text/html"});
+ <span class="comment">//Fin de la réponse</span> 
+  res.end('Salut tout le monde !');
+});
+ <span class="comment">//le serveur ecoute sur le port 8080</span> 
+server.listen(8080);
+</pre> 
+
+
+    <h2>Autres commandes :</h2>
+  <center><table class="tableau">
+        <thead> 
+            <tr> 
+                <th class="cellule cellule_simple typeResume" > Commande </th>
+                <th class="cellule cellule_tres_elargie typeResume "> Description </th>
+
+            </tr>
+        </thead> 
+            <tr> 
+                <td class="cellule  " >node serveur.js </td>
+                <td class="cellule ">Permet de lancer le serveur</td>
+            </tr>
+            <tr> 
+                <td class="cellule  " >{"Content-Type": "text/plainl"} </td>
+                <td class="cellule ">Réponse de type texte brut</td>
+            </tr>
+            <tr> 
+                <td class="cellule  " >{"Content-Type": "text/html"} </td>
+                <td class="cellule ">Réponse de type HTML </td>
+            </tr>
+            <tr> 
+                <td class="cellule  " >{"Content-Type": "text/css"} </td>
+                <td class="cellule ">Réponse de type CSS </td>
+            </tr>
+            <tr> 
+                <td class="cellule  " >{"Content-Type": "image/jpeg"} </td>
+                <td class="cellule ">Réponse de type image JPEG </td>
+            </tr>
+            <tr> 
+                <td class="cellule  " >{"Content-Type": "video/mp4"} </td>
+                <td class="cellule ">Réponse de type vidéo MPEG4 </td>
+            </tr>
+            <tr> 
+                <td class="cellule  " >{"Content-Type": "application/zip"} </td>
+                <td class="cellule ">Réponse de type fichier ZIP </td>
+            </tr>
+   </table>
+</center>
+
+
+		<div id="titre"> Gestion de l'URL
+				<div>
+					<img alt="" src="./global/images/barre_bleue.png" style="border:none;">	
+				</div>
+		 </div>
+Le module 
+<pre>var querystring = require('querystring');</pre> 
+permet de récupérer l'url et ces parametres dans un tableau de paramètres "params". <br>
+<pre>var params = querystring.parse(url.parse(req.url).query);</pre> 
+Exemple: params['prenom'] pour récupérer  le paramètre "prenom" <br>
+
+<img alt="" src="./applications/Nodejs/Theorie/img/URL.png" style="border:none;width: 80%"><br>
+<br>
+
+		<div id="titre"> Les événements
+				<div>
+					<img alt="" src="./global/images/barre_bleue.png" style="border:none;">	
+				</div>
+		 </div>
+<h2> Exemple d'écoute d'évènement</h2>
+<pre>var http = require('http');
+
+var server = http.createServer(function(req, res) {
+  res.writeHead(200);
+  res.end('Salut tout le monde !');
+});
+ <span class="comment">// On écoute l'évènement close</span> 
+server.on('close', function() { 
+    console.log('Bye bye !');
+})
+ <span class="comment">// Démarre le serveur </span> 
+server.listen(8080); 
+<span class="comment">// Arrête le serveur. Déclenche l'évènement close</span> 
+server.close(); </pre> 
+<br><br>
+
+<h2> Exemple d'émission d'évènement</h2>
+<pre><span class="comment">// Etape 1 : On importe le module et on créé l'objet</span> 
+var EventEmitter = require('events').EventEmitter;
+var jeu = new EventEmitter();
+
+<span class="comment">//  Etape 3 : on écoute l'évènement</span> 
+jeu.on('gameover', function(message){
+    console.log(message);
+});
+
+<span class="comment">//  Etape 2 : on génère un évènement</span> 
+jeu.emit('gameover', 'Vous avez perdu !');
+</pre>
+<br><br><br>
+
+
+		<div id="titre"> Framework utile
+				<div>
+					<img alt="" src="./global/images/barre_bleue.png" style="border:none;">	
+				</div>
+		 </div>
+<h2>Le framework Express.js : gestion des routes</h2>
+<pre>var express = require('express');
+var app = express();
+
+<span class="comment">// Routes simples</span> 
+app.get('/', function(req, res) {
+    res.setHeader('Content-Type', 'text/plain');
+    res.send('Vous êtes à l\'accueil !');
+});
+
+app.get('/sous-sol', function(req, res) {
+    res.setHeader('Content-Type', 'text/plain');
+    res.send('Vous êtes dans le sous-sol !');
+});
+
+app.get('/etage/1/chambre', function(req, res) {
+    res.setHeader('Content-Type', 'text/plain');
+    res.send('Vous être au 1er etage !');
+});
+
+<span class="comment">// Routes dynamiques : les routes /etage/1/chambre ou /etage/2/chambre... sont valides</span> 
+app.get('/etage/:etagenum/chambre', function(req, res) {
+    res.setHeader('Content-Type', 'text/plain');
+    res.end('Vous êtes à la chambre de l\'étage n°' + req.params.etagenum);
+});
+
+app.use(function(req, res, next){
+    res.setHeader('Content-Type', 'text/plain');
+    res.status(404).send('Page introuvable !');
+});
+app.listen(8080);</pre>
+
+<h2>Le framework EJS.js : gestion des templates (les vues) </h2>
+Plus besoin d'écrire du HTML au milieu du code JavaScript<br>
+<pre>
+app.get('/etage/:etagenum/chambre', function(req, res) {
+    res.render('chambre.ejs', {etage: req.params.etagenum});
+});</pre>
+
+
+le fichier chambre.ejs doit se trouver dans un sous-dossier appelé "views" (/views/chambre.ejs)<br>
+<pre>&lt;p&gt;Vous êtes à l'étage n°<%= etage %>&lt;/p&gt;</pre>
+
+Plusieurs paramètres et des boucles.
+<pre>
+app.get('/compter/:nombre', function(req, res) {
+    var noms = ['Robert', 'Jacques', 'David'];
+    res.render('page.ejs', {compteur: req.params.nombre, noms: noms});
+});</pre>
+<pre>&lt;p&gt;Je vais compter jusqu'à <%= compteur %>&lt;/p&gt;
+
+&lt;p&gt;<% for(var i = 1 ; i <= compteur ; i++) { %>
+    <%= i %>&lt;br&gt;
+    <%= noms[i] %>
+	<% } %>
+&lt;/p&gt;</pre>
+
+
+<h2>socket.io : WebSocket permet au serveur d'emmettre et de recevoir des messages </h2>
+<b> Pour le serveur</b>
+<pre>
+var http = require('http');
+var fs = require('fs');
+<span class="comment">// Chargement du fichier index.html affiché au client</span>
+var server = http.createServer(function(req, res) {
+<span class="comment">// ouvre le fichier index.html sur le serveur et le retourne </span> 
+    fs.readFile('./index.html', 'utf-8', function(error, content) {
+        res.writeHead(200, {"Content-Type": "text/html"});
+        res.end(content);
+    });
+});
+
+<span class="comment">// Chargement de socket.io</span> 
+var io = require('socket.io').listen(server);
+
+<span class="comment">// Quand un client se connecte, on le note dans la console</span> 
+io.sockets.on('connection', function (socket) {
+<span class="infos">//Partie reception </span>
+    <span class="comment">// Ecriture d'un message dans la console</span>
+    console.log('Un client est connecté !');
+
+    <span class="comment">// Réception des messages des clients</span> 
+    socket.on('message', function (message) {
+		console.log('Un client me parle ! Il me dit : ' + message);
+	});	
+
+	<span class="comment">// Dès qu'on nous donne un pseudo, on le stocke en variable de session</span> 
+    socket.on('petit_nouveau', function(pseudo) {
+        socket.pseudo = pseudo;
+    });
+
+<span class="infos">// Partie emission </span>
+    <span class="comment">//Le serveur envoie un message au client cnnecté</span> 
+    socket.emit('message', { content: 'Vous êtes bien connecté !', importance: '1' });
+
+    <span class="comment">//Broadcast : le serveur envoie un message à l'ensemble des clients</span> 
+	socket.broadcast.emit('message', 'Message à toutes les connectés');
+});
+ 
+server.listen(8080);
+</pre>
+<b> Pour le client</b> 
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset="utf-8" /&gt;
+        &lt;title&gt;Socket.io&lt;/title&gt;
+    &lt;/head&gt;
+ 
+    &lt;body&gt;
+
+        &lt;p&gt;Communication avec socket.io !&lt;/p&gt;
+         &lt;p&gt;&lt;input type="button" value="Embêter le serveur" id="poke" /&gt; &lt;/p&gt;
+        <span class="comment">// Importation du fichier socket.io.js fourni automatiquement fourni 
+        	par le serveur node.js via le module socket.io</span> 
+        &lt;script src="/socket.io/socket.io.js"&gt;&lt;/script&gt;
+        &lt;script&gt;
+            var socket = io.connect('http://localhost:8080');
+
+            <span class="comment">// On demande le pseudo au visiteur...</span> 
+            var pseudo = prompt('Quel est votre pseudo ?');
+            <span class="comment">// Et on l'envoie avec le signal "petit_nouveau" (pour le différencier de "message")</span> 
+            socket.emit('petit_nouveau', pseudo);
+
+            <span class="comment">// le client traite les messages reçus du serveur </span> 
+            socket.on('message', function(message) {
+   				 alert('Le serveur a un message pour vous : ' + message);
+			})
+   			<span class="comment">// le client envoie un message au serveur</span> 
+            $('#poke').click(function () {
+                socket.emit('message', 'Salut serveur, ça va ?');
+            })
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+
+<h2>PM2 (process manager) : Gestionnaire d'application NodeJs </h2>
+  <center><table class="tableau">
+        <thead> 
+            <tr> 
+                <th class="cellule cellule_simple typeResume" > Commande </th>
+                <th class="cellule cellule_tres_elargie typeResume "> Description </th>
+
+            </tr>
+        </thead> 
+            <tr> 
+                <td class="cellule  " >pm2 start app.js </td>
+                <td class="cellule ">Pour lancer ensuite l'application Node.js</td>
+            </tr>
+            <tr> 
+                <td class="cellule  " >pm2 ls </td>
+                <td class="cellule ">Pour avoir des infos sur les applications qui tournent</td>
+            </tr>
+            <tr> 
+                <td class="cellule  " >pm2 stop app.js </td>
+                <td class="cellule ">Pour stopper l'application </td>
+            </tr>
+            <tr> 
+                <td class="cellule  " >pm2 restart app.js </td>
+                <td class="cellule ">Pour relancer l'application</td>
+            </tr>
+            <tr> 
+                <td class="cellule  " >pm2 logs </td>
+                <td class="cellule ">Pour voir les sorties en temps réel ainsi que les 10 dernières lignes de log</td>
+            </tr>
+            <tr> 
+                <td class="cellule  " >pm2 start app.js --watch </td>
+                <td class="cellule ">Dès la moindre modification de fichier dans le dossier actuel ou les sous dossiers, PM2 va faire quitter l'application et la relancer avec les fichiers modifiés.</td>
+            </tr>
+            <tr> 
+                <td class="cellule  " >pm2 monit </td>
+                <td class="cellule ">Pour afficher une fenetre avec les performances en temps réel de l'application</td>
+            </tr>
+            <tr> 
+                <td class="cellule  " >pm2 start app.js -i 4 </td>
+                <td class="cellule ">Pour lancer 4 instances de votre application</td>
+            </tr>
+            <tr> 
+                <td class="cellule  " >pm2 start app.js -i max </td>
+                <td class="cellule ">Pour de lancer autant d'instances que vous avez de CPU.</td>
+            </tr>
+           <tr> 
+                <td class="cellule  " >pm2 scale app 1 </td>
+                <td class="cellule ">Pour n'avoir qu'une seule instance.</td>
+            </tr>
+
+   </table>
+</center>
+
+
+
+<h2>Pour le stress :artillery </h2>
+Pour  simuler 100 nouveaux utilisateurs par seconde qui feront 20 requêtes chacun pendant un total de 10 secondes. Cela fait 20 000 requêtes en 10 secondes !
+<pre>
+artillery quick -d 10 -r 100 -n 20 http://127.0.0.1:8080
+</pre>
+		</div>
+
+</div>

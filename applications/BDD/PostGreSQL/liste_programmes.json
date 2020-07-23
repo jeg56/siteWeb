@@ -1,0 +1,41 @@
+{
+	"programme": [
+	{
+		"titre": "Gestion d'une base PostGreSQL:",
+		"description": "Connexion",
+		"chemin": "./applications/BDD/PostGreSQL/programmes/connexion.txt"
+	},
+	{
+		"description": "Réinitialisation du user PostGreSQL ",
+		"chemin": "./applications/BDD/PostGreSQL/programmes/ReinitUser.txt"
+	},
+	{
+		"description": "Commandes ",
+		"chemin": "./applications/BDD/PostGreSQL/programmes/qques commandes.txt"
+	},
+	{
+		"description": "Exécution de script",
+		"chemin": "./applications/BDD/PostGreSQL/programmes/execute script.txt"
+	},
+	{
+		"description": "Création des rôles",
+		"chemin": "./applications/BDD/PostGreSQL/programmes/CreationRole.txt"
+	},	
+	{
+		"description": "Création d'une base de données",
+		"chemin": "./applications/BDD/PostGreSQL/programmes/CreationBDD.txt"
+	},
+	{
+		"description": "Création d'une table et alimentation depuis un fichier plat",
+		"chemin": "./applications/BDD/PostGreSQL/programmes/CreationAlimentation.txt"
+	},
+	{
+		"description": "Exemple de fonction en PostGreSQL",
+		"chemin": "./applications/BDD/PostGreSQL/programmes/Fonction-Procedure.txt"
+	},
+	{
+		"description": "Commandes de purge",
+		"chemin": "./applications/BDD/PostGreSQL/programmes/ScriptPurge.txt"
+	}
+	]
+}

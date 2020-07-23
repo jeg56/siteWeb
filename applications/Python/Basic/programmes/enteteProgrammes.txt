@@ -1,0 +1,7 @@
+/*** Encodage ***/
+# -*- coding: UTF8 -*-
+
+/*** Importation des modules ***/
+import NomModule as NomSimplifié
+from NomModule import NomFonctionAImporter
+from package.NomModule import NomFonctionAImporter 

@@ -1,0 +1,23 @@
+/*** Déclaration de la librairy ***/
+library(DBI)
+library(RSQLite)
+
+/*** Connexion ***/
+con <- dbConnect(SQLite(), dbname='/home/jegoux/ma_base_de_donnnes.db')
+
+/*** Liste les tables  ***/
+dbListTables(con)
+
+
+/*** Affiche toutes les données de MA_TABLE / les 15 premieres lignes ***/
+myQuery <- dbSendQuery(con, "SELECT * FROM MA_TABLE ")
+TabData <- fetch(myQuery, n = -1)
+View(TabData)
+
+myQuery <- dbSendQuery(con, "SELECT * FROM MA_TABLE ")
+TabData <- fetch(myQuery, n = 15)
+View(TabData)
+
+
+/*** Déconnexion ***/
+dbDisconnect()

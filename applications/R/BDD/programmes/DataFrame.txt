@@ -1,0 +1,18 @@
+/*** Création d'une variable ***/
+TABLE$NEW_VAR<-ifelse(OLD_VAR==1, 1, 0) 
+
+
+/*** Création d'une variable ***/
+TABLE$NEW_VAR<-ifelse(OLD_VAR==1, 1, 0) 
+ou
+NEW_VAR<-ifelse(OLD_VAR==1, 1, 0) 
+TABLE <- cbind(TABLE, NEW_VAR)
+
+
+/*** Création d'une variable ***/
+BreaksClassement = c(1,3,5,  max(x$PLACE))
+classement.d = cut(x$PLACE, breaks = BreaksClassement, include.lowest = TRUE)
+
+
+/*** Sélection de variable ***/
+MA_TABLE_APRES <-MA_TABLE_AVANT[, c("VAR1", "VAR5", "VAR6")]

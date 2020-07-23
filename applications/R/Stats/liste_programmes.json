@@ -1,0 +1,17 @@
+{
+	"programme": [
+	{
+		"titre": "Statistiques descriptives",
+		"description": "Quelques stats",
+		"chemin": "./applications/R/Stats/programmes/stat_desc.txt"
+	},{
+		"titre": "Régression lineaire",
+		"description": "Permet d'établir des estimations dans le futur à partir d'informations provenant du passé",
+		"chemin": "./applications/R/Stats/programmes/regression lineaire.txt"
+	},{
+		"titre": "Composantes principales",
+		"description": "L'analyse des composantes principales consiste à transformer des variables liées entre elles (dites « corrélées » en statistique) en nouvelles variables décorrélées les unes des autres. ",
+		"chemin": "./applications/R/Stats/programmes/analysedeComposante.txt"
+	}
+	]
+}

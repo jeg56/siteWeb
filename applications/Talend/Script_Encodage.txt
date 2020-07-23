@@ -1,0 +1,7 @@
+ffmpeg -i /home/jegoux/websites/mon_site/applications/Talend/importOracle.mov -b 1000k /home/jegoux/websites/mon_site/applications/Talend/importOracle.webm
+
+ffmpeg -i /home/jegoux/websites/mon_site/applications/Talend/importOracle.mov -strict -2 -vcodec libx264 /home/jegoux/websites/mon_site/applications/Talend/importOracle.mp4
+
+ffmpeg -i /home/jegoux/websites/mon_site/applications/Talend/importOracle.mov -vcodec libtheora /home/jegoux/websites/mon_site/applications/Talend/importOracle.ogv
+
+
